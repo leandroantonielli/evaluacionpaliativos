@@ -6,76 +6,39 @@
 <title>Evaluación Inicial · Cuidados Paliativos</title>
 <style>
   :root{
-    --bg:#f4f6f8;
-    --surface:#ffffff;
-    --surface-2:#f8fafc;
-    --border:#e2e8f0;
-    --text:#0f172a;
-    --text-muted:#64748b;
-    --text-soft:#475569;
-    --accent:#0d9488;
-    --accent-dark:#0f766e;
-    --accent-soft:#ccfbf1;
-    --warning:#d97706;
-    --danger:#dc2626;
+    --bg:#f4f6f8; --surface:#ffffff; --surface-2:#f8fafc;
+    --border:#e2e8f0; --text:#0f172a; --text-muted:#64748b; --text-soft:#475569;
+    --accent:#0d9488; --accent-dark:#0f766e; --accent-soft:#ccfbf1;
+    --warning:#d97706; --danger:#dc2626;
     --shadow-sm:0 1px 2px rgba(15,23,42,.04);
     --shadow:0 4px 12px rgba(15,23,42,.06);
     --shadow-lg:0 12px 32px rgba(15,23,42,.1);
-    --radius:10px;
-    --radius-sm:6px;
+    --radius:10px; --radius-sm:6px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.55;
-    font-size:15px;
+    background:var(--bg); color:var(--text); line-height:1.55; font-size:15px;
     -webkit-font-smoothing:antialiased;
   }
   .app{max-width:960px;margin:0 auto;padding:24px 20px 140px}
-  header.app-header{
-    display:flex;align-items:center;justify-content:space-between;
-    margin-bottom:28px;gap:16px;flex-wrap:wrap;
-  }
+  header.app-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:16px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:12px}
-  .logo{
-    width:40px;height:40px;border-radius:10px;
-    background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);
-    display:grid;place-items:center;color:white;font-weight:700;font-size:18px;
-    box-shadow:var(--shadow);
-  }
+  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);display:grid;place-items:center;color:white;font-weight:700;font-size:18px;box-shadow:var(--shadow)}
   .brand h1{font-size:18px;font-weight:600;letter-spacing:-.2px}
   .brand p{font-size:12.5px;color:var(--text-muted)}
   .meta-actions{display:flex;gap:8px;flex-wrap:wrap}
-  button.ghost{
-    background:var(--surface);border:1px solid var(--border);color:var(--text-soft);
-    padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:500;
-    transition:all .15s ease;
-  }
+  button.ghost{background:var(--surface);border:1px solid var(--border);color:var(--text-soft);padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:500;transition:all .15s ease}
   button.ghost:hover{border-color:var(--accent);color:var(--accent-dark)}
 
-  section.card{
-    background:var(--surface);border:1px solid var(--border);
-    border-radius:var(--radius);box-shadow:var(--shadow-sm);
-    margin-bottom:16px;overflow:hidden;
-  }
-  .card-header{
-    padding:16px 20px;display:flex;align-items:center;justify-content:space-between;
-    cursor:pointer;user-select:none;gap:12px;
-    border-bottom:1px solid transparent;transition:background .15s ease;
-  }
+  section.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:16px;overflow:hidden}
+  .card-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;gap:12px;border-bottom:1px solid transparent;transition:background .15s ease}
   .card-header:hover{background:var(--surface-2)}
   .card.open .card-header{border-bottom-color:var(--border)}
   .card-title{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px}
-  .step-num{
-    width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--accent-dark);
-    display:grid;place-items:center;font-size:13px;font-weight:700;flex-shrink:0;
-  }
-  .chev{
-    width:20px;height:20px;transition:transform .2s ease;color:var(--text-muted);flex-shrink:0;
-  }
+  .step-num{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--accent-dark);display:grid;place-items:center;font-size:13px;font-weight:700;flex-shrink:0}
+  .chev{width:20px;height:20px;transition:transform .2s ease;color:var(--text-muted);flex-shrink:0}
   .card.open .chev{transform:rotate(180deg)}
   .card-body{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s ease}
   .card.open .card-body{padding:20px;max-height:none;overflow:visible}
@@ -83,175 +46,122 @@
   .grid{display:grid;gap:14px}
   .grid.cols-2{grid-template-columns:repeat(2,1fr)}
   .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-  @media(max-width:640px){
-    .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
-  }
+  @media(max-width:640px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
 
   label.field{display:block;font-size:12.5px;font-weight:600;color:var(--text-soft);margin-bottom:5px;letter-spacing:.2px;text-transform:uppercase}
-  input[type=text],input[type=date],input[type=tel],input[type=email],input[type=number],textarea,select{
-    width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);
-    background:var(--surface);color:var(--text);font-family:inherit;font-size:14px;
-    transition:border-color .15s ease,box-shadow .15s ease;
-  }
+  input[type=text],input[type=date],input[type=tel],input[type=email],input[type=number],textarea,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);font-family:inherit;font-size:14px;transition:border-color .15s ease,box-shadow .15s ease}
   textarea{min-height:90px;resize:vertical;line-height:1.55}
-  input:focus,textarea:focus,select:focus{
-    outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(13,148,136,.12);
-  }
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(13,148,136,.12)}
 
-  .check-row{
-    display:flex;align-items:flex-start;gap:10px;padding:9px 12px;
-    border:1px solid var(--border);border-radius:var(--radius-sm);
-    background:var(--surface-2);cursor:pointer;transition:all .15s ease;
-  }
+  .check-row{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2);cursor:pointer;transition:all .15s ease}
   .check-row:hover{border-color:#cbd5e1;background:#f1f5f9}
   .check-row.checked{background:var(--accent-soft);border-color:var(--accent)}
-  .check-row input[type=checkbox],.check-row input[type=radio]{
-    accent-color:var(--accent);margin-top:2px;flex-shrink:0;width:16px;height:16px;cursor:pointer;
-  }
+  .check-row input[type=checkbox],.check-row input[type=radio]{accent-color:var(--accent);margin-top:2px;flex-shrink:0;width:16px;height:16px;cursor:pointer}
   .check-row span{font-size:13.5px;color:var(--text-soft);cursor:pointer}
   .check-row.checked span{color:var(--accent-dark);font-weight:500}
-
   .check-grid{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .check-grid.compact{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 
   /* Barthel */
   .barthel-grid{display:grid;gap:10px}
-  .barthel-row{
-    display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center;
-    padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2);
-  }
+  .barthel-row{display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
   .barthel-row label.b-item{font-size:13px;font-weight:500;color:var(--text-soft)}
   .barthel-opts{display:flex;gap:6px;flex-wrap:wrap}
-  .barthel-opts label{
-    font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;
-    cursor:pointer;background:white;transition:all .15s ease;white-space:nowrap;
-  }
+  .barthel-opts label{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:white;transition:all .15s ease;white-space:nowrap}
   .barthel-opts input{display:none}
   .barthel-opts input:checked + span{background:var(--accent);color:white;padding:6px 10px;margin:-6px -10px;border-radius:6px;display:inline-block}
   @media(max-width:640px){.barthel-row{grid-template-columns:1fr}}
 
-  /* Karnofsky slider */
+  /* Karnofsky */
   .kps-wrap{padding:4px 0}
-  .kps-value{
-    text-align:center;font-size:42px;font-weight:700;color:var(--accent-dark);
-    letter-spacing:-1px;line-height:1;margin:8px 0 4px;
-  }
+  .kps-value{text-align:center;font-size:42px;font-weight:700;color:var(--accent-dark);letter-spacing:-1px;line-height:1;margin:8px 0 4px}
   .kps-desc{text-align:center;font-size:13.5px;color:var(--text-soft);min-height:36px;padding:0 8px}
-  input[type=range]{
-    width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:4px;
-    background:linear-gradient(to right,#fecaca 0%,#fed7aa 30%,#fef3c7 50%,#bbf7d0 80%,#86efac 100%);
-    outline:none;
-  }
-  input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;
-    background:white;border:3px solid var(--accent);cursor:pointer;box-shadow:var(--shadow);
-  }
-  input[type=range]::-moz-range-thumb{
-    width:22px;height:22px;border-radius:50%;background:white;border:3px solid var(--accent);cursor:pointer;
-  }
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:4px;background:linear-gradient(to right,#fecaca 0%,#fed7aa 30%,#fef3c7 50%,#bbf7d0 80%,#86efac 100%);outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:white;border:3px solid var(--accent);cursor:pointer;box-shadow:var(--shadow)}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:white;border:3px solid var(--accent);cursor:pointer}
   .kps-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:6px}
+  .kps-badges{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+  .kps-badge{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s}
+  .kps-badge:hover{border-color:var(--accent);color:var(--accent-dark)}
 
   /* ESAS */
   .esas-grid{display:grid;gap:14px}
-  .esas-row{
-    display:grid;grid-template-columns:130px 1fr 50px;gap:14px;align-items:center;
-    padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2);
-  }
+  .esas-row{display:grid;grid-template-columns:130px 1fr 50px;gap:14px;align-items:center;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
   .esas-row label{font-size:13.5px;font-weight:500;color:var(--text-soft)}
   .esas-row input[type=range]{height:6px}
-  .esas-score{
-    font-weight:700;font-size:16px;text-align:center;padding:4px 8px;border-radius:6px;min-width:40px;
-  }
+  .esas-score{font-weight:700;font-size:16px;text-align:center;padding:4px 8px;border-radius:6px;min-width:40px}
   .esas-score.low{color:#15803d;background:#dcfce7}
   .esas-score.mid{color:#b45309;background:#fef3c7}
   .esas-score.high{color:#b91c1c;background:#fee2e2}
-  @media(max-width:540px){
-    .esas-row{grid-template-columns:1fr;gap:8px}
-    .esas-score{text-align:right}
-  }
+  @media(max-width:540px){.esas-row{grid-template-columns:1fr;gap:8px}.esas-score{text-align:right}}
 
-  .summary-pill{
-    display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;
-    background:var(--accent-soft);color:var(--accent-dark);font-size:13px;font-weight:600;margin:2px;
-  }
-  .summary-bar{
-    margin-top:14px;padding:14px 16px;background:var(--surface-2);
-    border-radius:var(--radius-sm);border:1px dashed var(--border);
-    display:flex;flex-wrap:wrap;gap:12px;align-items:center;
-  }
+  .summary-bar{margin-top:14px;padding:14px 16px;background:var(--surface-2);border-radius:var(--radius-sm);border:1px dashed var(--border);display:flex;flex-wrap:wrap;gap:12px;align-items:center}
   .summary-bar .label{font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.3px}
   .summary-bar strong{font-size:18px;color:var(--accent-dark)}
+  .summary-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent-dark);font-size:13px;font-weight:600;margin:2px}
 
-  /* Cuidadores tabla */
+  /* Cuidadores */
   .caregivers-list{display:grid;gap:10px}
-  .caregiver-row{
-    display:grid;grid-template-columns:1fr 140px 1fr 100px auto;gap:8px;align-items:center;
-    padding:8px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2);
-  }
+  .caregiver-row{display:grid;grid-template-columns:1fr 140px 1fr 100px auto;gap:8px;align-items:center;padding:8px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
   .caregiver-row input{font-size:13px;padding:8px 10px}
-  .btn-del{
-    background:transparent;border:none;color:var(--danger);cursor:pointer;font-size:18px;padding:4px 8px;
-  }
-  @media(max-width:720px){
-    .caregiver-row{grid-template-columns:1fr 1fr;gap:6px}
-  }
-
-  .btn-add{
-    background:transparent;border:1px dashed var(--accent);color:var(--accent-dark);
-    padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;
-    cursor:pointer;width:100%;margin-top:8px;
-  }
+  .btn-del{background:transparent;border:none;color:var(--danger);cursor:pointer;font-size:18px;padding:4px 8px}
+  @media(max-width:720px){.caregiver-row{grid-template-columns:1fr 1fr;gap:6px}}
+  .btn-add{background:transparent;border:1px dashed var(--accent);color:var(--accent-dark);padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;cursor:pointer;width:100%;margin-top:8px}
   .btn-add:hover{background:var(--accent-soft)}
 
-  /* Acción principal */
-  .action-bar{
-    position:fixed;bottom:0;left:0;right:0;
-    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
-    border-top:1px solid var(--border);padding:14px 20px;z-index:100;
-    box-shadow:0 -4px 20px rgba(15,23,42,.06);
-  }
+  /* Profesionales con frecuencia */
+  .prof-grid{display:grid;gap:10px}
+  .prof-row{display:grid;grid-template-columns:1fr 240px;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
+  .prof-row.active{background:var(--accent-soft);border-color:var(--accent)}
+  .prof-row label{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--text-soft);margin:0}
+  .prof-row label input{accent-color:var(--accent);width:16px;height:16px}
+  .prof-row select{font-size:13px;padding:8px 10px}
+  .prof-row.active label{color:var(--accent-dark)}
+  .prof-otro{display:grid;grid-template-columns:1fr 240px;gap:10px;align-items:center;padding:10px 12px;border:1px dashed var(--border);border-radius:var(--radius-sm);background:var(--surface-2);margin-top:6px}
+  .prof-otro input{font-size:13px;padding:8px 10px}
+  @media(max-width:640px){.prof-row,.prof-otro{grid-template-columns:1fr}}
+
+  /* Kits con sublistas */
+  .kit-block{border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2);padding:14px;margin-bottom:12px}
+  .kit-title{font-size:13px;font-weight:700;color:var(--accent-dark);margin-bottom:10px;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+  .kit-title .badge{background:var(--accent-soft);color:var(--accent-dark);font-size:11px;padding:2px 8px;border-radius:999px;font-weight:600}
+  .kit-items{display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .kit-block.open .kit-items{max-height:1000px}
+  .kit-item{display:flex;align-items:center;gap:8px;padding:6px 10px;background:white;border:1px solid var(--border);border-radius:6px;font-size:12.5px;color:var(--text-soft);cursor:pointer;transition:all .15s}
+  .kit-item:hover{border-color:#cbd5e1}
+  .kit-item.checked{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-dark);font-weight:500}
+  .kit-item input{accent-color:var(--accent);width:14px;height:14px;flex-shrink:0}
+
+  /* NECPAL sorpresa */
+  .necpal-surprise{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .necpal-surprise label.opt{padding:14px;border:2px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;text-align:center;background:var(--surface-2);transition:all .15s}
+  .necpal-surprise input{display:none}
+  .necpal-surprise input:checked + .opt-inner{color:var(--accent-dark)}
+  .necpal-surprise label.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+  .necpal-surprise .opt-title{font-weight:600;font-size:14px}
+  .necpal-surprise .opt-desc{font-size:11.5px;color:var(--text-muted);margin-top:3px}
+
+  /* Acción */
+  .action-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:14px 20px;z-index:100;box-shadow:0 -4px 20px rgba(15,23,42,.06)}
   .action-inner{max-width:960px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .action-spacer{flex:1}
-  button.primary{
-    background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);
-    color:white;border:none;padding:12px 24px;border-radius:10px;font-size:14.5px;font-weight:600;
-    cursor:pointer;box-shadow:var(--shadow);transition:transform .1s ease,box-shadow .15s ease;
-    display:inline-flex;align-items:center;gap:8px;
-  }
+  button.primary{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);color:white;border:none;padding:12px 24px;border-radius:10px;font-size:14.5px;font-weight:600;cursor:pointer;box-shadow:var(--shadow);transition:transform .1s ease,box-shadow .15s ease;display:inline-flex;align-items:center;gap:8px}
   button.primary:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg)}
   button.primary:active{transform:translateY(0)}
 
-  /* Modal reporte */
-  .modal{
-    position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;
-    align-items:center;justify-content:center;z-index:200;padding:16px;
-    backdrop-filter:blur(4px);
-  }
+  /* Modal */
+  .modal{position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:16px;backdrop-filter:blur(4px)}
   .modal.open{display:flex}
-  .modal-content{
-    background:white;border-radius:14px;max-width:820px;width:100%;
-    max-height:90vh;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);overflow:hidden;
-  }
-  .modal-head{
-    padding:18px 22px;border-bottom:1px solid var(--border);
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
-  }
+  .modal-content{background:white;border-radius:14px;max-width:820px;width:100%;max-height:90vh;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);overflow:hidden}
+  .modal-head{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px}
   .modal-head h3{font-size:16px;font-weight:600}
   .modal-actions{display:flex;gap:8px}
   .modal-body{padding:0;flex:1;overflow:hidden;display:flex;flex-direction:column}
-  #reporteOutput{
-    flex:1;width:100%;border:none;padding:22px;font-family:'SF Mono',Consolas,Monaco,monospace;
-    font-size:13px;line-height:1.7;resize:none;color:var(--text);background:var(--surface-2);
-  }
+  #reporteOutput{flex:1;width:100%;border:none;padding:22px;font-family:'SF Mono',Consolas,Monaco,monospace;font-size:13px;line-height:1.7;resize:none;color:var(--text);background:var(--surface-2)}
   #reporteOutput:focus{outline:none}
 
   /* Toast */
-  .toast{
-    position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);
-    background:var(--text);color:white;padding:10px 20px;border-radius:999px;
-    font-size:13.5px;font-weight:500;box-shadow:var(--shadow-lg);
-    opacity:0;pointer-events:none;transition:all .25s ease;z-index:300;
-    display:inline-flex;align-items:center;gap:8px;
-  }
+  .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:white;padding:10px 20px;border-radius:999px;font-size:13.5px;font-weight:500;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:all .25s ease;z-index:300;display:inline-flex;align-items:center;gap:8px}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   .toast svg{width:16px;height:16px;color:#4ade80}
 
@@ -259,30 +169,7 @@
   .subsection-title{font-size:13px;font-weight:700;color:var(--text-soft);margin:18px 0 10px;text-transform:uppercase;letter-spacing:.5px}
   .subsection-title:first-child{margin-top:0}
   hr.sep{border:none;border-top:1px solid var(--border);margin:18px 0}
-
-  .kps-badges{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:10px}
-  .kps-badge{
-    font-size:11px;padding:4px 10px;border-radius:999px;background:var(--surface-2);
-    border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s;
-  }
-  .kps-badge:hover{border-color:var(--accent);color:var(--accent-dark)}
-
-  .necpal-surprise{
-    display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;
-  }
-  .necpal-surprise label.opt{
-    padding:14px;border:2px solid var(--border);border-radius:var(--radius-sm);
-    cursor:pointer;text-align:center;background:var(--surface-2);transition:all .15s;
-  }
-  .necpal-surprise input{display:none}
-  .necpal-surprise input:checked + .opt-inner{color:var(--accent-dark)}
-  .necpal-surprise label.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
-  .necpal-surprise .opt-title{font-weight:600;font-size:14px}
-  .necpal-surprise .opt-desc{font-size:11.5px;color:var(--text-muted);margin-top:3px}
-
-  .footer-note{
-    text-align:center;font-size:11.5px;color:var(--text-muted);margin-top:30px;
-  }
+  .footer-note{text-align:center;font-size:11.5px;color:var(--text-muted);margin-top:30px}
 </style>
 </head>
 <body>
@@ -303,7 +190,7 @@
     </div>
   </header>
 
-  <!-- ============ 1. IDENTIFICACIÓN ============ -->
+  <!-- 1. IDENTIFICACIÓN -->
   <section class="card open" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">1</span>Identificación del paciente y referentes</div>
@@ -311,58 +198,22 @@
     </div>
     <div class="card-body">
       <div class="grid cols-2">
-        <div>
-          <label class="field">Médico/a evaluador/a</label>
-          <input type="text" id="medico" placeholder="Nombre y apellido">
-        </div>
-        <div>
-          <label class="field">Fecha de evaluación</label>
-          <input type="date" id="fecha">
-        </div>
+        <div><label class="field">Médico/a evaluador/a</label><input type="text" id="medico" placeholder="Nombre y apellido"></div>
+        <div><label class="field">Fecha de evaluación</label><input type="date" id="fecha"></div>
       </div>
       <hr class="sep">
       <div class="subsection-title">Paciente</div>
       <div class="grid cols-2">
-        <div>
-          <label class="field">Nombre y apellido</label>
-          <input type="text" id="pac_nombre" placeholder="Nombre completo">
-        </div>
-        <div>
-          <label class="field">Fecha de nacimiento</label>
-          <input type="date" id="pac_fnac">
-        </div>
-        <div>
-          <label class="field">Sexo</label>
-          <select id="pac_sexo"><option value="">—</option><option>Mujer</option><option>Hombre</option><option>Otro</option></select>
-        </div>
-        <div>
-          <label class="field">Documento / N°</label>
-          <input type="text" id="pac_doc" placeholder="DNI, LC, LE...">
-        </div>
-        <div style="grid-column:1/-1">
-          <label class="field">Dirección actual</label>
-          <input type="text" id="pac_dir" placeholder="Calle, número, piso, localidad">
-        </div>
-        <div>
-          <label class="field">Teléfono</label>
-          <input type="tel" id="pac_tel">
-        </div>
-        <div>
-          <label class="field">Correo electrónico</label>
-          <input type="email" id="pac_email">
-        </div>
-        <div>
-          <label class="field">Cobertura / N° afiliado</label>
-          <input type="text" id="pac_cobertura">
-        </div>
-        <div style="display:flex;align-items:end">
-          <label class="check-row" style="width:100%">
-            <input type="checkbox" id="pac_cud">
-            <span>Posee Certificado Único de Discapacidad (CUD)</span>
-          </label>
-        </div>
+        <div><label class="field">Nombre y apellido</label><input type="text" id="pac_nombre"></div>
+        <div><label class="field">Fecha de nacimiento</label><input type="date" id="pac_fnac"></div>
+        <div><label class="field">Sexo</label><select id="pac_sexo"><option value="">—</option><option>Mujer</option><option>Hombre</option><option>Otro</option></select></div>
+        <div><label class="field">Documento / N°</label><input type="text" id="pac_doc"></div>
+        <div style="grid-column:1/-1"><label class="field">Dirección actual</label><input type="text" id="pac_dir"></div>
+        <div><label class="field">Teléfono</label><input type="tel" id="pac_tel"></div>
+        <div><label class="field">Correo electrónico</label><input type="email" id="pac_email"></div>
+        <div><label class="field">Cobertura / N° afiliado</label><input type="text" id="pac_cobertura"></div>
+        <div style="display:flex;align-items:end"><label class="check-row" style="width:100%"><input type="checkbox" id="pac_cud"><span>Posee Certificado Único de Discapacidad (CUD)</span></label></div>
       </div>
-
       <hr class="sep">
       <div class="subsection-title">Cuidador principal y referentes</div>
       <div id="caregiversList" class="caregivers-list"></div>
@@ -370,7 +221,7 @@
     </div>
   </section>
 
-  <!-- ============ 2. HISTORIA CLÍNICA ============ -->
+  <!-- 2. HISTORIA CLÍNICA -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">2</span>Historia clínica y enfermedad actual</div>
@@ -378,21 +229,13 @@
     </div>
     <div class="card-body">
       <label class="field">Diagnóstico principal / motivo de evaluación</label>
-      <textarea id="diagnostico" placeholder="Aquel que condiciona la terminalidad o la situación clínica actual..."></textarea>
-
-      <div style="margin-top:14px">
-        <label class="field">Enfermedad actual</label>
-        <textarea id="enfermedad" style="min-height:140px" placeholder="Antecedentes relevantes, evolución, estudios, intervenciones previas, situación funcional, tratamientos recibidos, respuesta a analgésicos, etc."></textarea>
-      </div>
-
-      <div style="margin-top:14px">
-        <label class="field">Medicación actual y otras intervenciones</label>
-        <textarea id="medicacion" placeholder="Listado de fármacos con dosis y frecuencia, suplementos, kinesioterapia, otros tratamientos en curso..."></textarea>
-      </div>
+      <textarea id="diagnostico"></textarea>
+      <div style="margin-top:14px"><label class="field">Enfermedad actual</label><textarea id="enfermedad" style="min-height:140px"></textarea></div>
+      <div style="margin-top:14px"><label class="field">Medicación actual y otras intervenciones</label><textarea id="medicacion"></textarea></div>
     </div>
   </section>
 
-  <!-- ============ 3. RIESGO CARDIOVASCULAR ============ -->
+  <!-- 3. RIESGO CV -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">3</span>Riesgo cardiovascular global</div>
@@ -409,20 +252,13 @@
         <label class="check-row"><input type="checkbox" data-cv="Edad ≥ 70 años"><span>Edad ≥ 70 años</span></label>
         <label class="check-row"><input type="checkbox" data-cv="Enfermedades crónicas no transmisibles"><span>Otras ECNT</span></label>
       </div>
-      <div style="margin-top:12px">
-        <label class="field">Riesgo estimado</label>
-        <select id="cv_riesgo">
-          <option value="">— Seleccionar —</option>
-          <option>Bajo (&lt;10%)</option>
-          <option>Moderado (10 a &lt;20%)</option>
-          <option>Alto (20 a &lt;30%)</option>
-          <option>Muy alto (≥30%)</option>
-        </select>
+      <div style="margin-top:12px"><label class="field">Riesgo estimado</label>
+        <select id="cv_riesgo"><option value="">— Seleccionar —</option><option>Bajo (&lt;10%)</option><option>Moderado (10 a &lt;20%)</option><option>Alto (20 a &lt;30%)</option><option>Muy alto (≥30%)</option></select>
       </div>
     </div>
   </section>
 
-  <!-- ============ 4. NECPAL ============ -->
+  <!-- 4. NECPAL -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">4</span>Instrumento NECPAL v4.0</div>
@@ -434,7 +270,6 @@
         <label class="opt"><input type="radio" name="sorpresa" value="si" checked><div class="opt-inner"><div class="opt-title">SÍ me sorprendería</div><div class="opt-desc">No sugiere necesidad paliativa inmediata (PS-)</div></div></label>
         <label class="opt"><input type="radio" name="sorpresa" value="no"><div class="opt-inner"><div class="opt-title">NO me sorprendería</div><div class="opt-desc">Sugiere necesidad de abordaje paliativo (PS+)</div></div></label>
       </div>
-
       <div class="subsection-title">Indicadores de necesidad paliativa</div>
       <div class="check-grid" id="necpalGrid">
         <label class="check-row"><input type="checkbox" data-necpal="Necesidades paliativas percibidas por el equipo o familia"><span>Paciente/familia/equipo perciben necesidad paliativa</span></label>
@@ -443,7 +278,6 @@
         <label class="check-row"><input type="checkbox" data-necpal="Multimorbilidad codominante"><span>Multimorbilidad (≥2 EC codominantes)</span></label>
         <label class="check-row"><input type="checkbox" data-necpal="Uso intensivo de recursos sanitarios"><span>Uso intensivo de recursos / ingresos urgentes</span></label>
       </div>
-
       <div class="subsection-title">Enfermedad avanzada (seleccionar si aplica)</div>
       <div class="check-grid" id="necpalEnfGrid">
         <label class="check-row"><input type="checkbox" data-enfav="Oncológica"><span>Oncológica</span></label>
@@ -459,7 +293,7 @@
     </div>
   </section>
 
-  <!-- ============ 5. KARNOFSKY ============ -->
+  <!-- 5. KARNOFSKY -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">5</span>Escala de Karnofsky (KPS)</div>
@@ -479,18 +313,14 @@
           <span class="kps-badge" onclick="setKPS(30)">30 Hospitalizado</span>
           <span class="kps-badge" onclick="setKPS(20)">20 Muy grave</span>
         </div>
-        <div style="margin-top:14px">
-          <label class="field">Trayectoria funcional</label>
-          <select id="kpsTrayectoria">
-            <option value="estable">Estable (posibilidad de recuperación)</option>
-            <option value="declive" selected>En declive (deterioro progresivo)</option>
-          </select>
+        <div style="margin-top:14px"><label class="field">Trayectoria funcional</label>
+          <select id="kpsTrayectoria"><option value="estable">Estable (posibilidad de recuperación)</option><option value="declive" selected>En declive (deterioro progresivo)</option></select>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 6. BARTHEL ============ -->
+  <!-- 6. BARTHEL -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">6</span>Índice de Barthel</div>
@@ -499,14 +329,13 @@
     <div class="card-body">
       <div class="barthel-grid" id="barthelGrid"></div>
       <div class="summary-bar">
-        <span class="label">Puntaje total</span>
-        <strong id="barthelTotal">0</strong>
+        <span class="label">Puntaje total</span><strong id="barthelTotal">0</strong>
         <span class="summary-pill" id="barthelCat">Independiente</span>
       </div>
     </div>
   </section>
 
-  <!-- ============ 7. ESAS ============ -->
+  <!-- 7. ESAS -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">7</span>Evaluación de Síntomas de Edmonton (ESAS)</div>
@@ -516,15 +345,13 @@
       <p class="hint">0 = ausente · 1-3 = leve · 4-6 = moderado · 7-10 = severo</p>
       <div class="esas-grid" id="esasGrid" style="margin-top:12px"></div>
       <div class="summary-bar">
-        <span class="label">Síntomas moderados-severos (≥4)</span>
-        <strong id="esasCount">0</strong>
-        <span class="label" style="margin-left:auto">Carga sintomática total</span>
-        <strong id="esasTotal">0</strong><span style="color:var(--text-muted);font-size:13px">/90</span>
+        <span class="label">Síntomas moderados-severos (≥4)</span><strong id="esasCount">0</strong>
+        <span class="label" style="margin-left:auto">Carga sintomática total</span><strong id="esasTotal">0</strong><span style="color:var(--text-muted);font-size:13px">/90</span>
       </div>
     </div>
   </section>
 
-  <!-- ============ 8. DOLOR / CAM ============ -->
+  <!-- 8. DOLOR / CAM -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">8</span>Marcadores de dolor y evaluación cognitiva</div>
@@ -539,7 +366,6 @@
         <label class="check-row"><input type="checkbox" data-dolor="Asociado a deterioro cognitivo"><span>Dolor + deterioro cognitivo</span></label>
         <label class="check-row"><input type="checkbox" data-dolor="Uso problemático de sustancias"><span>Uso problemático de sustancias</span></label>
       </div>
-
       <hr class="sep">
       <div class="subsection-title">Método de Evaluación de la Confusión (CAM)</div>
       <div class="check-grid" id="camGrid">
@@ -549,13 +375,12 @@
         <label class="check-row"><input type="checkbox" data-cam="Nivel de consciencia alterado"><span>4. Nivel de consciencia alterado</span></label>
       </div>
       <div class="summary-bar">
-        <span class="label">Resultado CAM</span>
-        <strong id="camResult" style="color:#15803d">Sin síndrome confusional agudo</strong>
+        <span class="label">Resultado CAM</span><strong id="camResult" style="color:#15803d">Sin síndrome confusional agudo</strong>
       </div>
     </div>
   </section>
 
-  <!-- ============ 9. RIESGO SOCIOFAMILIAR / ÉTICA ============ -->
+  <!-- 9. RIESGO SOCIOFAMILIAR / ÉTICA -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">9</span>Riesgo sociofamiliar y dilemas éticos</div>
@@ -570,7 +395,6 @@
         <label class="check-row"><input type="checkbox" data-soc="Carga intensa / riesgo de claudicación"><span>Carga intensa / riesgo de claudicación</span></label>
         <label class="check-row"><input type="checkbox" data-soc="Conflictos familiares o experiencias complejas"><span>Conflictos familiares complejos</span></label>
       </div>
-
       <hr class="sep">
       <div class="subsection-title">Dilemas éticos</div>
       <div class="check-grid" id="etGrid">
@@ -584,16 +408,15 @@
     </div>
   </section>
 
-  <!-- ============ 10. PLAN ============ -->
+  <!-- 10. PLAN -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
       <div class="card-title"><span class="step-num">10</span>Plan terapéutico y complejidad de cuidados</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
-
       <div class="subsection-title">Complejidad de cuidados</div>
-      <div class="check-grid" data-grupo="cuidados">
+      <div class="check-grid">
         <label class="check-row"><input type="checkbox" data-plan="Control de signos vitales"><span>Control de signos vitales</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Higiene y confort"><span>Higiene y confort</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Curación de lesiones"><span>Curación de lesiones</span></label>
@@ -603,28 +426,25 @@
         <label class="check-row"><input type="checkbox" data-plan="Manejo corporal del paciente postrado"><span>Manejo corporal del paciente postrado</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Identificación y abordaje oportuno de síntomas"><span>Abordaje oportuno de síntomas</span></label>
       </div>
-
       <hr class="sep">
       <div class="subsection-title">Objetivos funcionales motores</div>
-      <div class="check-grid" data-grupo="motor">
+      <div class="check-grid">
         <label class="check-row"><input type="checkbox" data-plan="Recuperación funcional motora (KPS ≥60)"><span>Recuperación funcional (KPS ≥60)</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Alivio de síntomas y prevención de complicaciones (KPS 30-50)"><span>Confort y prevención (KPS 30-50)</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Ajuste postural y alivio del dolor (KPS ≤40)"><span>Ajuste postural (KPS ≤40)</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Evitar exceso de intervención (KPS ≤20)"><span>Evitar exceso de intervención (KPS ≤20)</span></label>
       </div>
-
       <hr class="sep">
       <div class="subsection-title">Objetivos respiratorios</div>
-      <div class="check-grid" data-grupo="resp">
+      <div class="check-grid">
         <label class="check-row"><input type="checkbox" data-plan="Manejo de vía aérea artificial"><span>Vía aérea artificial</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Recuperación funcional respiratoria"><span>Recuperación funcional respiratoria</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Alivio de síntomas respiratorios / manejo no invasivo de secreciones"><span>Manejo no invasivo de secreciones</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Maniobras de confort respiratorio"><span>Confort respiratorio</span></label>
       </div>
-
       <hr class="sep">
       <div class="subsection-title">Complejidad sociofamiliar y bioética</div>
-      <div class="check-grid" data-grupo="socbio">
+      <div class="check-grid">
         <label class="check-row"><input type="checkbox" data-plan="Fortalecimiento de la red de cuidados"><span>Fortalecer red de cuidados</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Abordaje interdisciplinario de conflictos familiares"><span>Abordaje de conflictos familiares</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Prevención del duelo patológico"><span>Prevención de duelo patológico</span></label>
@@ -633,10 +453,9 @@
         <label class="check-row"><input type="checkbox" data-plan="Voluntades anticipadas y limitación del esfuerzo terapéutico"><span>Voluntades anticipadas / LET</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Abordaje de proporcionalidad diagnóstica y terapéutica"><span>Proporcionalidad diagnóstica-terapéutica</span></label>
       </div>
-
       <hr class="sep">
       <div class="subsection-title">Complejidad sintomática</div>
-      <div class="check-grid" data-grupo="sint">
+      <div class="check-grid">
         <label class="check-row"><input type="checkbox" data-plan="Prevención y abordaje de problemas médicos actuales y potenciales"><span>Prevención de problemas médicos</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Optimización del manejo sintomático"><span>Optimización del manejo sintomático</span></label>
         <label class="check-row"><input type="checkbox" data-plan="Abordaje interdisciplinario del dolor total"><span>Dolor total interdisciplinario</span></label>
@@ -645,23 +464,94 @@
     </div>
   </section>
 
-  <!-- ============ 11. REQUERIMIENTOS ============ -->
+  <!-- 11. REQUERIMIENTOS -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">11</span>Organización de cuidados domiciliarios</div>
+      <div class="card-title"><span class="step-num">11</span>Requerimientos</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
-      <div class="subsection-title">Profesionales requeridos</div>
-      <div class="check-grid">
-        <label class="check-row"><input type="checkbox" data-prof="Médico/a paliativista (presencial y remoto)"><span>Médico/a paliativista</span></label>
-        <label class="check-row"><input type="checkbox" data-prof="Enfermería"><span>Enfermería</span></label>
-        <label class="check-row"><input type="checkbox" data-prof="Kinesiología motora"><span>Kinesiología motora</span></label>
-        <label class="check-row"><input type="checkbox" data-prof="Kinesiología respiratoria"><span>Kinesiología respiratoria</span></label>
-        <label class="check-row"><input type="checkbox" data-prof="Psicología"><span>Psicología</span></label>
-        <label class="check-row"><input type="checkbox" data-prof="Acompañamiento terapéutico"><span>Acompañamiento terapéutico</span></label>
-        <label class="check-row"><input type="checkbox" data-prof="Trabajo social"><span>Trabajo social</span></label>
+
+      <div class="subsection-title">Profesionales y frecuencia</div>
+      <div class="prof-grid" id="profGrid">
+        <!-- Médico -->
+        <div class="prof-row" data-prof-row="medico">
+          <label><input type="checkbox" data-prof="Médico/a paliativista" onchange="toggleProfRow(this)">Médico/a paliativista (presencial y remoto)</label>
+          <select data-prof-freq="medico">
+            <option value="">— Frecuencia —</option>
+            <option>1 vez por semana</option>
+            <option>1 vez cada dos semanas</option>
+          </select>
+        </div>
+        <!-- Psicología -->
+        <div class="prof-row" data-prof-row="psico">
+          <label><input type="checkbox" data-prof="Psicología" onchange="toggleProfRow(this)">Psicología</label>
+          <select data-prof-freq="psico">
+            <option value="">— Frecuencia —</option>
+            <option>1 vez por semana</option>
+            <option>1 vez cada dos semanas</option>
+          </select>
+        </div>
+        <!-- Trabajo Social -->
+        <div class="prof-row" data-prof-row="ts">
+          <label><input type="checkbox" data-prof="Trabajo social" onchange="toggleProfRow(this)">Trabajo social</label>
+          <select data-prof-freq="ts">
+            <option value="">— Frecuencia —</option>
+            <option>1 vez por semana</option>
+            <option>1 vez cada dos semanas</option>
+          </select>
+        </div>
+        <!-- Kinesiología motora -->
+        <div class="prof-row" data-prof-row="kine_m">
+          <label><input type="checkbox" data-prof="Kinesiología motora" onchange="toggleProfRow(this)">Kinesiología motora</label>
+          <select data-prof-freq="kine_m">
+            <option value="">— Frecuencia —</option>
+            <option>1 vez por semana</option>
+            <option>2 veces por semana</option>
+            <option>3 veces por semana</option>
+            <option>5 veces por semana</option>
+          </select>
+        </div>
+        <!-- Kinesiología respiratoria -->
+        <div class="prof-row" data-prof-row="kine_r">
+          <label><input type="checkbox" data-prof="Kinesiología respiratoria" onchange="toggleProfRow(this)">Kinesiología respiratoria</label>
+          <select data-prof-freq="kine_r">
+            <option value="">— Frecuencia —</option>
+            <option>1 vez por semana</option>
+            <option>2 veces por semana</option>
+            <option>3 veces por semana</option>
+            <option>5 veces por semana</option>
+          </select>
+        </div>
+        <!-- Enfermería -->
+        <div class="prof-row" data-prof-row="enfer">
+          <label><input type="checkbox" data-prof="Enfermería" onchange="toggleProfRow(this)">Enfermería</label>
+          <select data-prof-freq="enfer">
+            <option value="">— Frecuencia —</option>
+            <option>3 veces por semana</option>
+            <option>1 vez por día (7 días)</option>
+            <option>2 veces por día (7 días)</option>
+            <option>3 veces por día (7 días)</option>
+            <option>Guardia 12 hs diurna</option>
+            <option>Guardia 12 hs nocturna</option>
+            <option>Guardia 24 hs</option>
+          </select>
+        </div>
+        <!-- Acompañamiento terapéutico -->
+        <div class="prof-row" data-prof-row="at">
+          <label><input type="checkbox" data-prof="Acompañamiento terapéutico" onchange="toggleProfRow(this)">Acompañamiento terapéutico</label>
+          <select data-prof-freq="at">
+            <option value="">— Frecuencia —</option>
+            <option>1 vez por semana</option>
+            <option>2 veces por semana</option>
+            <option>3 veces por semana</option>
+            <option>5 veces por semana</option>
+          </select>
+        </div>
       </div>
+      <!-- Otros profesionales -->
+      <div id="otrosProfList" style="margin-top:10px"></div>
+      <button class="btn-add" onclick="agregarOtroProf()">+ Agregar otro profesional</button>
 
       <hr class="sep">
       <div class="subsection-title">Equipamiento</div>
@@ -681,11 +571,45 @@
       </div>
 
       <hr class="sep">
-      <div class="subsection-title">Insumos</div>
-      <div class="check-grid">
-        <label class="check-row"><input type="checkbox" data-ins="Kit de manejo sintomático subcutáneo"><span>Kit sintomático SC</span></label>
-        <label class="check-row"><input type="checkbox" data-ins="Kit de hidratación subcutánea"><span>Kit hidratación SC</span></label>
-        <label class="check-row"><input type="checkbox" data-ins="Material para curaciones"><span>Material de curaciones</span></label>
+      <div class="subsection-title">Kit de manejo sintomático subcutáneo (medicación)</div>
+      <div class="kit-block" id="kitMedBlock">
+        <div class="kit-title" onclick="toggleKit('kitMedBlock')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          Medicación SC — 8 fármacos
+          <span class="badge" id="kitMedBadge">0</span>
+        </div>
+        <div class="kit-items">
+          <label class="kit-item"><input type="checkbox" data-kit-med="DEXAMETASONA 4mg/ml AMP X 10 unidades"><span>Dexametasona 4mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="DIPIRONA 1gr/ml AMP X 10 unidades"><span>Dipirona 1g/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="HALOPERIDOL 5mg/ml AMP X 10 unidades"><span>Haloperidol 5mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="HIOSCINA 20mg/ml AMP X 10 unidades"><span>Hioscina 20mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="METOCLOPRAMIDA AMP 10mg/2ml X 10 unidades"><span>Metoclopramida 10mg/2ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="LEVOMEPROMAZINA 25mg/ml AMP X 10 unidades"><span>Levomepromazina 25mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="MIDAZOLAM 5mg/ml AMP X 10 unidades"><span>Midazolam 5mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="MORFINA 1% AMP X 10 unidades"><span>Morfina 1% amp × 10</span></label>
+        </div>
+      </div>
+
+      <div class="subsection-title">Kit de insumos para vía subcutánea</div>
+      <div class="kit-block" id="kitInsBlock">
+        <div class="kit-title" onclick="toggleKit('kitInsBlock')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          Insumos SC — 11 items
+          <span class="badge" id="kitInsBadge">0</span>
+        </div>
+        <div class="kit-items">
+          <label class="kit-item"><input type="checkbox" data-kit-ins="GUANTES DE LATEX (M)"><span>Guantes de látex (M)</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="CINTA ADHESIVA HIPOALERGÉNICA"><span>Cinta adhesiva hipoalergénica</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="DESCARTADOR DE AGUJAS Y CORTOPUNZANTES"><span>Descartador de agujas y cortopunzantes</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="ALGODÓN X 500 GRS."><span>Algodón × 500 g</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="ALCOHOL al 96%"><span>Alcohol al 96%</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="TEGADERM 10 X 12"><span>Tegaderm 10 × 12</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="AGUJA TIPO BUTTERFLY"><span>Aguja tipo butterfly</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="GASAS ESTÉRILES"><span>Gasas estériles</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="SOLUCIÓN FISIOLÓGICA"><span>Solución fisiológica</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="GUIAS MACROGOTEO"><span>Guías de macrogoteo</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="JERINGAS de 10, 3 y 1ml"><span>Jeringas de 10, 3 y 1 ml</span></label>
+        </div>
       </div>
 
       <hr class="sep">
@@ -734,10 +658,6 @@
 </div>
 
 <script>
-/* ============================================
-   CONFIGURACIÓN INICIAL
-============================================ */
-
 const BARTHEL_ITEMS = [
   {key:'comer', label:'Comer', opts:[{v:0,t:'Incapaz'},{v:5,t:'Necesita ayuda'},{v:10,t:'Independiente'}]},
   {key:'banarse', label:'Bañarse', opts:[{v:0,t:'Dependiente'},{v:5,t:'Independiente'}]},
@@ -750,7 +670,6 @@ const BARTHEL_ITEMS = [
   {key:'deambular', label:'Deambulación', opts:[{v:0,t:'Incapaz'},{v:5,t:'En silla de ruedas'},{v:10,t:'Con ayuda'},{v:15,t:'Independiente'}]},
   {key:'escaleras', label:'Escaleras', opts:[{v:0,t:'Incapaz'},{v:5,t:'Necesita ayuda'},{v:10,t:'Independiente'}]}
 ];
-
 const ESAS_ITEMS = [
   {key:'dolor', label:'Dolor', esfera:'física'},
   {key:'disnea', label:'Disnea / tos', esfera:'respiratoria'},
@@ -763,7 +682,6 @@ const ESAS_ITEMS = [
   {key:'ansiedad', label:'Ansiedad', esfera:'psicoemocional'},
   {key:'tristeza', label:'Tristeza', esfera:'psicoemocional'}
 ];
-
 const KPS_DESC = {
   100:'Normal, sin quejas ni evidencias de enfermedad',
   90:'Capaz de actividad normal; signos o síntomas leves',
@@ -778,21 +696,23 @@ const KPS_DESC = {
   0:'Fallecido'
 };
 
-/* ============================================
-   RENDERIZADO INICIAL
-============================================ */
-
+/* ============ INIT ============ */
 function init(){
   document.getElementById('fecha').valueAsDate = new Date();
   renderCuidadores();
   renderBarthel();
   renderESAS();
   actualizarKPS();
-  // Listeners check-rows
   document.querySelectorAll('.check-row input').forEach(inp=>{
     inp.addEventListener('change',e=>{
       e.target.closest('.check-row').classList.toggle('checked',e.target.checked);
       if(e.target.dataset.cam) actualizarCAM();
+    });
+  });
+  document.querySelectorAll('.kit-item input').forEach(inp=>{
+    inp.addEventListener('change',e=>{
+      e.target.closest('.kit-item').classList.toggle('checked',e.target.checked);
+      actualizarBadgesKits();
     });
   });
 }
@@ -825,9 +745,7 @@ function renderBarthel(){
     <div class="barthel-row">
       <label class="b-item">${it.label}</label>
       <div class="barthel-opts">
-        ${it.opts.map(o=>`
-          <label><input type="radio" name="b_${it.key}" value="${o.v}" data-bk="${it.key}" onchange="actualizarBarthel()"><span>${o.t} (${o.v})</span></label>
-        `).join('')}
+        ${it.opts.map(o=>`<label><input type="radio" name="b_${it.key}" value="${o.v}" data-bk="${it.key}" onchange="actualizarBarthel()"><span>${o.t} (${o.v})</span></label>`).join('')}
       </div>
     </div>
   `).join('');
@@ -844,10 +762,7 @@ function renderESAS(){
   `).join('');
 }
 
-/* ============================================
-   ACTUALIZACIONES EN TIEMPO REAL
-============================================ */
-
+/* ============ ACTUALIZACIONES ============ */
 function actualizarKPS(){
   const v = parseInt(document.getElementById('kpsSlider').value);
   document.getElementById('kpsValue').textContent = v;
@@ -900,50 +815,73 @@ function actualizarCAM(){
   const consc = document.querySelector('[data-cam="Nivel de consciencia alterado"]').checked;
   const pos = (agudo && atencion && (desorg || consc));
   const el = document.getElementById('camResult');
-  if(pos){
-    el.textContent='Compatible con síndrome confusional agudo (delirium)';
-    el.style.color='#b91c1c';
-  } else {
-    el.textContent='Sin síndrome confusional agudo';
-    el.style.color='#15803d';
-  }
+  if(pos){ el.textContent='Compatible con síndrome confusional agudo (delirium)'; el.style.color='#b91c1c'; }
+  else { el.textContent='Sin síndrome confusional agudo'; el.style.color='#15803d'; }
 }
 
-/* ============================================
-   UI - TARJETAS COLAPSABLES
-============================================ */
-
-function toggleCard(h){
-  h.closest('.card').classList.toggle('open');
+/* ============ UI ============ */
+function toggleCard(h){ h.closest('.card').classList.toggle('open'); }
+function toggleKit(id){ document.getElementById(id).classList.toggle('open'); }
+function actualizarBadgesKits(){
+  const m = document.querySelectorAll('[data-kit-med]:checked').length;
+  const i = document.querySelectorAll('[data-kit-ins]:checked').length;
+  document.getElementById('kitMedBadge').textContent = m;
+  document.getElementById('kitInsBadge').textContent = i;
+}
+function toggleProfRow(cb){
+  cb.closest('.prof-row').classList.toggle('active', cb.checked);
+}
+function agregarOtroProf(){
+  const cont = document.getElementById('otrosProfList');
+  const row = document.createElement('div');
+  row.className='prof-otro';
+  row.innerHTML=`
+    <input type="text" placeholder="Nombre del profesional / disciplina" data-otro-prof>
+    <input type="text" placeholder="Frecuencia (ej: 2 veces por semana)" data-otro-freq>
+  `;
+  cont.appendChild(row);
 }
 
-function mostrarToast(msg, tipo='ok'){
+function mostrarToast(msg){
   const t = document.getElementById('toast');
   document.getElementById('toastMsg').textContent = msg;
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'), 2200);
 }
 
-/* ============================================
-   PERSISTENCIA LOCAL
-============================================ */
-
+/* ============ PERSISTENCIA ============ */
 function recogerDatos(){
   const data = {};
-  // Inputs y textareas
   document.querySelectorAll('input[type=text],input[type=date],input[type=tel],input[type=email],input[type=number],textarea,select').forEach(el=>{
     if(el.id) data[el.id] = el.value;
   });
-  // Radio sorpresa
   const sorpresa = document.querySelector('input[name=sorpresa]:checked');
   data.sorpresa = sorpresa ? sorpresa.value : '';
-  // KPS
   data.kps = parseInt(document.getElementById('kpsSlider').value);
   data.kpsTrayectoria = document.getElementById('kpsTrayectoria').value;
-  // Checkboxes agrupados
-  ['cv','necpal','enfav','dolor','cam','soc','et','plan','prof','eq','ins'].forEach(gr=>{
+  ['cv','necpal','enfav','dolor','cam','soc','et','plan','eq'].forEach(gr=>{
     data[gr] = Array.from(document.querySelectorAll(`[data-${gr}]:checked`)).map(c=>c.dataset[gr]);
   });
+  // Profesionales con frecuencia
+  data.profesionales = [];
+  document.querySelectorAll('[data-prof]:checked').forEach(cb=>{
+    const nombre = cb.dataset.prof;
+    const row = cb.closest('.prof-row');
+    const sel = row ? row.querySelector('select') : null;
+    const freq = sel ? sel.value : '';
+    data.profesionales.push({nombre, freq});
+  });
+  // Otros profesionales
+  const otrosProfInputs = document.querySelectorAll('[data-otro-prof]');
+  otrosProfInputs.forEach((inp, idx)=>{
+    const freqInp = document.querySelectorAll('[data-otro-freq]')[idx];
+    if(inp.value.trim()){
+      data.profesionales.push({nombre:inp.value.trim(), freq:freqInp ? freqInp.value : '', esOtro:true});
+    }
+  });
+  // Kits
+  data.kitMed = Array.from(document.querySelectorAll('[data-kit-med]:checked')).map(c=>c.dataset.kitMed);
+  data.kitIns = Array.from(document.querySelectorAll('[data-kit-ins]:checked')).map(c=>c.dataset.kitIns);
   // Barthel
   data.barthel = {};
   BARTHEL_ITEMS.forEach(it=>{
@@ -966,45 +904,73 @@ function recogerDatos(){
 }
 
 function guardarBorrador(){
-  try{
-    localStorage.setItem('evalPaliativa_borrador', JSON.stringify(recogerDatos()));
-    mostrarToast('Borrador guardado localmente');
-  }catch(e){ mostrarToast('No se pudo guardar'); }
+  try{ localStorage.setItem('evalPaliativa_borrador', JSON.stringify(recogerDatos())); mostrarToast('Borrador guardado localmente'); }
+  catch(e){ mostrarToast('No se pudo guardar'); }
 }
 function cargarBorrador(){
   const raw = localStorage.getItem('evalPaliativa_borrador');
   if(!raw){ mostrarToast('No hay borrador guardado'); return; }
   try{
     const d = JSON.parse(raw);
-    // Restaurar inputs simples
     ['medico','fecha','pac_nombre','pac_fnac','pac_sexo','pac_doc','pac_dir','pac_tel','pac_email','pac_cobertura','cv_riesgo','diagnostico','enfermedad','medicacion','tratamiento'].forEach(id=>{
       const el = document.getElementById(id); if(el && d[id]!=null) el.value = d[id];
     });
     document.getElementById('pac_cud').checked = !!d.pac_cud;
     if(d.sorpresa){
       const r = document.querySelector(`input[name=sorpresa][value="${d.sorpresa}"]`);
-      if(r){ r.checked=true; r.closest('.opt').style.borderColor='var(--accent)'; }
+      if(r){ r.checked=true; }
     }
     if(d.kps!=null){ document.getElementById('kpsSlider').value=d.kps; actualizarKPS(); }
     if(d.kpsTrayectoria) document.getElementById('kpsTrayectoria').value=d.kpsTrayectoria;
-    // Checkboxes por grupo
-    ['cv','necpal','enfav','dolor','cam','soc','et','plan','prof','eq','ins'].forEach(gr=>{
+    ['cv','necpal','enfav','dolor','cam','soc','et','plan','eq'].forEach(gr=>{
       document.querySelectorAll(`[data-${gr}]`).forEach(c=>{
         c.checked = (d[gr]||[]).includes(c.dataset[gr]);
         const row = c.closest('.check-row'); if(row) row.classList.toggle('checked',c.checked);
       });
     });
-    // Barthel
+    // Profesionales con frecuencia
+    if(d.profesionales){
+      d.profesionales.forEach(p=>{
+        if(p.esOtro){
+          agregarOtroProf();
+          const rows = document.querySelectorAll('.prof-otro');
+          const last = rows[rows.length-1];
+          last.querySelector('[data-otro-prof]').value = p.nombre;
+          last.querySelector('[data-otro-freq]').value = p.freq || '';
+        } else {
+          const cb = document.querySelector(`[data-prof="${p.nombre}"]`);
+          if(cb){
+            cb.checked = true;
+            toggleProfRow(cb);
+            const row = cb.closest('.prof-row');
+            if(row){
+              const sel = row.querySelector('select');
+              if(sel) sel.value = p.freq || '';
+            }
+          }
+        }
+      });
+    }
+    // Kits
+    if(d.kitMed){
+      document.querySelectorAll('[data-kit-med]').forEach(c=>{
+        c.checked = d.kitMed.includes(c.dataset.kitMed);
+        const item = c.closest('.kit-item'); if(item) item.classList.toggle('checked',c.checked);
+      });
+    }
+    if(d.kitIns){
+      document.querySelectorAll('[data-kit-ins]').forEach(c=>{
+        c.checked = d.kitIns.includes(c.dataset.kitIns);
+        const item = c.closest('.kit-item'); if(item) item.classList.toggle('checked',c.checked);
+      });
+    }
+    actualizarBadgesKits();
     if(d.barthel){
       Object.entries(d.barthel).forEach(([k,v])=>{
-        if(v!=null){
-          const r = document.querySelector(`input[data-bk="${k}"][value="${v}"]`);
-          if(r) r.checked=true;
-        }
+        if(v!=null){ const r = document.querySelector(`input[data-bk="${k}"][value="${v}"]`); if(r) r.checked=true; }
       });
       actualizarBarthel();
     }
-    // ESAS
     if(d.esas){
       Object.entries(d.esas).forEach(([k,v])=>{
         const r = document.querySelector(`[data-esas="${k}"]`);
@@ -1021,10 +987,7 @@ function limpiarFormulario(){
   location.reload();
 }
 
-/* ============================================
-   GENERADOR DE REPORTE INTELIGENTE
-============================================ */
-
+/* ============ GENERADOR DE REPORTE ============ */
 function calcularEdad(fnac){
   if(!fnac) return null;
   const n = new Date(fnac), h = new Date();
@@ -1033,13 +996,11 @@ function calcularEdad(fnac){
   if(m<0 || (m===0 && h.getDate()<n.getDate())) e--;
   return e;
 }
-
 function formatearFecha(iso){
   if(!iso) return '';
   const [y,m,d] = iso.split('-');
   return `${d}/${m}/${y}`;
 }
-
 function enumerar(arr, conector='y'){
   if(!arr || arr.length===0) return '';
   if(arr.length===1) return arr[0];
@@ -1053,7 +1014,6 @@ function generarReporte(){
   const p = t => L.push(t);
   const blank = () => L.push('');
 
-  /* --- ENCABEZADO --- */
   p('EVALUACIÓN INICIAL DE CUIDADOS PALIATIVOS');
   p('==========================================');
   blank();
@@ -1061,7 +1021,6 @@ function generarReporte(){
   if(d.medico) p(`Médico/a evaluador/a: ${d.medico}`);
   blank();
 
-  /* --- IDENTIFICACIÓN --- */
   p('1. IDENTIFICACIÓN DEL PACIENTE');
   p('------------------------------');
   const edad = calcularEdad(d.pac_fnac);
@@ -1084,7 +1043,6 @@ function generarReporte(){
   }
   blank();
 
-  /* --- DIAGNÓSTICO / ENFERMEDAD ACTUAL --- */
   if(d.diagnostico || d.enfermedad){
     p('2. DIAGNÓSTICO Y ENFERMEDAD ACTUAL');
     p('----------------------------------');
@@ -1094,7 +1052,6 @@ function generarReporte(){
     blank();
   }
 
-  /* --- RIESGO CV --- */
   if(d.cv.length || d.cv_riesgo){
     p('3. RIESGO CARDIOVASCULAR GLOBAL');
     p('-------------------------------');
@@ -1105,20 +1062,14 @@ function generarReporte(){
     blank();
   }
 
-  /* --- NECPAL --- */
   p('4. VALORACIÓN PRONÓSTICA (NECPAL v4.0)');
   p('--------------------------------------');
   if(d.sorpresa==='si') p('Pregunta sorpresa: SÍ sorprendería el fallecimiento en los próximos 12 meses (PS-).');
   else if(d.sorpresa==='no') p('Pregunta sorpresa: NO sorprendería el fallecimiento en los próximos 12 meses (PS+), lo que sugiere beneficio de un abordaje paliativo activo.');
-  if(d.necpal.length){
-    p(`Indicadores de necesidad paliativa presentes: ${enumerar(d.necpal.map(s=>s.toLowerCase()))}.`);
-  }
-  if(d.enfav.length){
-    p(`Criterios de enfermedad avanzada: ${enumerar(d.enfav.map(s=>s.toLowerCase()))}.`);
-  }
+  if(d.necpal.length) p(`Indicadores de necesidad paliativa presentes: ${enumerar(d.necpal.map(s=>s.toLowerCase()))}.`);
+  if(d.enfav.length) p(`Criterios de enfermedad avanzada: ${enumerar(d.enfav.map(s=>s.toLowerCase()))}.`);
   blank();
 
-  /* --- KARNOFSKY / BARTHEL --- */
   p('5. VALORACIÓN FUNCIONAL');
   p('-----------------------');
   const kpsDesc = (KPS_DESC[d.kps]||'').toLowerCase();
@@ -1139,9 +1090,8 @@ function generarReporte(){
   }
   blank();
 
-  /* --- ESAS (NARRATIVA INTELIGENTE) --- */
-  const sintomasActivos = []; // score >=4
-  const sintomasLeves = [];   // 1-3
+  const sintomasActivos = [];
+  const sintomasLeves = [];
   ESAS_ITEMS.forEach(it=>{
     const v = d.esas[it.key];
     if(v>=4) sintomasActivos.push({...it, score:v});
@@ -1159,7 +1109,6 @@ function generarReporte(){
       return g;
     };
     const nombreEsfera = {física:'esfera física general',digestiva:'esfera digestiva',respiratoria:'esfera respiratoria',psicoemocional:'esfera psicoemocional',otras:'otros síntomas'};
-    
     let frase = 'Al momento de la evaluación, ';
     if(sintomasActivos.length){
       const g = agrupar(sintomasActivos);
@@ -1169,11 +1118,7 @@ function generarReporte(){
       });
       frase += `el paciente refiere síntomas moderados a severos de la ${enumerar(esferas)}`;
       if(sintomasLeves.length){
-        const gL = agrupar(sintomasLeves);
-        const esferasL = Object.keys(gL).map(esf=>gLf=undefined||gL[esf].map(s=>s.label.toLowerCase())).filter(Boolean);
-        // forma más simple:
-        const levesTxt = enumerar(sintomasLeves.map(s=>s.label.toLowerCase()));
-        frase += `, así como síntomas leves (${levesTxt})`;
+        frase += `, así como síntomas leves (${enumerar(sintomasLeves.map(s=>s.label.toLowerCase()))})`;
       }
       frase += '.';
       p(frase);
@@ -1184,24 +1129,15 @@ function generarReporte(){
   }
   blank();
 
-  /* --- DOLOR / CAM --- */
-  if(d.dolor.length){
+  if(d.dolor.length || d.cam.length){
     p('7. EVALUACIÓN DEL DOLOR Y ESTADO COGNITIVO');
     p('------------------------------------------');
-    p(`Marcadores de dolor de difícil manejo: ${enumerar(d.dolor.map(s=>s.toLowerCase()))}.`);
+    if(d.dolor.length) p(`Marcadores de dolor de difícil manejo: ${enumerar(d.dolor.map(s=>s.toLowerCase()))}.`);
     const camPos = (d.cam.includes('Comienzo agudo y evolución fluctuante') && d.cam.includes('Falta de atención') && (d.cam.includes('Pensamiento desorganizado')||d.cam.includes('Nivel de consciencia alterado')));
-    if(camPos) p('CAM positivo: el cuadro es compatible con síndrome confusional agudo (delirium).');
-    else p('CAM negativo: sin evidencia de síndrome confusional agudo al momento de la evaluación.');
-    blank();
-  } else if(d.cam.length){
-    p('7. ESTADO COGNITIVO');
-    p('-------------------');
-    const camPos = (d.cam.includes('Comienzo agudo y evolución fluctuante') && d.cam.includes('Falta de atención') && (d.cam.includes('Pensamiento desorganizado')||d.cam.includes('Nivel de consciencia alterado')));
-    p(camPos?'CAM positivo: compatible con delirium.':'CAM negativo: sin síndrome confusional agudo.');
+    p(camPos?'CAM positivo: compatible con síndrome confusional agudo (delirium).':'CAM negativo: sin síndrome confusional agudo al momento de la evaluación.');
     blank();
   }
 
-  /* --- SOCIOFAMILIAR / ÉTICO --- */
   if(d.soc.length || d.et.length){
     p('8. DIMENSIÓN SOCIOFAMILIAR Y BIOÉTICA');
     p('-------------------------------------');
@@ -1212,7 +1148,6 @@ function generarReporte(){
     blank();
   }
 
-  /* --- PLAN --- */
   if(d.plan.length){
     p('9. PLAN TERAPÉUTICO Y DE CUIDADOS');
     p('---------------------------------');
@@ -1220,17 +1155,29 @@ function generarReporte(){
     blank();
   }
 
-  /* --- REQUERIMIENTOS --- */
-  if(d.prof.length || d.eq.length || d.ins.length){
-    p('10. ORGANIZACIÓN DE CUIDADOS DOMICILIARIOS');
-    p('------------------------------------------');
-    if(d.prof.length) p(`Profesionales requeridos: ${enumerar(d.prof.map(s=>s.toLowerCase()))}.`);
+  /* === REQUERIMIENTOS (con frecuencias y kits detallados) === */
+  if((d.profesionales && d.profesionales.length) || d.eq.length || d.kitMed.length || d.kitIns.length){
+    p('10. REQUERIMIENTOS');
+    p('------------------');
+    if(d.profesionales && d.profesionales.length){
+      p('Profesionales:');
+      d.profesionales.forEach(p0=>{
+        const linea = `  • ${p0.nombre}${p0.freq ? ' — ' + p0.freq : ' — frecuencia a definir'}`;
+        p(linea);
+      });
+    }
     if(d.eq.length) p(`Equipamiento solicitado: ${enumerar(d.eq.map(s=>s.toLowerCase()))}.`);
-    if(d.ins.length) p(`Insumos: ${enumerar(d.ins.map(s=>s.toLowerCase()))}.`);
+    if(d.kitMed.length){
+      p('Kit de manejo sintomático subcutáneo (medicación):');
+      d.kitMed.forEach(m => p('  • ' + m));
+    }
+    if(d.kitIns.length){
+      p('Kit de insumos para vía subcutánea:');
+      d.kitIns.forEach(m => p('  • ' + m));
+    }
     blank();
   }
 
-  /* --- TRATAMIENTO --- */
   if(d.tratamiento && d.tratamiento.trim()){
     p('11. TRATAMIENTO FARMACOLÓGICO E INDICACIONES');
     p('---------------------------------------------');
@@ -1238,12 +1185,10 @@ function generarReporte(){
     blank();
   }
 
-  /* --- CIERRE --- */
   p('------------------------------------------');
   p(`Reporte generado el ${new Date().toLocaleString('es-AR')}${d.medico?` por ${d.medico}`:''}.`);
 
-  const texto = L.join('\n');
-  document.getElementById('reporteOutput').value = texto;
+  document.getElementById('reporteOutput').value = L.join('\n');
   document.getElementById('modalReporte').classList.add('open');
 }
 
@@ -1253,20 +1198,16 @@ async function copiarReporte(){
     await navigator.clipboard.writeText(txt);
     mostrarToast('¡Reporte copiado al portapapeles!');
   }catch(e){
-    // fallback
     const ta = document.getElementById('reporteOutput');
     ta.select(); document.execCommand('copy');
     mostrarToast('¡Reporte copiado!');
   }
 }
-function cerrarModal(){
-  document.getElementById('modalReporte').classList.remove('open');
-}
+function cerrarModal(){ document.getElementById('modalReporte').classList.remove('open'); }
 document.getElementById('modalReporte').addEventListener('click',e=>{
   if(e.target.id==='modalReporte') cerrarModal();
 });
 
-/* Init */
 init();
 </script>
 </body>
