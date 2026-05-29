@@ -22,11 +22,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg); color:var(--text); line-height:1.55; font-size:15px;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:15px;-webkit-font-smoothing:antialiased}
   .app{max-width:960px;margin:0 auto;padding:24px 20px 140px}
   header.app-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:16px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:12px}
@@ -80,7 +76,7 @@
   .kps-wrap{padding:4px 0}
   .kps-value{text-align:center;font-size:42px;font-weight:700;color:var(--accent-dark);letter-spacing:-1px;line-height:1;margin:8px 0 4px}
   .kps-desc{text-align:center;font-size:13.5px;color:var(--text-soft);min-height:36px;padding:0 8px}
-  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:4px;background:linear-gradient(to right,#fecaca 0%,#fed7aa 30%,#fef3c7 50%,#bbf7d0 80%,#86efac 100%);outline:none}
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:4px;background:linear-gradient(to right,#86efac 0%,#bbf7d0 20%,#fef3c7 50%,#fed7aa 70%,#fecaca 100%);outline:none}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:white;border:3px solid var(--accent);cursor:pointer;box-shadow:var(--shadow)}
   input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:white;border:3px solid var(--accent);cursor:pointer}
   .kps-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:6px}
@@ -88,9 +84,27 @@
   .kps-badge{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s}
   .kps-badge:hover{border-color:var(--accent);color:var(--accent-dark)}
 
+  /* ECOG */
+  .ecog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media(max-width:640px){.ecog-grid{grid-template-columns:1fr}}
+  .ecog-grid label.ecog-opt{
+    display:block;padding:14px 16px;border:2px solid var(--border);border-radius:var(--radius-sm);
+    cursor:pointer;background:var(--surface-2);transition:all .15s ease;position:relative;
+  }
+  .ecog-grid label.ecog-opt:hover{border-color:#cbd5e1;background:#f1f5f9}
+  .ecog-grid input[type=radio]{display:none}
+  .ecog-grid label.ecog-opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+  .ecog-grid .ecog-grado{font-weight:700;font-size:18px;color:var(--accent-dark);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .ecog-grid .ecog-grado .badge-num{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--accent-dark);display:grid;place-items:center;font-size:14px;font-weight:800;border:1px solid var(--accent)}
+  .ecog-grid label.ecog-opt:has(input:checked) .ecog-grado .badge-num{background:var(--accent);color:white}
+  .ecog-grid .ecog-desc{font-size:12.5px;color:var(--text-soft);line-height:1.5}
+  .ecog-summary{margin-top:14px;padding:14px 16px;background:var(--surface-2);border-radius:var(--radius-sm);border:1px dashed var(--border);display:flex;align-items:center;gap:12px}
+  .ecog-summary .label{font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+  .ecog-summary strong{font-size:20px;color:var(--accent-dark)}
+
   /* ESAS */
   .esas-grid{display:grid;gap:14px}
-  .esas-row{display:grid;grid-template-columns:130px 1fr 50px;gap:14px;align-items:center;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
+  .esas-row{display:grid;grid-template-columns:140px 1fr 50px;gap:14px;align-items:center;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
   .esas-row label{font-size:13.5px;font-weight:500;color:var(--text-soft)}
   .esas-row input[type=range]{height:6px}
   .esas-score{font-weight:700;font-size:16px;text-align:center;padding:4px 8px;border-radius:6px;min-width:40px}
@@ -145,16 +159,12 @@
   .necpal-surprise .opt-title{font-weight:600;font-size:14px}
   .necpal-surprise .opt-desc{font-size:11.5px;color:var(--text-muted);margin-top:3px}
 
-  /* ========== RIESGO CV OMS ========== */
+  /* RIESGO CV OMS */
   .rcv-inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
   .rcv-inputs > div{display:flex;flex-direction:column;gap:4px}
   .rcv-inputs label{font-size:12px;font-weight:600;color:var(--text-soft);text-transform:uppercase;letter-spacing:.3px}
   .rcv-inputs select,.rcv-inputs input{font-size:14px;padding:10px}
-  .rcv-result{
-    display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px;
-    background:var(--surface-2);border-radius:var(--radius-sm);border:2px solid var(--border);
-    margin-bottom:18px;align-items:center;
-  }
+  .rcv-result{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px;background:var(--surface-2);border-radius:var(--radius-sm);border:2px solid var(--border);margin-bottom:18px;align-items:center}
   .rcv-result .big{font-size:42px;font-weight:800;letter-spacing:-1px;line-height:1}
   .rcv-result .desc{font-size:13px;color:var(--text-soft);margin-top:4px}
   .rcv-badge{display:inline-block;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;text-align:center}
@@ -163,9 +173,7 @@
   .rcv-naranja{background:var(--riesgo-naranja-bg);color:var(--riesgo-naranja);border-color:var(--riesgo-naranja)}
   .rcv-rojo{background:var(--riesgo-rojo-bg);color:var(--riesgo-rojo);border-color:var(--riesgo-rojo)}
   .rcv-rojooscuro{background:var(--riesgo-rojooscuro-bg);color:var(--riesgo-rojooscuro);border-color:var(--riesgo-rojooscuro)}
-  @media(max-width:640px){
-    .rcv-result{grid-template-columns:1fr;text-align:center}
-  }
+  @media(max-width:640px){.rcv-result{grid-template-columns:1fr;text-align:center}}
 
   .rcv-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-sm);background:white}
   .rcv-table{width:100%;border-collapse:collapse;font-size:12px;min-width:520px}
@@ -279,97 +287,58 @@
     </div>
   </section>
 
-  <!-- 3. RIESGO CV - CALCULADORA OMS -->
+  <!-- 3. ECOG (NUEVO) -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">3</span>Riesgo cardiovascular (OMS 2019 · América Latina austral)</div>
+      <div class="card-title"><span class="step-num">3</span>ECOG Performance Status</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <p class="hint">Escala del Eastern Cooperative Oncology Group para evaluar el estado funcional del paciente.</p>
+      <div class="ecog-grid" style="margin-top:12px">
+        <label class="ecog-opt"><input type="radio" name="ecog" value="0"><div class="ecog-grado"><span class="badge-num">0</span>Grado 0</div><div class="ecog-desc">Totalmente activo, capaz de llevar a cabo actividad física sin restricciones.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="1"><div class="ecog-grado"><span class="badge-num">1</span>Grado 1</div><div class="ecog-desc">Restricción en actividad física extenuante, pero es ambulatorio y capaz de realizar sus actividades cotidianas, laborales y trabajos ligeros.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="2"><div class="ecog-grado"><span class="badge-num">2</span>Grado 2</div><div class="ecog-desc">Ambulatorio y capaz de autocuidarse, pero incapaz de desempeñar ningún trabajo. Permanece en silla o en cama durante varias horas al día, sin superar el 50%.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="3"><div class="ecog-grado"><span class="badge-num">3</span>Grado 3</div><div class="ecog-desc">Capaz de realizar su autocuidado con limitaciones. Confinado en la silla o en cama más del 50% de las horas del día.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="4"><div class="ecog-grado"><span class="badge-num">4</span>Grado 4</div><div class="ecog-desc">Incapaz de realizar ninguna actividad de la vida diaria. Confinado en la silla o en cama el 100% del día.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="5"><div class="ecog-grado"><span class="badge-num">5</span>Grado 5</div><div class="ecog-desc">Muerte inminente.</div></label>
+      </div>
+      <div class="ecog-summary">
+        <span class="label">ECOG seleccionado</span>
+        <strong id="ecogResult">—</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. RIESGO CV -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">4</span>Riesgo cardiovascular (OMS 2019 · América Latina austral)</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
       <p class="hint">Basado en tablas OMS/HEARTS 2019 para Argentina, Chile y Uruguay (datos no analíticos). Calcula el riesgo de evento cardiovascular fatal o no fatal a 10 años.</p>
-      
       <div class="rcv-inputs" style="margin-top:14px">
-        <div>
-          <label>Sexo</label>
-          <select id="rcv_sexo" onchange="calcularRCV()">
-            <option value="">—</option>
-            <option value="H">Hombre</option>
-            <option value="M">Mujer</option>
-          </select>
-        </div>
-        <div>
-          <label>Tabaquismo</label>
-          <select id="rcv_tabaco" onchange="calcularRCV()">
-            <option value="">—</option>
-            <option value="no">No fumador/a</option>
-            <option value="si">Fumador/a actual</option>
-          </select>
-        </div>
-        <div>
-          <label>Edad (años)</label>
-          <select id="rcv_edad" onchange="calcularRCV()">
-            <option value="">—</option>
-            <option value="40-44">40-44</option>
-            <option value="45-49">45-49</option>
-            <option value="50-54">50-54</option>
-            <option value="55-59">55-59</option>
-            <option value="60-64">60-64</option>
-            <option value="65-69">65-69</option>
-            <option value="70-74">70-74</option>
-          </select>
-        </div>
-        <div>
-          <label>PAS (mmHg)</label>
-          <select id="rcv_pas" onchange="calcularRCV()">
-            <option value="">—</option>
-            <option value="<120">&lt; 120</option>
-            <option value="120-139">120-139</option>
-            <option value="140-159">140-159</option>
-            <option value="160-179">160-179</option>
-            <option value="≥180">≥ 180</option>
-          </select>
-        </div>
-        <div>
-          <label>IMC (kg/m²)</label>
-          <select id="rcv_imc" onchange="calcularRCV()">
-            <option value="">—</option>
-            <option value="<20">&lt; 20</option>
-            <option value="20-24">20-24</option>
-            <option value="25-29">25-29</option>
-            <option value="30-35">30-35</option>
-            <option value="≥35">≥ 35</option>
-          </select>
-        </div>
+        <div><label>Sexo</label><select id="rcv_sexo" onchange="calcularRCV()"><option value="">—</option><option value="H">Hombre</option><option value="M">Mujer</option></select></div>
+        <div><label>Tabaquismo</label><select id="rcv_tabaco" onchange="calcularRCV()"><option value="">—</option><option value="no">No fumador/a</option><option value="si">Fumador/a actual</option></select></div>
+        <div><label>Edad (años)</label><select id="rcv_edad" onchange="calcularRCV()"><option value="">—</option><option value="40-44">40-44</option><option value="45-49">45-49</option><option value="50-54">50-54</option><option value="55-59">55-59</option><option value="60-64">60-64</option><option value="65-69">65-69</option><option value="70-74">70-74</option></select></div>
+        <div><label>PAS (mmHg)</label><select id="rcv_pas" onchange="calcularRCV()"><option value="">—</option><option value="<120">&lt; 120</option><option value="120-139">120-139</option><option value="140-159">140-159</option><option value="160-179">160-179</option><option value="≥180">≥ 180</option></select></div>
+        <div><label>IMC (kg/m²)</label><select id="rcv_imc" onchange="calcularRCV()"><option value="">—</option><option value="<20">&lt; 20</option><option value="20-24">20-24</option><option value="25-29">25-29</option><option value="30-35">30-35</option><option value="≥35">≥ 35</option></select></div>
       </div>
-
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">
-        <div>
-          <label class="field">Peso (kg) - opcional</label>
-          <input type="number" id="rcv_peso" step="0.1" placeholder="kg" oninput="calcularIMCdesdePesoTalla()">
-        </div>
-        <div>
-          <label class="field">Talla (m) - opcional</label>
-          <input type="number" id="rcv_talla" step="0.01" placeholder="ej: 1.70" oninput="calcularIMCdesdePesoTalla()">
-        </div>
-        <div>
-          <label class="field">IMC calculado</label>
-          <input type="text" id="rcv_imc_calc" readonly placeholder="—" style="background:#f1f5f9;font-weight:600">
-        </div>
+        <div><label class="field">Peso (kg) - opcional</label><input type="number" id="rcv_peso" step="0.1" placeholder="kg" oninput="calcularIMCdesdePesoTalla()"></div>
+        <div><label class="field">Talla (m) - opcional</label><input type="number" id="rcv_talla" step="0.01" placeholder="ej: 1.70" oninput="calcularIMCdesdePesoTalla()"></div>
+        <div><label class="field">IMC calculado</label><input type="text" id="rcv_imc_calc" readonly placeholder="—" style="background:#f1f5f9;font-weight:600"></div>
       </div>
-
       <div class="rcv-result" id="rcvResultBox" style="display:none">
         <div>
           <div style="font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.3px">Riesgo cardiovascular a 10 años</div>
           <div class="big" id="rcvBig">—</div>
           <div class="desc" id="rcvDesc">Complete los datos para calcular</div>
         </div>
-        <div style="text-align:right">
-          <div class="rcv-badge" id="rcvBadge" style="background:#e2e8f0;color:var(--text-muted)">Sin datos</div>
-        </div>
+        <div style="text-align:right"><div class="rcv-badge" id="rcvBadge" style="background:#e2e8f0;color:var(--text-muted)">Sin datos</div></div>
       </div>
-
       <div id="rcvTablaContainer"></div>
-
       <div class="rcv-legend">
         <span class="rcv-verde" style="background:var(--riesgo-verde-bg);color:var(--riesgo-verde);border-color:var(--riesgo-verde)">&lt; 5%</span>
         <span class="rcv-amarillo" style="background:var(--riesgo-amarillo-bg);color:var(--riesgo-amarillo);border-color:var(--riesgo-amarillo)">5 - &lt;10%</span>
@@ -377,9 +346,7 @@
         <span class="rcv-rojo" style="background:var(--riesgo-rojo-bg);color:var(--riesgo-rojo);border-color:var(--riesgo-rojo)">20 - &lt;30%</span>
         <span class="rcv-rojooscuro" style="background:var(--riesgo-rojooscuro-bg);color:var(--riesgo-rojooscuro);border-color:var(--riesgo-rojooscuro)">≥ 30%</span>
       </div>
-
       <p class="rcv-footnote">Fuente: OMS/HEARTS 2019. Tablas de riesgo cardiovascular basadas en datos no analíticos. Región: América Latina austral (Argentina, Chile, Uruguay).</p>
-
       <hr class="sep">
       <div class="subsection-title">Otros factores de riesgo (opcional)</div>
       <div class="check-grid" id="cvGrid">
@@ -392,10 +359,10 @@
     </div>
   </section>
 
-  <!-- 4. NECPAL -->
+  <!-- 5. NECPAL -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">4</span>Instrumento NECPAL v4.0</div>
+      <div class="card-title"><span class="step-num">5</span>Instrumento NECPAL v4.0</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
@@ -427,10 +394,10 @@
     </div>
   </section>
 
-  <!-- 5. KARNOFSKY -->
+  <!-- 6. KARNOFSKY -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">5</span>Escala de Karnofsky (KPS)</div>
+      <div class="card-title"><span class="step-num">6</span>Escala de Karnofsky (KPS)</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
@@ -454,10 +421,10 @@
     </div>
   </section>
 
-  <!-- 6. BARTHEL -->
+  <!-- 7. BARTHEL -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">6</span>Índice de Barthel</div>
+      <div class="card-title"><span class="step-num">7</span>Índice de Barthel</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
@@ -469,10 +436,10 @@
     </div>
   </section>
 
-  <!-- 7. ESAS -->
+  <!-- 8. ESAS (actualizado) -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">7</span>Evaluación de Síntomas de Edmonton (ESAS)</div>
+      <div class="card-title"><span class="step-num">8</span>Evaluación de Síntomas de Edmonton (ESAS)</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
@@ -480,15 +447,15 @@
       <div class="esas-grid" id="esasGrid" style="margin-top:12px"></div>
       <div class="summary-bar">
         <span class="label">Síntomas moderados-severos (≥4)</span><strong id="esasCount">0</strong>
-        <span class="label" style="margin-left:auto">Carga sintomática total</span><strong id="esasTotal">0</strong><span style="color:var(--text-muted);font-size:13px">/90</span>
+        <span class="label" style="margin-left:auto">Carga sintomática total</span><strong id="esasTotal">0</strong><span style="color:var(--text-muted);font-size:13px">/100</span>
       </div>
     </div>
   </section>
 
-  <!-- 8. DOLOR / CAM -->
+  <!-- 9. DOLOR / CAM -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">8</span>Marcadores de dolor y evaluación cognitiva</div>
+      <div class="card-title"><span class="step-num">9</span>Marcadores de dolor y evaluación cognitiva</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
@@ -514,10 +481,10 @@
     </div>
   </section>
 
-  <!-- 9. RIESGO SOCIOFAMILIAR / ÉTICA -->
+  <!-- 10. RIESGO SOCIOFAMILIAR / ÉTICA -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">9</span>Riesgo sociofamiliar y dilemas éticos</div>
+      <div class="card-title"><span class="step-num">10</span>Riesgo sociofamiliar y dilemas éticos</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
@@ -542,10 +509,10 @@
     </div>
   </section>
 
-  <!-- 10. PLAN -->
+  <!-- 11. PLAN -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">10</span>Plan terapéutico y complejidad de cuidados</div>
+      <div class="card-title"><span class="step-num">11</span>Plan terapéutico y complejidad de cuidados</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
@@ -598,14 +565,13 @@
     </div>
   </section>
 
-  <!-- 11. REQUERIMIENTOS -->
+  <!-- 12. REQUERIMIENTOS -->
   <section class="card" data-card>
     <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title"><span class="step-num">11</span>Requerimientos</div>
+      <div class="card-title"><span class="step-num">12</span>Requerimientos</div>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="card-body">
-
       <div class="subsection-title">Profesionales y frecuencia</div>
       <div class="prof-grid" id="profGrid">
         <div class="prof-row" data-prof-row="medico"><label><input type="checkbox" data-prof="Médico/a paliativista" onchange="toggleProfRow(this)">Médico/a paliativista (presencial y remoto)</label><select data-prof-freq="medico"><option value="">— Frecuencia —</option><option>1 vez por semana</option><option>1 vez cada dos semanas</option></select></div>
@@ -722,7 +688,6 @@
 </div>
 
 <script>
-/* ========== DATOS ========== */
 const BARTHEL_ITEMS = [
   {key:'comer', label:'Comer', opts:[{v:0,t:'Incapaz'},{v:5,t:'Necesita ayuda'},{v:10,t:'Independiente'}]},
   {key:'banarse', label:'Bañarse', opts:[{v:0,t:'Dependiente'},{v:5,t:'Independiente'}]},
@@ -735,18 +700,21 @@ const BARTHEL_ITEMS = [
   {key:'deambular', label:'Deambulación', opts:[{v:0,t:'Incapaz'},{v:5,t:'En silla de ruedas'},{v:10,t:'Con ayuda'},{v:15,t:'Independiente'}]},
   {key:'escaleras', label:'Escaleras', opts:[{v:0,t:'Incapaz'},{v:5,t:'Necesita ayuda'},{v:10,t:'Independiente'}]}
 ];
+
+/* ESAS actualizado con los 10 ítems correctos */
 const ESAS_ITEMS = [
   {key:'dolor', label:'Dolor', esfera:'física'},
-  {key:'disnea', label:'Disnea / tos', esfera:'respiratoria'},
+  {key:'disnea', label:'Disnea', esfera:'respiratoria'},
+  {key:'nauseas', label:'Náuseas-vómitos', esfera:'digestiva'},
+  {key:'astenia', label:'Astenia', esfera:'física'},
   {key:'anorexia', label:'Anorexia', esfera:'digestiva'},
-  {key:'nauseas', label:'Náuseas / vómitos', esfera:'digestiva'},
-  {key:'constipacion', label:'Constipación', esfera:'digestiva'},
-  {key:'insomnio', label:'Insomnio', esfera:'otras'},
-  {key:'somnolencia', label:'Somnolencia', esfera:'física'},
-  {key:'debilidad', label:'Debilidad', esfera:'física'},
+  {key:'tristeza', label:'Tristeza', esfera:'psicoemocional'},
   {key:'ansiedad', label:'Ansiedad', esfera:'psicoemocional'},
-  {key:'tristeza', label:'Tristeza', esfera:'psicoemocional'}
+  {key:'somnolencia', label:'Somnolencia', esfera:'física'},
+  {key:'insomnio', label:'Insomnio', esfera:'otras'},
+  {key:'malestar', label:'Malestar general', esfera:'física'}
 ];
+
 const KPS_DESC = {
   100:'Normal, sin quejas ni evidencias de enfermedad',
   90:'Capaz de actividad normal; signos o síntomas leves',
@@ -761,13 +729,16 @@ const KPS_DESC = {
   0:'Fallecido'
 };
 
-/* ========== RIESGO CV OMS 2019 - América Latina austral ==========
-   Datos no analíticos (IMC). Valores en % de riesgo a 10 años.
-   Fuente: OMS/HEARTS 2019, tabla para Argentina, Chile, Uruguay.
-   Estructura: RCV_DATA[sexo][tabaco][edad] = matriz [PAS][IMC]
-   Índices PAS: 0=<120, 1=120-139, 2=140-159, 3=160-179, 4=≥180
-   Índices IMC: 0=<20, 1=20-24, 2=25-29, 3=30-35, 4=≥35
-*/
+const ECOG_DESC = {
+  '0':'Totalmente activo, sin restricciones',
+  '1':'Restricción actividad extenuante, ambulatorio',
+  '2':'Ambulatorio, autocuidado, sin trabajo. Silla/cama <50% del día',
+  '3':'Autocuidado limitado. Confinado silla/cama >50% del día',
+  '4':'Incapaz de AVD. Confinado 100% del día',
+  '5':'Muerte inminente'
+};
+
+/* ========== RIESGO CV OMS 2019 ========== */
 const RCV_DATA = {
   H: {
     no: {
@@ -810,10 +781,8 @@ const RCV_DATA = {
     }
   }
 };
-
 const PAS_KEYS = ['<120','120-139','140-159','160-179','≥180'];
 const IMC_KEYS = ['<20','20-24','25-29','30-35','≥35'];
-const EDAD_KEYS = ['40-44','45-49','50-54','55-59','60-64','65-69','70-74'];
 
 /* ========== INIT ========== */
 function init(){
@@ -822,12 +791,18 @@ function init(){
   renderBarthel();
   renderESAS();
   actualizarKPS();
+  // Listeners check-rows
   document.querySelectorAll('.check-row input').forEach(inp=>{
     inp.addEventListener('change',e=>{
       e.target.closest('.check-row').classList.toggle('checked',e.target.checked);
       if(e.target.dataset.cam) actualizarCAM();
     });
   });
+  // ECOG listeners
+  document.querySelectorAll('input[name=ecog]').forEach(r=>{
+    r.addEventListener('change', actualizarECOG);
+  });
+  // Kits
   document.querySelectorAll('.kit-item input').forEach(inp=>{
     inp.addEventListener('change',e=>{
       e.target.closest('.kit-item').classList.toggle('checked',e.target.checked);
@@ -864,6 +839,17 @@ function actualizarKPS(){
   document.getElementById('kpsDesc').textContent = KPS_DESC[v]||'';
 }
 function setKPS(v){ document.getElementById('kpsSlider').value=v; actualizarKPS(); }
+
+function actualizarECOG(){
+  const sel = document.querySelector('input[name=ecog]:checked');
+  const el = document.getElementById('ecogResult');
+  if(sel){
+    el.textContent = `Grado ${sel.value} — ${ECOG_DESC[sel.value]}`;
+  } else {
+    el.textContent = '—';
+  }
+}
+
 function actualizarBarthel(){
   let total=0, answered=0;
   document.querySelectorAll('#barthelGrid input[type=radio]:checked').forEach(r=>{ total += parseInt(r.value); answered++; });
@@ -910,60 +896,30 @@ function calcularIMCdesdePesoTalla(){
   if(p>0 && t>0){
     const imc = p/(t*t);
     out.value = imc.toFixed(1) + ' kg/m²';
-    // Auto-seleccionar rango de IMC
     let rango;
-    if(imc<20) rango='<20';
-    else if(imc<25) rango='20-24';
-    else if(imc<30) rango='25-29';
-    else if(imc<35) rango='30-35';
-    else rango='≥35';
+    if(imc<20) rango='<20'; else if(imc<25) rango='20-24'; else if(imc<30) rango='25-29'; else if(imc<35) rango='30-35'; else rango='≥35';
     document.getElementById('rcv_imc').value = rango;
     calcularRCV();
-  } else {
-    out.value = '';
-  }
+  } else { out.value = ''; }
 }
-
-function obtenerRangoEdad(edadAnios){
-  if(edadAnios<40) return null;
-  if(edadAnios<45) return '40-44';
-  if(edadAnios<50) return '45-49';
-  if(edadAnios<55) return '50-54';
-  if(edadAnios<60) return '55-59';
-  if(edadAnios<65) return '60-64';
-  if(edadAnios<70) return '65-69';
-  return '70-74';
-}
-
 function calcularRCV(){
   const sexo = document.getElementById('rcv_sexo').value;
   const tabaco = document.getElementById('rcv_tabaco').value;
   const edad = document.getElementById('rcv_edad').value;
   const pas = document.getElementById('rcv_pas').value;
   const imc = document.getElementById('rcv_imc').value;
-
   const resultBox = document.getElementById('rcvResultBox');
   const big = document.getElementById('rcvBig');
   const desc = document.getElementById('rcvDesc');
   const badge = document.getElementById('rcvBadge');
-
-  // Si faltan datos, ocultar resultado
-  if(!sexo || !tabaco || !edad || !pas || !imc){
-    resultBox.style.display='none';
-    renderTablaRCV(null,null);
-    return;
-  }
-
-  // Calcular
+  if(!sexo || !tabaco || !edad || !pas || !imc){ resultBox.style.display='none'; renderTablaRCV(null,null); return; }
   const pasIdx = PAS_KEYS.indexOf(pas);
   const imcIdx = IMC_KEYS.indexOf(imc);
   const matriz = RCV_DATA[sexo][tabaco][edad];
   const riesgo = matriz[pasIdx][imcIdx];
-
   resultBox.style.display='grid';
   big.textContent = riesgo + '%';
   big.style.color = colorRiesgo(riesgo);
-
   let categoria, claseBadge;
   if(riesgo<5){ categoria='Riesgo bajo'; claseBadge='rcv-badge rcv-verde'; }
   else if(riesgo<10){ categoria='Riesgo leve'; claseBadge='rcv-badge rcv-amarillo'; }
@@ -973,46 +929,24 @@ function calcularRCV(){
   desc.textContent = categoria + ' · Evento cardiovascular a 10 años';
   badge.className = claseBadge;
   badge.textContent = riesgo + '% · ' + categoria;
-
   renderTablaRCV({sexo,tabaco,edad,pasIdx,imcIdx}, riesgo);
 }
-
-function colorRiesgo(r){
-  if(r<5) return 'var(--riesgo-verde)';
-  if(r<10) return 'var(--riesgo-amarillo)';
-  if(r<20) return 'var(--riesgo-naranja)';
-  if(r<30) return 'var(--riesgo-rojo)';
-  return 'var(--riesgo-rojooscuro)';
-}
-
-function claseCeldaRiesgo(r){
-  if(r<5) return 'rcv-cell-verde';
-  if(r<10) return 'rcv-cell-amarillo';
-  if(r<20) return 'rcv-cell-naranja';
-  if(r<30) return 'rcv-cell-rojo';
-  return 'rcv-cell-rojooscuro';
-}
-
+function colorRiesgo(r){ if(r<5) return 'var(--riesgo-verde)'; if(r<10) return 'var(--riesgo-amarillo)'; if(r<20) return 'var(--riesgo-naranja)'; if(r<30) return 'var(--riesgo-rojo)'; return 'var(--riesgo-rojooscuro)'; }
+function claseCeldaRiesgo(r){ if(r<5) return 'rcv-cell-verde'; if(r<10) return 'rcv-cell-amarillo'; if(r<20) return 'rcv-cell-naranja'; if(r<30) return 'rcv-cell-rojo'; return 'rcv-cell-rojooscuro'; }
 function renderTablaRCV(ctx, riesgoActual){
   const cont = document.getElementById('rcvTablaContainer');
   if(!ctx){ cont.innerHTML=''; return; }
-  
   const {sexo,tabaco,edad,pasIdx,imcIdx} = ctx;
   const matriz = RCV_DATA[sexo][tabaco][edad];
   const sexoTxt = sexo==='H'?'Hombres':'Mujeres';
   const tabTxt = tabaco==='si'?'Fumadores':'No fumadores';
-
-  let html = `<div class="rcv-table-wrap"><table class="rcv-table">
-    <caption>Tabla OMS 2019 · América Latina austral · ${sexoTxt} · ${tabTxt} · Edad ${edad} años</caption>
-    <thead><tr><th class="row-head">PAS / IMC</th>`;
+  let html = `<div class="rcv-table-wrap"><table class="rcv-table"><caption>Tabla OMS 2019 · América Latina austral · ${sexoTxt} · ${tabTxt} · Edad ${edad} años</caption><thead><tr><th class="row-head">PAS / IMC</th>`;
   IMC_KEYS.forEach(k => html += `<th>${k}</th>`);
   html += '</tr></thead><tbody>';
-
   PAS_KEYS.forEach((pasKey, pi) => {
     html += `<tr${pi===0?' class="grupo-edad"':''}><th class="row-head">${pasKey}</th>`;
     IMC_KEYS.forEach((imcKey, ii) => {
-      const val = matriz[pi][ii];
-      const clase = claseCeldaRiesgo(val);
+      const val = matriz[pi][ii]; const clase = claseCeldaRiesgo(val);
       const highlight = (pi===pasIdx && ii===imcIdx) ? ' rcv-highlight' : '';
       html += `<td class="${clase}${highlight}">${val}%</td>`;
     });
@@ -1050,12 +984,14 @@ function recogerDatos(){
   document.querySelectorAll('input[type=text],input[type=date],input[type=tel],input[type=email],input[type=number],textarea,select').forEach(el=>{ if(el.id) data[el.id] = el.value; });
   const sorpresa = document.querySelector('input[name=sorpresa]:checked');
   data.sorpresa = sorpresa ? sorpresa.value : '';
+  const ecog = document.querySelector('input[name=ecog]:checked');
+  data.ecog = ecog ? ecog.value : '';
   data.kps = parseInt(document.getElementById('kpsSlider').value);
   data.kpsTrayectoria = document.getElementById('kpsTrayectoria').value;
   ['cv','necpal','enfav','dolor','cam','soc','et','plan','eq'].forEach(gr=>{
     data[gr] = Array.from(document.querySelectorAll(`[data-${gr}]:checked`)).map(c=>c.dataset[gr]);
   });
-  // Riesgo CV calculado
+  // RCV
   const sexo = document.getElementById('rcv_sexo').value;
   const tabaco = document.getElementById('rcv_tabaco').value;
   const edadRcv = document.getElementById('rcv_edad').value;
@@ -1067,9 +1003,7 @@ function recogerDatos(){
     data.rcv_riesgo = RCV_DATA[sexo][tabaco][edadRcv][pasIdx][imcIdx];
     data.rcv_sexo = sexo==='H'?'Hombre':'Mujer';
     data.rcv_tabaco = tabaco==='si'?'fumador/a':'no fumador/a';
-    data.rcv_edad = edadRcv;
-    data.rcv_pas = pas;
-    data.rcv_imc = imc;
+    data.rcv_edad = edadRcv; data.rcv_pas = pas; data.rcv_imc = imc;
     data.rcv_peso = document.getElementById('rcv_peso').value;
     data.rcv_talla = document.getElementById('rcv_talla').value;
   }
@@ -1098,7 +1032,6 @@ function recogerDatos(){
   })).filter(c=>c.nombre||c.tel||c.email);
   return data;
 }
-
 function guardarBorrador(){
   try{ localStorage.setItem('evalPaliativa_borrador', JSON.stringify(recogerDatos())); mostrarToast('Borrador guardado localmente'); }
   catch(e){ mostrarToast('No se pudo guardar'); }
@@ -1113,9 +1046,9 @@ function cargarBorrador(){
     });
     document.getElementById('pac_cud').checked = !!d.pac_cud;
     if(d.sorpresa){ const r = document.querySelector(`input[name=sorpresa][value="${d.sorpresa}"]`); if(r) r.checked=true; }
+    if(d.ecog){ const r = document.querySelector(`input[name=ecog][value="${d.ecog}"]`); if(r){ r.checked=true; actualizarECOG(); } }
     if(d.kps!=null){ document.getElementById('kpsSlider').value=d.kps; actualizarKPS(); }
     if(d.kpsTrayectoria) document.getElementById('kpsTrayectoria').value=d.kpsTrayectoria;
-    // RCV
     if(d.rcv_sexo){ document.getElementById('rcv_sexo').value = d.rcv_sexo==='Hombre'?'H':'M'; }
     if(d.rcv_tabaco){ document.getElementById('rcv_tabaco').value = d.rcv_tabaco==='fumador/a'?'si':'no'; }
     if(d.rcv_edad) document.getElementById('rcv_edad').value = d.rcv_edad;
@@ -1173,13 +1106,7 @@ function enumerar(arr, conector='y'){
   if(arr.length===2) return `${arr[0]} ${conector} ${arr[1]}`;
   return arr.slice(0,-1).join(', ') + ` ${conector} ` + arr[arr.length-1];
 }
-function categoriaRCV(r){
-  if(r<5) return 'bajo';
-  if(r<10) return 'leve';
-  if(r<20) return 'moderado';
-  if(r<30) return 'alto';
-  return 'muy alto';
-}
+function categoriaRCV(r){ if(r<5) return 'bajo'; if(r<10) return 'leve'; if(r<20) return 'moderado'; if(r<30) return 'alto'; return 'muy alto'; }
 
 function generarReporte(){
   const d = recogerDatos();
@@ -1221,9 +1148,17 @@ function generarReporte(){
     blank();
   }
 
-  /* === RIESGO CV === */
+  /* === ECOG === */
+  if(d.ecog){
+    p('3. ECOG PERFORMANCE STATUS');
+    p('--------------------------');
+    p(`ECOG: Grado ${d.ecog} — ${ECOG_DESC[d.ecog]}.`);
+    blank();
+  }
+
+  /* === RIESGO CV (ahora sección 4) === */
   if(d.rcv_riesgo!=null || d.cv.length){
-    p('3. RIESGO CARDIOVASCULAR (OMS 2019)');
+    p('4. RIESGO CARDIOVASCULAR (OMS 2019)');
     p('-----------------------------------');
     if(d.rcv_riesgo!=null){
       const cat = categoriaRCV(d.rcv_riesgo);
@@ -1234,7 +1169,7 @@ function generarReporte(){
     blank();
   }
 
-  p('4. VALORACIÓN PRONÓSTICA (NECPAL v4.0)');
+  p('5. VALORACIÓN PRONÓSTICA (NECPAL v4.0)');
   p('--------------------------------------');
   if(d.sorpresa==='si') p('Pregunta sorpresa: SÍ sorprendería el fallecimiento en los próximos 12 meses (PS-).');
   else if(d.sorpresa==='no') p('Pregunta sorpresa: NO sorprendería el fallecimiento en los próximos 12 meses (PS+), lo que sugiere beneficio de un abordaje paliativo activo.');
@@ -1242,7 +1177,7 @@ function generarReporte(){
   if(d.enfav.length) p(`Criterios de enfermedad avanzada: ${enumerar(d.enfav.map(s=>s.toLowerCase()))}.`);
   blank();
 
-  p('5. VALORACIÓN FUNCIONAL');
+  p('6. VALORACIÓN FUNCIONAL');
   p('-----------------------');
   const kpsDesc = (KPS_DESC[d.kps]||'').toLowerCase();
   let funcionales = [`Escala de Karnofsky: ${d.kps}% (${kpsDesc})`];
@@ -1263,7 +1198,7 @@ function generarReporte(){
 
   const sintomasActivos = [], sintomasLeves = [];
   ESAS_ITEMS.forEach(it=>{ const v = d.esas[it.key]; if(v>=4) sintomasActivos.push({...it, score:v}); else if(v>=1) sintomasLeves.push({...it, score:v}); });
-  p('6. CARGA SINTOMÁTICA (ESAS)');
+  p('7. CARGA SINTOMÁTICA (ESAS)');
   p('---------------------------');
   if(sintomasActivos.length===0 && sintomasLeves.length===0){
     p('Al momento de la evaluación, el paciente se encuentra prácticamente asintomático.');
@@ -1284,7 +1219,7 @@ function generarReporte(){
   blank();
 
   if(d.dolor.length || d.cam.length){
-    p('7. EVALUACIÓN DEL DOLOR Y ESTADO COGNITIVO');
+    p('8. EVALUACIÓN DEL DOLOR Y ESTADO COGNITIVO');
     p('------------------------------------------');
     if(d.dolor.length) p(`Marcadores de dolor de difícil manejo: ${enumerar(d.dolor.map(s=>s.toLowerCase()))}.`);
     const camPos = (d.cam.includes('Comienzo agudo y evolución fluctuante') && d.cam.includes('Falta de atención') && (d.cam.includes('Pensamiento desorganizado')||d.cam.includes('Nivel de consciencia alterado')));
@@ -1293,7 +1228,7 @@ function generarReporte(){
   }
 
   if(d.soc.length || d.et.length){
-    p('8. DIMENSIÓN SOCIOFAMILIAR Y BIOÉTICA');
+    p('9. DIMENSIÓN SOCIOFAMILIAR Y BIOÉTICA');
     p('-------------------------------------');
     if(d.soc.length===0) p('No se perciben riesgos sociofamiliares relevantes.');
     else p(`Riesgos sociofamiliares: ${enumerar(d.soc.map(s=>s.toLowerCase()))}.`);
@@ -1303,14 +1238,14 @@ function generarReporte(){
   }
 
   if(d.plan.length){
-    p('9. PLAN TERAPÉUTICO Y DE CUIDADOS');
+    p('10. PLAN TERAPÉUTICO Y DE CUIDADOS');
     p('---------------------------------');
     p(`Se establecen los siguientes objetivos terapéuticos: ${enumerar(d.plan.map(s=>s.toLowerCase()))}.`);
     blank();
   }
 
   if((d.profesionales && d.profesionales.length) || d.eq.length || d.kitMed.length || d.kitIns.length){
-    p('10. REQUERIMIENTOS');
+    p('11. REQUERIMIENTOS');
     p('------------------');
     if(d.profesionales && d.profesionales.length){
       p('Profesionales:');
@@ -1323,7 +1258,7 @@ function generarReporte(){
   }
 
   if(d.tratamiento && d.tratamiento.trim()){
-    p('11. TRATAMIENTO FARMACOLÓGICO E INDICACIONES');
+    p('12. TRATAMIENTO FARMACOLÓGICO E INDICACIONES');
     p('---------------------------------------------');
     p(d.tratamiento.trim()); blank();
   }
