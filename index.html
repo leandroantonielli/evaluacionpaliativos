@@ -3,458 +3,1282 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Repositorio de Guías – Quimioterapia</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<title>Evaluación Inicial · Cuidados Paliativos</title>
 <style>
-:root {
-  --teal:        #1B7A6E;
-  --teal-light:  #EBF7F5;
-  --teal-mid:    #2C9C8D;
-  --coral:       #E8714A;
-  --coral-light: #FDF0EB;
-  --amber:       #D4A017;
-  --amber-light: #FDF7E3;
-  --red:         #C0392B;
-  --red-light:   #FDECEB;
-  --purple:      #6B4FA0;
-  --purple-light:#F0EBF8;
-  --bg:          #F7F3ED;
-  --text:        #1E2B2A;
-  --text-soft:   #4A5A58;
-  --white:       #FFFFFF;
-  --shadow:      0 2px 12px rgba(27,122,110,0.10);
-  --radius:      14px;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: #DDD9D2;
-  font-family: 'Nunito', sans-serif;
-  color: var(--text);
-  padding: 32px 16px;
-}
-.page {
-  width: 820px;
-  margin: 0 auto;
-  background: var(--bg);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-}
-/* ── HEADER ── */
-.header {
-  background: var(--teal);
-  padding: 36px 40px 28px;
-  position: relative;
-  overflow: hidden;
-}
-.header::before {
-  content: '';
-  position: absolute;
-  right: -60px; top: -60px;
-  width: 260px; height: 260px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.07);
-}
-.header::after {
-  content: '';
-  position: absolute;
-  right: 60px; bottom: -80px;
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.05);
-}
-.header-pill {
-  display: inline-block;
-  background: rgba(255,255,255,0.18);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 4px 14px;
-  border-radius: 99px;
-  margin-bottom: 12px;
-}
-.header h1 {
-  font-family: 'Fraunces', serif;
-  font-size: 42px;
-  color: #fff;
-  line-height: 1.1;
-  font-weight: 900;
-}
-.header h1 span { color: #A8EBE2; }
-.header p {
-  color: rgba(255,255,255,0.80);
-  margin-top: 10px;
-  font-size: 15px;
-  max-width: 520px;
-  line-height: 1.5;
-}
+  :root{
+    --bg:#f4f6f8; --surface:#ffffff; --surface-2:#f8fafc;
+    --border:#e2e8f0; --text:#0f172a; --text-muted:#64748b; --text-soft:#475569;
+    --accent:#0d9488; --accent-dark:#0f766e; --accent-soft:#ccfbf1;
+    --warning:#d97706; --danger:#dc2626;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.04);
+    --shadow:0 4px 12px rgba(15,23,42,.06);
+    --shadow-lg:0 12px 32px rgba(15,23,42,.1);
+    --radius:10px; --radius-sm:6px;
+    --riesgo-verde:#16a34a; --riesgo-verde-bg:#dcfce7;
+    --riesgo-amarillo:#ca8a04; --riesgo-amarillo-bg:#fef9c3;
+    --riesgo-naranja:#ea580c; --riesgo-naranja-bg:#ffedd5;
+    --riesgo-rojo:#dc2626; --riesgo-rojo-bg:#fee2e2;
+    --riesgo-rojooscuro:#7f1d1d; --riesgo-rojooscuro-bg:#fecaca;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:15px;-webkit-font-smoothing:antialiased}
+  .app{max-width:960px;margin:0 auto;padding:24px 20px 140px}
+  header.app-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);display:grid;place-items:center;color:white;font-weight:700;font-size:18px;box-shadow:var(--shadow)}
+  .brand h1{font-size:18px;font-weight:600;letter-spacing:-.2px}
+  .brand p{font-size:12.5px;color:var(--text-muted)}
+  .meta-actions{display:flex;gap:8px;flex-wrap:wrap}
+  button.ghost{background:var(--surface);border:1px solid var(--border);color:var(--text-soft);padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:500;transition:all .15s ease}
+  button.ghost:hover{border-color:var(--accent);color:var(--accent-dark)}
 
-/* ── ACCORDION SYSTEM ── */
-.accordion {
-  background: var(--white);
-  border-radius: var(--radius);
-  margin-bottom: 18px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-.accordion summary {
-  background: var(--teal);
-  color: #fff;
-  padding: 18px 24px;
-  font-family: 'Fraunces', serif;
-  font-size: 20px;
-  font-weight: 700;
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: background 0.2s;
-}
-.accordion summary::-webkit-details-marker { display: none; }
-.accordion summary::after {
-  content: '▼';
-  font-size: 12px;
-  opacity: 0.8;
-  transition: transform 0.3s;
-}
-.accordion[open] summary::after { transform: rotate(180deg); }
-.accordion[open] summary { border-bottom: 1px solid rgba(255,255,255,0.15); }
-.accordion-content { padding: 24px; }
+  section.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:16px;overflow:hidden}
+  .card-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;gap:12px;border-bottom:1px solid transparent;transition:background .15s ease}
+  .card-header:hover{background:var(--surface-2)}
+  .card.open .card-header{border-bottom-color:var(--border)}
+  .card-title{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px}
+  .step-num{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--accent-dark);display:grid;place-items:center;font-size:13px;font-weight:700;flex-shrink:0}
+  .chev{width:20px;height:20px;transition:transform .2s ease;color:var(--text-muted);flex-shrink:0}
+  .card.open .chev{transform:rotate(180deg)}
+  .card-body{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s ease}
+  .card.open .card-body{padding:20px;max-height:none;overflow:visible}
 
-/* ── BODY & CARDS ── */
-.body { padding: 24px 36px 32px; display: flex; flex-direction: column; gap: 16px; }
-.card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 22px 24px;
-  box-shadow: var(--shadow);
-}
-.card-title {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
-}
-.card-title .icon-wrap {
-  width: 38px; height: 38px; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; flex-shrink: 0;
-}
-.card-title h2 {
-  font-family: 'Fraunces', serif; font-size: 19px; font-weight: 700; line-height: 1.2;
-}
-.teal  .icon-wrap { background: var(--teal-light); } .teal  h2 { color: var(--teal); }
-.coral .icon-wrap { background: var(--coral-light); } .coral h2 { color: var(--coral); }
-.amber .icon-wrap { background: var(--amber-light); } .amber h2 { color: var(--amber); }
-.red   .icon-wrap { background: var(--red-light); } .red   h2 { color: var(--red); }
-.purple .icon-wrap{ background: var(--purple-light); } .purple h2 { color: var(--purple); }
+  .grid{display:grid;gap:14px}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:640px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
 
-/* ── GRID for adverse effects ── */
-.ae-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-}
-.ae-item {
-  background: var(--bg); border-radius: 10px; padding: 12px 14px;
-  display: flex; flex-direction: column; gap: 4px;
-}
-.ae-item .ae-icon { font-size: 22px; line-height: 1; }
-.ae-item .ae-name { font-weight: 800; font-size: 13px; color: var(--text); }
-.ae-item .ae-note { font-size: 12px; color: var(--text-soft); line-height: 1.3; }
-.ae-item.highlight { border: 2px solid var(--coral); background: var(--coral-light); }
-.ae-item.highlight .ae-name { color: var(--coral); }
+  label.field{display:block;font-size:12.5px;font-weight:600;color:var(--text-soft);margin-bottom:5px;letter-spacing:.2px;text-transform:uppercase}
+  input[type=text],input[type=date],input[type=tel],input[type=email],input[type=number],textarea,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);font-family:inherit;font-size:14px;transition:border-color .15s ease,box-shadow .15s ease}
+  textarea{min-height:90px;resize:vertical;line-height:1.55}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(13,148,136,.12)}
 
-/* ── ALARM BOX ── */
-.alarm-box {
-  background: var(--red-light); border: 2px solid var(--red);
-  border-radius: 12px; padding: 18px 20px; margin-top: 16px;
-}
-.alarm-box .alarm-title {
-  display: flex; align-items: center; gap: 8px;
-  font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
-  color: var(--red); margin-bottom: 12px;
-}
-.alarm-list {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; list-style: none;
-}
-.alarm-list li {
-  display: flex; align-items: flex-start; gap: 8px;
-  font-size: 13px; font-weight: 600; color: var(--red);
-  background: rgba(192,57,43,0.07); border-radius: 8px;
-  padding: 7px 10px; line-height: 1.3;
-}
-.alarm-list li::before { content: '⚠'; flex-shrink: 0; font-size: 14px; }
+  .check-row{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2);cursor:pointer;transition:all .15s ease}
+  .check-row:hover{border-color:#cbd5e1;background:#f1f5f9}
+  .check-row.checked{background:var(--accent-soft);border-color:var(--accent)}
+  .check-row input[type=checkbox],.check-row input[type=radio]{accent-color:var(--accent);margin-top:2px;flex-shrink:0;width:16px;height:16px;cursor:pointer}
+  .check-row span{font-size:13.5px;color:var(--text-soft);cursor:pointer}
+  .check-row.checked span{color:var(--accent-dark);font-weight:500}
+  .check-grid{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
 
-/* ── TIPS LIST ── */
-.tips-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.tips-list li {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 13.5px; line-height: 1.45;
-}
-.tips-list li .bullet {
-  width: 22px; height: 22px; border-radius: 50%;
-  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-  font-size: 12px; margin-top: 1px;
-}
-.teal  .tips-list .bullet { background: var(--teal-light); color: var(--teal); }
-.coral .tips-list .bullet { background: var(--coral-light); color: var(--coral); }
-.amber .tips-list .bullet { background: var(--amber-light); color: var(--amber); }
-.purple .tips-list .bullet { background: var(--purple-light); color: var(--purple); }
-.tips-list li strong { font-weight: 800; }
+  /* Barthel */
+  .barthel-grid{display:grid;gap:10px}
+  .barthel-row{display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center;padding:8px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
+  .barthel-row label.b-item{font-size:13px;font-weight:500;color:var(--text-soft)}
+  .barthel-opts{display:flex;gap:6px;flex-wrap:wrap}
+  .barthel-opts label{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:white;transition:all .15s ease;white-space:nowrap}
+  .barthel-opts input{display:none}
+  .barthel-opts input:checked + span{background:var(--accent);color:white;padding:6px 10px;margin:-6px -10px;border-radius:6px;display:inline-block}
+  @media(max-width:640px){.barthel-row{grid-template-columns:1fr}}
 
-/* ── TWO COL ── */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-/* ── FOOD GRID ── */
-.food-section { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.food-col-title {
-  font-weight: 800; font-size: 13px; margin-bottom: 10px;
-  display: flex; align-items: center; gap: 6px;
-  text-transform: uppercase; letter-spacing: 0.5px;
-}
-.food-col-title.yes { color: var(--teal); }
-.food-col-title.no  { color: var(--coral); }
-.food-tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
-.food-tag {
-  font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 99px; line-height: 1;
-}
-.food-tag.yes { background: var(--teal-light); color: var(--teal); }
-.food-tag.no  { background: var(--coral-light); color: var(--coral); }
-.divider { height: 1px; background: rgba(27,122,110,0.10); margin: 4px 0; }
+  /* Karnofsky */
+  .kps-wrap{padding:4px 0}
+  .kps-value{text-align:center;font-size:42px;font-weight:700;color:var(--accent-dark);letter-spacing:-1px;line-height:1;margin:8px 0 4px}
+  .kps-desc{text-align:center;font-size:13.5px;color:var(--text-soft);min-height:36px;padding:0 8px}
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:4px;background:linear-gradient(to right,#86efac 0%,#bbf7d0 20%,#fef3c7 50%,#fed7aa 70%,#fecaca 100%);outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:white;border:3px solid var(--accent);cursor:pointer;box-shadow:var(--shadow)}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:white;border:3px solid var(--accent);cursor:pointer}
+  .kps-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:6px}
+  .kps-badges{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+  .kps-badge{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .15s}
+  .kps-badge:hover{border-color:var(--accent);color:var(--accent-dark)}
 
-/* ── HEART CARD accent ── */
-.heart-card {
-  background: linear-gradient(135deg, #1B7A6E 60%, #2C9C8D 100%);
-  border-radius: var(--radius); padding: 22px 24px; color: #fff;
-}
-.heart-card h2 {
-  font-family: 'Fraunces', serif; font-size: 19px; font-weight: 700;
-  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
-}
-.heart-card .tips-list li { color: rgba(255,255,255,0.92); }
-.heart-card .bullet { background: rgba(255,255,255,0.18) !important; color: #fff !important; }
+  /* ECOG */
+  .ecog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media(max-width:640px){.ecog-grid{grid-template-columns:1fr}}
+  .ecog-grid label.ecog-opt{
+    display:block;padding:14px 16px;border:2px solid var(--border);border-radius:var(--radius-sm);
+    cursor:pointer;background:var(--surface-2);transition:all .15s ease;position:relative;
+  }
+  .ecog-grid label.ecog-opt:hover{border-color:#cbd5e1;background:#f1f5f9}
+  .ecog-grid input[type=radio]{display:none}
+  .ecog-grid label.ecog-opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+  .ecog-grid .ecog-grado{font-weight:700;font-size:18px;color:var(--accent-dark);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .ecog-grid .ecog-grado .badge-num{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--accent-dark);display:grid;place-items:center;font-size:14px;font-weight:800;border:1px solid var(--accent)}
+  .ecog-grid label.ecog-opt:has(input:checked) .ecog-grado .badge-num{background:var(--accent);color:white}
+  .ecog-grid .ecog-desc{font-size:12.5px;color:var(--text-soft);line-height:1.5}
+  .ecog-summary{margin-top:14px;padding:14px 16px;background:var(--surface-2);border-radius:var(--radius-sm);border:1px dashed var(--border);display:flex;align-items:center;gap:12px}
+  .ecog-summary .label{font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+  .ecog-summary strong{font-size:20px;color:var(--accent-dark)}
 
-/* ── EMERGENCY FOOTER ── */
-.emergency {
-  background: var(--teal); border-radius: 14px; padding: 20px 24px; color: #fff; margin-top: 20px;
-}
-.emergency h3 {
-  font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
-  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
-}
-.emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.em-item {
-  background: rgba(255,255,255,0.12); border-radius: 10px; padding: 12px 14px; font-size: 13px;
-}
-.em-item .em-name { font-weight: 800; margin-bottom: 3px; }
-.em-item .em-phone { font-size: 15px; font-weight: 900; letter-spacing: 0.5px; opacity: 0.95; }
-.em-item .em-note { font-size: 12px; margin-top: 4px; opacity: 0.75; }
+  /* ESAS */
+  .esas-grid{display:grid;gap:14px}
+  .esas-row{display:grid;grid-template-columns:140px 1fr 50px;gap:14px;align-items:center;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
+  .esas-row label{font-size:13.5px;font-weight:500;color:var(--text-soft)}
+  .esas-row input[type=range]{height:6px}
+  .esas-score{font-weight:700;font-size:16px;text-align:center;padding:4px 8px;border-radius:6px;min-width:40px}
+  .esas-score.low{color:#15803d;background:#dcfce7}
+  .esas-score.mid{color:#b45309;background:#fef3c7}
+  .esas-score.high{color:#b91c1c;background:#fee2e2}
+  @media(max-width:540px){.esas-row{grid-template-columns:1fr;gap:8px}.esas-score{text-align:right}}
 
-/* ── FOOTER ── */
-.footer {
-  background: var(--teal); color: rgba(255,255,255,0.65);
-  font-size: 11px; text-align: center; padding: 14px 24px; line-height: 1.6;
-}
-.footer strong { color: rgba(255,255,255,0.9); }
+  .summary-bar{margin-top:14px;padding:14px 16px;background:var(--surface-2);border-radius:var(--radius-sm);border:1px dashed var(--border);display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .summary-bar .label{font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+  .summary-bar strong{font-size:18px;color:var(--accent-dark)}
+  .summary-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent-dark);font-size:13px;font-weight:600;margin:2px}
 
-@media print {
-  body { background: white; padding: 0; }
-  .page { box-shadow: none; border-radius: 0; }
-  .accordion[open] summary { background: var(--teal); border-bottom: none; }
-  .accordion { page-break-inside: avoid; margin-bottom: 24px; }
-}
+  /* Cuidadores */
+  .caregivers-list{display:grid;gap:10px}
+  .caregiver-row{display:grid;grid-template-columns:1fr 140px 1fr 100px auto;gap:8px;align-items:center;padding:8px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
+  .caregiver-row input{font-size:13px;padding:8px 10px}
+  .btn-del{background:transparent;border:none;color:var(--danger);cursor:pointer;font-size:18px;padding:4px 8px}
+  @media(max-width:720px){.caregiver-row{grid-template-columns:1fr 1fr;gap:6px}}
+  .btn-add{background:transparent;border:1px dashed var(--accent);color:var(--accent-dark);padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;cursor:pointer;width:100%;margin-top:8px}
+  .btn-add:hover{background:var(--accent-soft)}
+
+  /* Profesionales con frecuencia */
+  .prof-grid{display:grid;gap:10px}
+  .prof-row{display:grid;grid-template-columns:1fr 240px;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2)}
+  .prof-row.active{background:var(--accent-soft);border-color:var(--accent)}
+  .prof-row label{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13.5px;font-weight:500;color:var(--text-soft);margin:0}
+  .prof-row label input{accent-color:var(--accent);width:16px;height:16px}
+  .prof-row select{font-size:13px;padding:8px 10px}
+  .prof-row.active label{color:var(--accent-dark)}
+  .prof-otro{display:grid;grid-template-columns:1fr 240px;gap:10px;align-items:center;padding:10px 12px;border:1px dashed var(--border);border-radius:var(--radius-sm);background:var(--surface-2);margin-top:6px}
+  .prof-otro input{font-size:13px;padding:8px 10px}
+  @media(max-width:640px){.prof-row,.prof-otro{grid-template-columns:1fr}}
+
+  /* Kits */
+  .kit-block{border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface-2);padding:14px;margin-bottom:12px}
+  .kit-title{font-size:13px;font-weight:700;color:var(--accent-dark);margin-bottom:10px;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+  .kit-title .badge{background:var(--accent-soft);color:var(--accent-dark);font-size:11px;padding:2px 8px;border-radius:999px;font-weight:600}
+  .kit-items{display:grid;gap:6px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .kit-block.open .kit-items{max-height:1000px}
+  .kit-item{display:flex;align-items:center;gap:8px;padding:6px 10px;background:white;border:1px solid var(--border);border-radius:6px;font-size:12.5px;color:var(--text-soft);cursor:pointer;transition:all .15s}
+  .kit-item:hover{border-color:#cbd5e1}
+  .kit-item.checked{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-dark);font-weight:500}
+  .kit-item input{accent-color:var(--accent);width:14px;height:14px;flex-shrink:0}
+
+  /* NECPAL sorpresa */
+  .necpal-surprise{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .necpal-surprise label.opt{padding:14px;border:2px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;text-align:center;background:var(--surface-2);transition:all .15s}
+  .necpal-surprise input{display:none}
+  .necpal-surprise input:checked + .opt-inner{color:var(--accent-dark)}
+  .necpal-surprise label.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+  .necpal-surprise .opt-title{font-weight:600;font-size:14px}
+  .necpal-surprise .opt-desc{font-size:11.5px;color:var(--text-muted);margin-top:3px}
+
+  /* RIESGO CV OMS */
+  .rcv-inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+  .rcv-inputs > div{display:flex;flex-direction:column;gap:4px}
+  .rcv-inputs label{font-size:12px;font-weight:600;color:var(--text-soft);text-transform:uppercase;letter-spacing:.3px}
+  .rcv-inputs select,.rcv-inputs input{font-size:14px;padding:10px}
+  .rcv-result{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px;background:var(--surface-2);border-radius:var(--radius-sm);border:2px solid var(--border);margin-bottom:18px;align-items:center}
+  .rcv-result .big{font-size:42px;font-weight:800;letter-spacing:-1px;line-height:1}
+  .rcv-result .desc{font-size:13px;color:var(--text-soft);margin-top:4px}
+  .rcv-badge{display:inline-block;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;text-align:center}
+  .rcv-verde{background:var(--riesgo-verde-bg);color:var(--riesgo-verde);border-color:var(--riesgo-verde)}
+  .rcv-amarillo{background:var(--riesgo-amarillo-bg);color:var(--riesgo-amarillo);border-color:var(--riesgo-amarillo)}
+  .rcv-naranja{background:var(--riesgo-naranja-bg);color:var(--riesgo-naranja);border-color:var(--riesgo-naranja)}
+  .rcv-rojo{background:var(--riesgo-rojo-bg);color:var(--riesgo-rojo);border-color:var(--riesgo-rojo)}
+  .rcv-rojooscuro{background:var(--riesgo-rojooscuro-bg);color:var(--riesgo-rojooscuro);border-color:var(--riesgo-rojooscuro)}
+  @media(max-width:640px){.rcv-result{grid-template-columns:1fr;text-align:center}}
+
+  .rcv-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-sm);background:white}
+  .rcv-table{width:100%;border-collapse:collapse;font-size:12px;min-width:520px}
+  .rcv-table caption{padding:10px;background:var(--surface-2);font-size:12px;color:var(--text-soft);text-align:left;font-weight:600;border-bottom:1px solid var(--border)}
+  .rcv-table th{padding:6px 8px;background:#f1f5f9;font-weight:700;color:var(--text-soft);text-align:center;border:1px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
+  .rcv-table th.row-head{text-align:left;background:#e2e8f0}
+  .rcv-table td{padding:6px 4px;text-align:center;border:1px solid var(--border);font-weight:600;min-width:50px;transition:all .2s}
+  .rcv-table tr.grupo-edad td{border-top:2px solid var(--text-soft)}
+  .rcv-cell-verde{background:#dcfce7;color:#15803d}
+  .rcv-cell-amarillo{background:#fef9c3;color:#a16207}
+  .rcv-cell-naranja{background:#ffedd5;color:#c2410c}
+  .rcv-cell-rojo{background:#fee2e2;color:#991b1b}
+  .rcv-cell-rojooscuro{background:#fecaca;color:#7f1d1d}
+  .rcv-highlight{outline:3px solid var(--accent);outline-offset:-2px;box-shadow:0 0 0 4px rgba(13,148,136,.25);font-size:14px;font-weight:800;position:relative;z-index:1;transform:scale(1.15)}
+
+  .rcv-legend{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;font-size:11.5px}
+  .rcv-legend span{padding:4px 10px;border-radius:4px;font-weight:600;border:1px solid}
+  .rcv-footnote{font-size:11.5px;color:var(--text-muted);margin-top:10px;font-style:italic}
+
+  /* Acción */
+  .action-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:14px 20px;z-index:100;box-shadow:0 -4px 20px rgba(15,23,42,.06)}
+  .action-inner{max-width:960px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .action-spacer{flex:1}
+  button.primary{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);color:white;border:none;padding:12px 24px;border-radius:10px;font-size:14.5px;font-weight:600;cursor:pointer;box-shadow:var(--shadow);transition:transform .1s ease,box-shadow .15s ease;display:inline-flex;align-items:center;gap:8px}
+  button.primary:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+  button.primary:active{transform:translateY(0)}
+
+  /* Modal */
+  .modal{position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:16px;backdrop-filter:blur(4px)}
+  .modal.open{display:flex}
+  .modal-content{background:white;border-radius:14px;max-width:820px;width:100%;max-height:90vh;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);overflow:hidden}
+  .modal-head{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .modal-head h3{font-size:16px;font-weight:600}
+  .modal-actions{display:flex;gap:8px}
+  .modal-body{padding:0;flex:1;overflow:hidden;display:flex;flex-direction:column}
+  #reporteOutput{flex:1;width:100%;border:none;padding:22px;font-family:'SF Mono',Consolas,Monaco,monospace;font-size:13px;line-height:1.7;resize:none;color:var(--text);background:var(--surface-2)}
+  #reporteOutput:focus{outline:none}
+
+  /* Toast */
+  .toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:white;padding:10px 20px;border-radius:999px;font-size:13.5px;font-weight:500;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:all .25s ease;z-index:300;display:inline-flex;align-items:center;gap:8px}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast svg{width:16px;height:16px;color:#4ade80}
+
+  .hint{font-size:12px;color:var(--text-muted);margin-top:6px;font-style:italic}
+  .subsection-title{font-size:13px;font-weight:700;color:var(--text-soft);margin:18px 0 10px;text-transform:uppercase;letter-spacing:.5px}
+  .subsection-title:first-child{margin-top:0}
+  hr.sep{border:none;border-top:1px solid var(--border);margin:18px 0}
+  .footer-note{text-align:center;font-size:11.5px;color:var(--text-muted);margin-top:30px}
 </style>
 </head>
 <body>
-<div class="page">
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-pill">Repositorio de Guías</div>
-    <h1>Efectos Adversos de<br><span>Quimioterapia</span></h1>
-    <p>Guías prácticas para pacientes. Hacé clic en cada fármaco o sección para desplegar la información específica.</p>
-  </div>
+<div class="app">
 
-  <!-- BODY -->
-  <div class="body">
-    
-    <!-- 📋 INFORMACIÓN GENERAL -->
-    <details class="accordion">
-      <summary>📋 Información General sobre Quimioterapia</summary>
-      <div class="accordion-content">
-        <div class="card teal">
-          <div class="card-title"><div class="icon-wrap">🧬</div><h2>Pautas transversales a todo tratamiento</h2></div>
-          <div class="two-col">
-            <ul class="tips-list">
-              <li><div class="bullet">🧼</div><span><strong>Lavado de manos frecuente</strong> con agua y jabón, especialmente antes de comer y tras ir al baño.</span></li>
-              <li><div class="bullet">😷</div><span>Entre los <strong>días 7 y 14 post-infusión</strong> tus defensas están más bajas: evitá aglomeraciones y contacto con personas enfermas.</span></li>
-              <li><div class="bullet">🚫</div><span><strong>No te automediques</strong>: consultá siempre antes de tomar analgésicos, vitaminas o suplementos herbales.</span></li>
-            </ul>
-            <ul class="tips-list">
-              <li><div class="bullet">💉</div><span>No recibas <strong>vacunas de virus vivos</strong> sin autorización del oncólogo.</span></li>
-              <li><div class="bullet">☀️</div><span><strong>Protección solar diaria</strong> (FPS 50+). Muchos quimioterápicos aumentan la fotosensibilidad.</span></li>
-              <li><div class="bullet">🧠</div><span>Es normal sentir tristeza o ansiedad. <strong>Pedí apoyo psicológico</strong> si lo necesitás; es parte integral del tratamiento.</span></li>
-            </ul>
-          </div>
-        </div>
+  <header class="app-header">
+    <div class="brand">
+      <div class="logo">Pc</div>
+      <div>
+        <h1>Evaluación Inicial · Cuidados Paliativos</h1>
+        <p>Herramienta clínica · 100% local</p>
       </div>
-    </details>
+    </div>
+    <div class="meta-actions">
+      <button class="ghost" onclick="limpiarFormulario()">Limpiar</button>
+      <button class="ghost" onclick="guardarBorrador()">Guardar borrador</button>
+      <button class="ghost" onclick="cargarBorrador()">Recuperar</button>
+    </div>
+  </header>
 
-    <!-- 💊 DOXORRUBICINA -->
-    <details class="accordion" open>
-      <summary>💊 Doxorrubicina</summary>
-      <div class="accordion-content">
-        <div class="card coral">
-          <div class="card-title"><div class="icon-wrap">⚡</div><h2>Efectos adversos frecuentes</h2></div>
-          <div class="ae-grid">
-            <div class="ae-item highlight"><span class="ae-icon">💇</span><span class="ae-name">Caída del cabello</span><span class="ae-note">Muy frecuente (~85%). Incluye vello corporal. Reversible al terminar.</span></div>
-            <div class="ae-item"><span class="ae-icon">🤢</span><span class="ae-name">Náuseas y vómitos</span><span class="ae-note">Suelen aparecer horas después de la infusión. Hay medicación preventiva.</span></div>
-            <div class="ae-item"><span class="ae-icon">😮</span><span class="ae-name">Mucositis / llagas en boca</span><span class="ae-note">Aparece 5-10 días post-infusión. Cuidado bucal riguroso.</span></div>
-            <div class="ae-item"><span class="ae-icon">😴</span><span class="ae-name">Cansancio / astenia</span><span class="ae-note">Muy frecuente. Planificar descansos. No forzar actividad.</span></div>
-            <div class="ae-item"><span class="ae-icon">🛡️</span><span class="ae-name">Baja de defensas</span><span class="ae-note">Pico entre los días 10-14. Recuperación hacia el día 21.</span></div>
-            <div class="ae-item"><span class="ae-icon">💧</span><span class="ae-name">Diarrea</span><span class="ae-note">Frecuente. Hidratarse bien. Dieta astringente si es leve.</span></div>
-            <div class="ae-item"><span class="ae-icon">♨️</span><span class="ae-name">Fiebre</span><span class="ae-note">Puede indicar infección. Ver señales de alarma ↓</span></div>
-            <div class="ae-item"><span class="ae-icon">🩸</span><span class="ae-name">Anemia</span><span class="ae-note">Cansancio, palidez, mareos. Informar al equipo médico.</span></div>
-            <div class="ae-item highlight"><span class="ae-icon">🔴</span><span class="ae-name">Orina rojiza / anaranjada</span><span class="ae-note">Normal los primeros 1-2 días. No es sangre, es el medicamento.</span></div>
-          </div>
-        </div>
-
-        <div class="alarm-box">
-          <div class="alarm-title">🚨 Consultá de inmediato si presentás…</div>
-          <ul class="alarm-list">
-            <li>Fiebre igual o mayor a 38°C</li>
-            <li>Dificultad para respirar o ahogo</li>
-            <li>Palpitaciones o ritmo cardíaco irregular</li>
-            <li>Hinchazón marcada de piernas o cara</li>
-            <li>Sangrado inusual (encías, nariz, heces)</li>
-            <li>Dolor o ardor fuerte en la boca que impide comer</li>
-            <li>Dolor intenso o hinchazón en el lugar del acceso venoso</li>
-            <li>Escalofríos, temblores o signos de infección</li>
-          </ul>
-        </div>
-
-        <div class="two-col" style="margin-top:16px;">
-          <div class="card teal">
-            <div class="card-title"><div class="icon-wrap">🦷</div><h2>Cuidado de la boca</h2></div>
-            <ul class="tips-list">
-              <li><div class="bullet">✓</div><span>Enjuagues con agua tibia y bicarbonato (½ cdita en vaso de agua) <strong>4-6 veces por día</strong></span></li>
-              <li><div class="bullet">✓</div><span>Usar <strong>cepillo de dientes suave</strong>; cambiar el cepillo con frecuencia</span></li>
-              <li><div class="bullet">✓</div><span><strong>Mantener los labios humectados</strong> con vaselina o crema específica</span></li>
-              <li><div class="bullet">✗</div><span>Evitar alcohol en colutorios, cítricos y alimentos muy picantes o ácidos</span></li>
-            </ul>
-          </div>
-          <div class="heart-card">
-            <h2>❤️ Cuidado del corazón</h2>
-            <ul class="tips-list">
-              <li><div class="bullet">!</div><span>La doxorrubicina puede afectar el corazón con el tiempo. Tu médico controlará la función cardíaca periódicamente.</span></li>
-              <li><div class="bullet">!</div><span>Avisá si sentís <strong>ahogo al hacer esfuerzo mínimo</strong>, que antes no sentías.</span></li>
-              <li><div class="bullet">!</div><span>Reportá <strong>hinchazón de pies o tobillos</strong>, tos de noche o palpitaciones.</span></li>
-            </ul>
-          </div>
-        </div>
+  <!-- 1. IDENTIFICACIÓN -->
+  <section class="card open" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">1</span>Identificación del paciente y referentes</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="grid cols-2">
+        <div><label class="field">Médico/a evaluador/a</label><input type="text" id="medico" placeholder="Nombre y apellido"></div>
+        <div><label class="field">Fecha de evaluación</label><input type="date" id="fecha"></div>
       </div>
-    </details>
-
-    <!-- 🌿 PACLITAXEL -->
-    <details class="accordion">
-      <summary>🌿 Paclitaxel</summary>
-      <div class="accordion-content">
-        <div class="card coral">
-          <div class="card-title"><div class="icon-wrap">⚡</div><h2>Efectos adversos frecuentes</h2></div>
-          <div class="ae-grid">
-            <div class="ae-item highlight"><span class="ae-icon">💇</span><span class="ae-name">Caída del cabello</span><span class="ae-note">Muy frecuente (~87%). Caída repentina, incluye cejas, pestañas y vello corporal. Reversible.</span></div>
-            <div class="ae-item highlight"><span class="ae-icon">🦶</span><span class="ae-name">Neuropatía periférica</span><span class="ae-note">Hormigueo, adormecimiento o dolor en manos/pies. Frecuente. Informar si afecta tareas diarias.</span></div>
-            <div class="ae-item"><span class="ae-icon">🦴</span><span class="ae-name">Dolor articular / muscular</span><span class="ae-note">Afecta al ~60%. Suele aparecer 1-3 días después y mejorar en pocos días. Hidratación ayuda.</span></div>
-            <div class="ae-item"><span class="ae-icon">🛡️</span><span class="ae-name">Baja de defensas</span><span class="ae-note">Nadir de neutrófilos alrededor del día 11. Monitoreo sanguíneo obligatorio antes de cada ciclo.</span></div>
-            <div class="ae-item"><span class="ae-icon">🤢</span><span class="ae-name">Náuseas y vómitos</span><span class="ae-note">Leves a moderados. Usar antieméticos preventivos según indicación.</span></div>
-            <div class="ae-item"><span class="ae-icon">😴</span><span class="ae-name">Fatiga / Astenia</span><span class="ae-note">Muy frecuente. Respetar los ritmos de descanso. Actividad suave si se tolera.</span></div>
-            <div class="ae-item"><span class="ae-icon">🔍</span><span class="ae-name">Alteraciones ungueales</span><span class="ae-note">Uñas frágiles, cambio de color o separación de la cama ungueal. Usar guantes para tareas domésticas.</span></div>
-            <div class="ae-item"><span class="ae-icon">🩹</span><span class="ae-name">Reacción en el sitio de infusión</span><span class="ae-note">Enrojecimiento, dolor o hinchazón. Avisar si hay dolor quemante durante la administración.</span></div>
-            <div class="ae-item"><span class="ae-icon">🌡️</span><span class="ae-name">Reacciones de hipersensibilidad</span><span class="ae-note">Prevenidas con premedicación. Si aparece rubor, picazón o dificultad respiratoria, avisar al instante.</span></div>
-          </div>
-        </div>
-
-        <div class="alarm-box">
-          <div class="alarm-title">🚨 Consultá de inmediato si presentás…</div>
-          <ul class="alarm-list">
-            <li>Fiebre ≥ 38°C o escalofríos</li>
-            <li>Dificultad para respirar, opresión torácica o silbidos</li>
-            <li>Hinchazón facial, de labios o lengua (signo de alergia)</li>
-            <li>Sangrado activo o moretones inexplicables</li>
-            <li>Entumecimiento o dolor intenso que impide caminar o tomar objetos</li>
-            <li>Diarrea severa (>4 deposiciones/día) o con sangre</li>
-            <li>Visión borrosa o manchas en la visión</li>
-            <li>Palpitaciones o mareo severo al levantarte</li>
-          </ul>
-        </div>
-
-        <div class="two-col" style="margin-top:16px;">
-          <div class="card teal">
-            <div class="card-title"><div class="icon-wrap">🩺</div><h2>Cuidados específicos con Paclitaxel</h2></div>
-            <ul class="tips-list">
-              <li><div class="bullet">💊</div><span><strong>Premedicación obligatoria:</strong> tomá los corticoides y antihistamínicos indicados <em>exactamente</em> en los horarios previos a la quimio para evitar reacciones.</span></li>
-              <li><div class="bullet">🖐️</div><span><strong>Proteger manos y pies:</strong> evitar agua muy caliente o fría, usar calzado cómodo, hidratar piel y uñas a diario.</span></li>
-              <li><div class="bullet">🍷</div><span><strong>Contiene alcohol:</strong> puede causar somnolencia o mareo post-infusión. Evitar conducir o manejar maquinaria las primeras 24-48h.</span></li>
-              <li><div class="bullet">🚫</div><span><strong>No automedicarse:</strong> evitar antiinflamatorios (ibuprofeno, diclofenaco) sin consultar, pueden afectar plaquetas y riñón.</span></li>
-            </ul>
-          </div>
-          <div class="heart-card">
-            <h2>📅 Seguimiento y controles</h2>
-            <ul class="tips-list">
-              <li><div class="bullet">🩸</div><span>Los análisis de sangre (hemograma completo) son <strong>clave</strong>. No se administra el siguiente ciclo si los neutrófilos o plaquetas están bajos.</span></li>
-              <li><div class="bullet">⚖️</div><span>Controlar peso e hidratación. La diarrea o los vómitos requieren reemplazo de líquidos y electrolitos.</span></li>
-              <li><div class="bullet">👶</div><span><strong>Anticoncepción efectiva</strong> durante el tratamiento y hasta 6 meses después. El fármaco es teratogénico. Consultar sobre crioconservación si se desea fertilidad futura.</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Alimentación (Reutilizada y adaptada) -->
-        <div class="card amber" style="margin-top:16px;">
-          <div class="card-title"><div class="icon-wrap">🥦</div><h2>Alimentación durante el tratamiento</h2></div>
-          <div class="food-section">
-            <div>
-              <div class="food-col-title yes">✅ Preferir</div>
-              <div class="food-tag-list">
-                <span class="food-tag yes">Arroz blanco</span><span class="food-tag yes">Papas hervidas</span><span class="food-tag yes">Pan tostado</span><span class="food-tag yes">Banana madura</span><span class="food-tag yes">Pollo/Pavo cocido</span><span class="food-tag yes">Zanahoria cocida</span><span class="food-tag yes">Yogur natural</span><span class="food-tag yes">Gelatina</span><span class="food-tag yes">Caldos suaves</span><span class="food-tag yes">Infusiones tibias</span>
-              </div>
-            </div>
-            <div>
-              <div class="food-col-title no">❌ Evitar</div>
-              <div class="food-tag-list">
-                <span class="food-tag no">Alcohol extra</span><span class="food-tag no">Frituras</span><span class="food-tag no">Picante</span><span class="food-tag no">Cítricos (si hay mucositis)</span><span class="food-tag no">Carnes crudas/poco cocidas</span><span class="food-tag no">Mariscos</span><span class="food-tag no">Lácteos no pasteurizados</span><span class="food-tag no">Ayuno prolongado</span>
-              </div>
-            </div>
-          </div>
-          <div class="divider" style="margin: 16px 0;"></div>
-          <ul class="tips-list amber">
-            <li><div class="bullet">💡</div><span>El día de la infusión: comé algo <strong>liviano 1-2 hs antes</strong>, no llegues en ayunas ni con el estómago muy lleno.</span></li>
-            <li><div class="bullet">💡</div><span>Si hay náuseas: preferí <strong>comidas frías o a temperatura ambiente</strong>. Cinco o seis comidas pequeñas son mejores que tres grandes.</span></li>
-            <li><div class="bullet">💧</div><span>Tomá <strong>al menos 8-10 vasos de agua o líquido</strong> por día para ayudar a los riñones a eliminar el medicamento.</span></li>
-          </ul>
-        </div>
+      <hr class="sep">
+      <div class="subsection-title">Paciente</div>
+      <div class="grid cols-2">
+        <div><label class="field">Nombre y apellido</label><input type="text" id="pac_nombre"></div>
+        <div><label class="field">Fecha de nacimiento</label><input type="date" id="pac_fnac"></div>
+        <div><label class="field">Sexo</label><select id="pac_sexo"><option value="">—</option><option>Mujer</option><option>Hombre</option><option>Otro</option></select></div>
+        <div><label class="field">Documento / N°</label><input type="text" id="pac_doc"></div>
+        <div style="grid-column:1/-1"><label class="field">Dirección actual</label><input type="text" id="pac_dir"></div>
+        <div><label class="field">Teléfono</label><input type="tel" id="pac_tel"></div>
+        <div><label class="field">Correo electrónico</label><input type="email" id="pac_email"></div>
+        <div><label class="field">Cobertura / N° afiliado</label><input type="text" id="pac_cobertura"></div>
+        <div style="display:flex;align-items:end"><label class="check-row" style="width:100%"><input type="checkbox" id="pac_cud"><span>Posee Certificado Único de Discapacidad (CUD)</span></label></div>
       </div>
-    </details>
+      <hr class="sep">
+      <div class="subsection-title">Cuidador principal y referentes</div>
+      <div id="caregiversList" class="caregivers-list"></div>
+      <button class="btn-add" onclick="agregarCuidador()">+ Agregar cuidador o referente</button>
+    </div>
+  </section>
 
-    <!-- EMERGENCIAS -->
-    <div class="emergency">
-      <h3>📞 Centros de toxicología – Emergencias</h3>
-      <div class="emergency-grid">
-        <div class="em-item">
-          <div class="em-name">Hospital de Pediatría Ricardo Gutiérrez</div>
-          <div class="em-phone">011 4962-6666 / 2247</div>
-          <div class="em-note">0800 444 8694 (línea gratuita TOXI)</div>
+  <!-- 2. HISTORIA CLÍNICA -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">2</span>Historia clínica y enfermedad actual</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <label class="field">Diagnóstico principal / motivo de evaluación</label>
+      <textarea id="diagnostico"></textarea>
+      <div style="margin-top:14px"><label class="field">Enfermedad actual</label><textarea id="enfermedad" style="min-height:140px"></textarea></div>
+      <div style="margin-top:14px"><label class="field">Medicación actual y otras intervenciones</label><textarea id="medicacion"></textarea></div>
+    </div>
+  </section>
+
+  <!-- 3. ECOG (NUEVO) -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">3</span>ECOG Performance Status</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <p class="hint">Escala del Eastern Cooperative Oncology Group para evaluar el estado funcional del paciente.</p>
+      <div class="ecog-grid" style="margin-top:12px">
+        <label class="ecog-opt"><input type="radio" name="ecog" value="0"><div class="ecog-grado"><span class="badge-num">0</span>Grado 0</div><div class="ecog-desc">Totalmente activo, capaz de llevar a cabo actividad física sin restricciones.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="1"><div class="ecog-grado"><span class="badge-num">1</span>Grado 1</div><div class="ecog-desc">Restricción en actividad física extenuante, pero es ambulatorio y capaz de realizar sus actividades cotidianas, laborales y trabajos ligeros.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="2"><div class="ecog-grado"><span class="badge-num">2</span>Grado 2</div><div class="ecog-desc">Ambulatorio y capaz de autocuidarse, pero incapaz de desempeñar ningún trabajo. Permanece en silla o en cama durante varias horas al día, sin superar el 50%.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="3"><div class="ecog-grado"><span class="badge-num">3</span>Grado 3</div><div class="ecog-desc">Capaz de realizar su autocuidado con limitaciones. Confinado en la silla o en cama más del 50% de las horas del día.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="4"><div class="ecog-grado"><span class="badge-num">4</span>Grado 4</div><div class="ecog-desc">Incapaz de realizar ninguna actividad de la vida diaria. Confinado en la silla o en cama el 100% del día.</div></label>
+        <label class="ecog-opt"><input type="radio" name="ecog" value="5"><div class="ecog-grado"><span class="badge-num">5</span>Grado 5</div><div class="ecog-desc">Muerte inminente.</div></label>
+      </div>
+      <div class="ecog-summary">
+        <span class="label">ECOG seleccionado</span>
+        <strong id="ecogResult">—</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. RIESGO CV -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">4</span>Riesgo cardiovascular (OMS 2019 · América Latina austral)</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <p class="hint">Basado en tablas OMS/HEARTS 2019 para Argentina, Chile y Uruguay (datos no analíticos). Calcula el riesgo de evento cardiovascular fatal o no fatal a 10 años.</p>
+      <div class="rcv-inputs" style="margin-top:14px">
+        <div><label>Sexo</label><select id="rcv_sexo" onchange="calcularRCV()"><option value="">—</option><option value="H">Hombre</option><option value="M">Mujer</option></select></div>
+        <div><label>Tabaquismo</label><select id="rcv_tabaco" onchange="calcularRCV()"><option value="">—</option><option value="no">No fumador/a</option><option value="si">Fumador/a actual</option></select></div>
+        <div><label>Edad (años)</label><select id="rcv_edad" onchange="calcularRCV()"><option value="">—</option><option value="40-44">40-44</option><option value="45-49">45-49</option><option value="50-54">50-54</option><option value="55-59">55-59</option><option value="60-64">60-64</option><option value="65-69">65-69</option><option value="70-74">70-74</option></select></div>
+        <div><label>PAS (mmHg)</label><select id="rcv_pas" onchange="calcularRCV()"><option value="">—</option><option value="<120">&lt; 120</option><option value="120-139">120-139</option><option value="140-159">140-159</option><option value="160-179">160-179</option><option value="≥180">≥ 180</option></select></div>
+        <div><label>IMC (kg/m²)</label><select id="rcv_imc" onchange="calcularRCV()"><option value="">—</option><option value="<20">&lt; 20</option><option value="20-24">20-24</option><option value="25-29">25-29</option><option value="30-35">30-35</option><option value="≥35">≥ 35</option></select></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">
+        <div><label class="field">Peso (kg) - opcional</label><input type="number" id="rcv_peso" step="0.1" placeholder="kg" oninput="calcularIMCdesdePesoTalla()"></div>
+        <div><label class="field">Talla (m) - opcional</label><input type="number" id="rcv_talla" step="0.01" placeholder="ej: 1.70" oninput="calcularIMCdesdePesoTalla()"></div>
+        <div><label class="field">IMC calculado</label><input type="text" id="rcv_imc_calc" readonly placeholder="—" style="background:#f1f5f9;font-weight:600"></div>
+      </div>
+      <div class="rcv-result" id="rcvResultBox" style="display:none">
+        <div>
+          <div style="font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.3px">Riesgo cardiovascular a 10 años</div>
+          <div class="big" id="rcvBig">—</div>
+          <div class="desc" id="rcvDesc">Complete los datos para calcular</div>
         </div>
-        <div class="em-item">
-          <div class="em-name">Hospital Nacional A. Posadas</div>
-          <div class="em-phone">011 4654-6648 / 4658-7777</div>
-          <div class="em-note">0800 333 0160 (Centro Nacional de Intoxicaciones)</div>
+        <div style="text-align:right"><div class="rcv-badge" id="rcvBadge" style="background:#e2e8f0;color:var(--text-muted)">Sin datos</div></div>
+      </div>
+      <div id="rcvTablaContainer"></div>
+      <div class="rcv-legend">
+        <span class="rcv-verde" style="background:var(--riesgo-verde-bg);color:var(--riesgo-verde);border-color:var(--riesgo-verde)">&lt; 5%</span>
+        <span class="rcv-amarillo" style="background:var(--riesgo-amarillo-bg);color:var(--riesgo-amarillo);border-color:var(--riesgo-amarillo)">5 - &lt;10%</span>
+        <span class="rcv-naranja" style="background:var(--riesgo-naranja-bg);color:var(--riesgo-naranja);border-color:var(--riesgo-naranja)">10 - &lt;20%</span>
+        <span class="rcv-rojo" style="background:var(--riesgo-rojo-bg);color:var(--riesgo-rojo);border-color:var(--riesgo-rojo)">20 - &lt;30%</span>
+        <span class="rcv-rojooscuro" style="background:var(--riesgo-rojooscuro-bg);color:var(--riesgo-rojooscuro);border-color:var(--riesgo-rojooscuro)">≥ 30%</span>
+      </div>
+      <p class="rcv-footnote">Fuente: OMS/HEARTS 2019. Tablas de riesgo cardiovascular basadas en datos no analíticos. Región: América Latina austral (Argentina, Chile, Uruguay).</p>
+      <hr class="sep">
+      <div class="subsection-title">Otros factores de riesgo (opcional)</div>
+      <div class="check-grid" id="cvGrid">
+        <label class="check-row"><input type="checkbox" data-cv="Diabetes"><span>Diabetes</span></label>
+        <label class="check-row"><input type="checkbox" data-cv="Dislipemia"><span>Dislipemia</span></label>
+        <label class="check-row"><input type="checkbox" data-cv="Sobrepeso/obesidad"><span>Sobrepeso / obesidad</span></label>
+        <label class="check-row"><input type="checkbox" data-cv="Enfermedades crónicas no transmisibles"><span>Otras ECNT</span></label>
+        <label class="check-row"><input type="checkbox" data-cv="Antecedentes familiares de ECV"><span>Antecedentes familiares de ECV</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. NECPAL -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">5</span>Instrumento NECPAL v4.0</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="subsection-title">Pregunta sorpresa</div>
+      <div class="necpal-surprise">
+        <label class="opt"><input type="radio" name="sorpresa" value="si" checked><div class="opt-inner"><div class="opt-title">SÍ me sorprendería</div><div class="opt-desc">No sugiere necesidad paliativa inmediata (PS-)</div></div></label>
+        <label class="opt"><input type="radio" name="sorpresa" value="no"><div class="opt-inner"><div class="opt-title">NO me sorprendería</div><div class="opt-desc">Sugiere necesidad de abordaje paliativo (PS+)</div></div></label>
+      </div>
+      <div class="subsection-title">Indicadores de necesidad paliativa</div>
+      <div class="check-grid" id="necpalGrid">
+        <label class="check-row"><input type="checkbox" data-necpal="Necesidades paliativas percibidas por el equipo o familia"><span>Paciente/familia/equipo perciben necesidad paliativa</span></label>
+        <label class="check-row"><input type="checkbox" data-necpal="Pérdida funcional severa y progresiva"><span>Pérdida funcional severa, progresiva e irreversible</span></label>
+        <label class="check-row"><input type="checkbox" data-necpal="Pérdida nutricional/ponderal significativa"><span>Pérdida nutricional / ponderal significativa</span></label>
+        <label class="check-row"><input type="checkbox" data-necpal="Multimorbilidad codominante"><span>Multimorbilidad (≥2 EC codominantes)</span></label>
+        <label class="check-row"><input type="checkbox" data-necpal="Uso intensivo de recursos sanitarios"><span>Uso intensivo de recursos / ingresos urgentes</span></label>
+      </div>
+      <div class="subsection-title">Enfermedad avanzada (seleccionar si aplica)</div>
+      <div class="check-grid" id="necpalEnfGrid">
+        <label class="check-row"><input type="checkbox" data-enfav="Oncológica"><span>Oncológica</span></label>
+        <label class="check-row"><input type="checkbox" data-enfav="Pulmonar crónica"><span>Pulmonar crónica</span></label>
+        <label class="check-row"><input type="checkbox" data-enfav="Cardíaca crónica"><span>Cardíaca crónica</span></label>
+        <label class="check-row"><input type="checkbox" data-enfav="Hepática crónica"><span>Hepática crónica</span></label>
+        <label class="check-row"><input type="checkbox" data-enfav="Insuficiencia renal crónica"><span>Renal crónica</span></label>
+        <label class="check-row"><input type="checkbox" data-enfav="Neurológica degenerativa"><span>Neurológica degenerativa</span></label>
+        <label class="check-row"><input type="checkbox" data-enfav="Neurológica vascular (ictus)"><span>Neurológica vascular</span></label>
+        <label class="check-row"><input type="checkbox" data-enfav="Demencia"><span>Demencia</span></label>
+        <label class="check-row"><input type="checkbox" data-enfav="Fragilidad avanzada"><span>Fragilidad avanzada</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. KARNOFSKY -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">6</span>Escala de Karnofsky (KPS)</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="kps-wrap">
+        <div class="kps-value" id="kpsValue">70</div>
+        <div class="kps-desc" id="kpsDesc">Capaz de cuidarse, pero incapaz de llevar actividad normal o trabajo activo</div>
+        <input type="range" id="kpsSlider" min="0" max="100" step="10" value="70" oninput="actualizarKPS()">
+        <div class="kps-labels"><span>0 · Fallecido</span><span>50</span><span>100 · Normal</span></div>
+        <div class="kps-badges">
+          <span class="kps-badge" onclick="setKPS(100)">100 Normal</span>
+          <span class="kps-badge" onclick="setKPS(80)">80 Con esfuerzo</span>
+          <span class="kps-badge" onclick="setKPS(70)">70 Se cuida solo</span>
+          <span class="kps-badge" onclick="setKPS(50)">50 Necesita ayuda</span>
+          <span class="kps-badge" onclick="setKPS(30)">30 Hospitalizado</span>
+          <span class="kps-badge" onclick="setKPS(20)">20 Muy grave</span>
+        </div>
+        <div style="margin-top:14px"><label class="field">Trayectoria funcional</label>
+          <select id="kpsTrayectoria"><option value="estable">Estable (posibilidad de recuperación)</option><option value="declive" selected>En declive (deterioro progresivo)</option></select>
         </div>
       </div>
     </div>
+  </section>
 
-  </div><!-- /body -->
+  <!-- 7. BARTHEL -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">7</span>Índice de Barthel</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="barthel-grid" id="barthelGrid"></div>
+      <div class="summary-bar">
+        <span class="label">Puntaje total</span><strong id="barthelTotal">0</strong>
+        <span class="summary-pill" id="barthelCat">Independiente</span>
+      </div>
+    </div>
+  </section>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    Esta guía es informativa y no reemplaza la indicación médica. Ante cualquier duda, consultá siempre con tu <strong>equipo de oncología o cuidados paliativos</strong>. · Material elaborado para pacientes en tratamiento con quimioterapia.
+  <!-- 8. ESAS (actualizado) -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">8</span>Evaluación de Síntomas de Edmonton (ESAS)</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <p class="hint">0 = ausente · 1-3 = leve · 4-6 = moderado · 7-10 = severo</p>
+      <div class="esas-grid" id="esasGrid" style="margin-top:12px"></div>
+      <div class="summary-bar">
+        <span class="label">Síntomas moderados-severos (≥4)</span><strong id="esasCount">0</strong>
+        <span class="label" style="margin-left:auto">Carga sintomática total</span><strong id="esasTotal">0</strong><span style="color:var(--text-muted);font-size:13px">/100</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. DOLOR / CAM -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">9</span>Marcadores de dolor y evaluación cognitiva</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="subsection-title">Marcadores de dolor de difícil manejo</div>
+      <div class="check-grid" id="dolorGrid">
+        <label class="check-row"><input type="checkbox" data-dolor="Neuropático"><span>Dolor neuropático</span></label>
+        <label class="check-row"><input type="checkbox" data-dolor="Mixto"><span>Dolor mixto</span></label>
+        <label class="check-row"><input type="checkbox" data-dolor="Irruptivo"><span>Dolor irruptivo</span></label>
+        <label class="check-row"><input type="checkbox" data-dolor="Asociado a deterioro cognitivo"><span>Dolor + deterioro cognitivo</span></label>
+        <label class="check-row"><input type="checkbox" data-dolor="Uso problemático de sustancias"><span>Uso problemático de sustancias</span></label>
+      </div>
+      <hr class="sep">
+      <div class="subsection-title">Método de Evaluación de la Confusión (CAM)</div>
+      <div class="check-grid" id="camGrid">
+        <label class="check-row"><input type="checkbox" data-cam="Comienzo agudo y evolución fluctuante"><span>1. Comienzo agudo / fluctuante</span></label>
+        <label class="check-row"><input type="checkbox" data-cam="Falta de atención"><span>2. Falta de atención</span></label>
+        <label class="check-row"><input type="checkbox" data-cam="Pensamiento desorganizado"><span>3. Pensamiento desorganizado</span></label>
+        <label class="check-row"><input type="checkbox" data-cam="Nivel de consciencia alterado"><span>4. Nivel de consciencia alterado</span></label>
+      </div>
+      <div class="summary-bar">
+        <span class="label">Resultado CAM</span><strong id="camResult" style="color:#15803d">Sin síndrome confusional agudo</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. RIESGO SOCIOFAMILIAR / ÉTICA -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">10</span>Riesgo sociofamiliar y dilemas éticos</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="subsection-title">Riesgo sociofamiliar</div>
+      <div class="check-grid" id="socGrid">
+        <label class="check-row"><input type="checkbox" data-soc="Ausencia de cuidador eficaz"><span>Ausencia de cuidador eficaz</span></label>
+        <label class="check-row"><input type="checkbox" data-soc="Limitaciones del cuidador"><span>Limitaciones del cuidador</span></label>
+        <label class="check-row"><input type="checkbox" data-soc="Múltiples personas dependientes en el hogar"><span>Múltiples dependientes en el hogar</span></label>
+        <label class="check-row"><input type="checkbox" data-soc="Carga intensa / riesgo de claudicación"><span>Carga intensa / riesgo de claudicación</span></label>
+        <label class="check-row"><input type="checkbox" data-soc="Conflictos familiares o experiencias complejas"><span>Conflictos familiares complejos</span></label>
+      </div>
+      <hr class="sep">
+      <div class="subsection-title">Dilemas éticos</div>
+      <div class="check-grid" id="etGrid">
+        <label class="check-row"><input type="checkbox" data-et="Conflictos de información / cerco de silencio"><span>Conflictos de información / cerco de silencio</span></label>
+        <label class="check-row"><input type="checkbox" data-et="Desacuerdos dentro del equipo tratante"><span>Desacuerdos en el equipo tratante</span></label>
+        <label class="check-row"><input type="checkbox" data-et="Desacuerdos sobre proporcionalidad de intervenciones"><span>Desacuerdos de proporcionalidad</span></label>
+        <label class="check-row"><input type="checkbox" data-et="Solicitud de eutanasia / suicidio asistido"><span>Solicitud de eutanasia / SA</span></label>
+        <label class="check-row"><input type="checkbox" data-et="Pérdida del sentido / sufrimiento existencial"><span>Sufrimiento existencial</span></label>
+        <label class="check-row"><input type="checkbox" data-et="Sufrimiento emocional / espiritual"><span>Sufrimiento emocional / espiritual</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. PLAN -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">11</span>Plan terapéutico y complejidad de cuidados</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="subsection-title">Complejidad de cuidados</div>
+      <div class="check-grid">
+        <label class="check-row"><input type="checkbox" data-plan="Control de signos vitales"><span>Control de signos vitales</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Higiene y confort"><span>Higiene y confort</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Curación de lesiones"><span>Curación de lesiones</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Administración de fármacos SC/EV"><span>Administración de fármacos SC/EV</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Cuidados de sondas, catéteres u ostomas"><span>Sondas, catéteres, ostomas</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Entrenamiento de cuidadores"><span>Entrenamiento de cuidadores</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Manejo corporal del paciente postrado"><span>Manejo corporal del paciente postrado</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Identificación y abordaje oportuno de síntomas"><span>Abordaje oportuno de síntomas</span></label>
+      </div>
+      <hr class="sep">
+      <div class="subsection-title">Objetivos funcionales motores</div>
+      <div class="check-grid">
+        <label class="check-row"><input type="checkbox" data-plan="Recuperación funcional motora (KPS ≥60)"><span>Recuperación funcional (KPS ≥60)</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Alivio de síntomas y prevención de complicaciones (KPS 30-50)"><span>Confort y prevención (KPS 30-50)</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Ajuste postural y alivio del dolor (KPS ≤40)"><span>Ajuste postural (KPS ≤40)</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Evitar exceso de intervención (KPS ≤20)"><span>Evitar exceso de intervención (KPS ≤20)</span></label>
+      </div>
+      <hr class="sep">
+      <div class="subsection-title">Objetivos respiratorios</div>
+      <div class="check-grid">
+        <label class="check-row"><input type="checkbox" data-plan="Manejo de vía aérea artificial"><span>Vía aérea artificial</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Recuperación funcional respiratoria"><span>Recuperación funcional respiratoria</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Alivio de síntomas respiratorios / manejo no invasivo de secreciones"><span>Manejo no invasivo de secreciones</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Maniobras de confort respiratorio"><span>Confort respiratorio</span></label>
+      </div>
+      <hr class="sep">
+      <div class="subsection-title">Complejidad sociofamiliar y bioética</div>
+      <div class="check-grid">
+        <label class="check-row"><input type="checkbox" data-plan="Fortalecimiento de la red de cuidados"><span>Fortalecer red de cuidados</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Abordaje interdisciplinario de conflictos familiares"><span>Abordaje de conflictos familiares</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Prevención del duelo patológico"><span>Prevención de duelo patológico</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Evaluación de derivación a hospice o tercer nivel"><span>Evaluación de hospice / tercer nivel</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Abordaje del sufrimiento emocional / existencial / espiritual"><span>Abordaje del sufrimiento existencial</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Voluntades anticipadas y limitación del esfuerzo terapéutico"><span>Voluntades anticipadas / LET</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Abordaje de proporcionalidad diagnóstica y terapéutica"><span>Proporcionalidad diagnóstica-terapéutica</span></label>
+      </div>
+      <hr class="sep">
+      <div class="subsection-title">Complejidad sintomática</div>
+      <div class="check-grid">
+        <label class="check-row"><input type="checkbox" data-plan="Prevención y abordaje de problemas médicos actuales y potenciales"><span>Prevención de problemas médicos</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Optimización del manejo sintomático"><span>Optimización del manejo sintomático</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Abordaje interdisciplinario del dolor total"><span>Dolor total interdisciplinario</span></label>
+        <label class="check-row"><input type="checkbox" data-plan="Planificación del fin de vida, agonía y lugar de fallecimiento"><span>Planificación del fin de vida</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. REQUERIMIENTOS -->
+  <section class="card" data-card>
+    <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-title"><span class="step-num">12</span>Requerimientos</div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="card-body">
+      <div class="subsection-title">Profesionales y frecuencia</div>
+      <div class="prof-grid" id="profGrid">
+        <div class="prof-row" data-prof-row="medico"><label><input type="checkbox" data-prof="Médico/a paliativista" onchange="toggleProfRow(this)">Médico/a paliativista (presencial y remoto)</label><select data-prof-freq="medico"><option value="">— Frecuencia —</option><option>1 vez por semana</option><option>1 vez cada dos semanas</option></select></div>
+        <div class="prof-row" data-prof-row="psico"><label><input type="checkbox" data-prof="Psicología" onchange="toggleProfRow(this)">Psicología</label><select data-prof-freq="psico"><option value="">— Frecuencia —</option><option>1 vez por semana</option><option>1 vez cada dos semanas</option></select></div>
+        <div class="prof-row" data-prof-row="ts"><label><input type="checkbox" data-prof="Trabajo social" onchange="toggleProfRow(this)">Trabajo social</label><select data-prof-freq="ts"><option value="">— Frecuencia —</option><option>1 vez por semana</option><option>1 vez cada dos semanas</option></select></div>
+        <div class="prof-row" data-prof-row="kine_m"><label><input type="checkbox" data-prof="Kinesiología motora" onchange="toggleProfRow(this)">Kinesiología motora</label><select data-prof-freq="kine_m"><option value="">— Frecuencia —</option><option>1 vez por semana</option><option>2 veces por semana</option><option>3 veces por semana</option><option>5 veces por semana</option></select></div>
+        <div class="prof-row" data-prof-row="kine_r"><label><input type="checkbox" data-prof="Kinesiología respiratoria" onchange="toggleProfRow(this)">Kinesiología respiratoria</label><select data-prof-freq="kine_r"><option value="">— Frecuencia —</option><option>1 vez por semana</option><option>2 veces por semana</option><option>3 veces por semana</option><option>5 veces por semana</option></select></div>
+        <div class="prof-row" data-prof-row="enfer"><label><input type="checkbox" data-prof="Enfermería" onchange="toggleProfRow(this)">Enfermería</label><select data-prof-freq="enfer"><option value="">— Frecuencia —</option><option>3 veces por semana</option><option>1 vez por día (7 días)</option><option>2 veces por día (7 días)</option><option>3 veces por día (7 días)</option><option>Guardia 12 hs diurna</option><option>Guardia 12 hs nocturna</option><option>Guardia 24 hs</option></select></div>
+        <div class="prof-row" data-prof-row="at"><label><input type="checkbox" data-prof="Acompañamiento terapéutico" onchange="toggleProfRow(this)">Acompañamiento terapéutico</label><select data-prof-freq="at"><option value="">— Frecuencia —</option><option>1 vez por semana</option><option>2 veces por semana</option><option>3 veces por semana</option><option>5 veces por semana</option></select></div>
+      </div>
+      <div id="otrosProfList" style="margin-top:10px"></div>
+      <button class="btn-add" onclick="agregarOtroProf()">+ Agregar otro profesional</button>
+
+      <hr class="sep">
+      <div class="subsection-title">Equipamiento</div>
+      <div class="check-grid">
+        <label class="check-row"><input type="checkbox" data-eq="Cama ortopédica"><span>Cama ortopédica</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Colchón antiescaras"><span>Colchón antiescaras</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Silla de ruedas plegable"><span>Silla de ruedas plegable</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Silla de ruedas autopropulsada"><span>Silla autopropulsada</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Silla higiénica"><span>Silla higiénica</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Andador"><span>Andador</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Silla de baño"><span>Silla de baño</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Elevador de inodoro"><span>Elevador de inodoro</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Motoaspirador"><span>Motoaspirador</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Concentrador de oxígeno"><span>Concentrador de O₂</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Oxígeno de alto flujo"><span>CAFO / alto flujo</span></label>
+        <label class="check-row"><input type="checkbox" data-eq="Bomba de infusión"><span>Bomba de infusión</span></label>
+      </div>
+
+      <hr class="sep">
+      <div class="subsection-title">Kit de manejo sintomático subcutáneo (medicación)</div>
+      <div class="kit-block" id="kitMedBlock">
+        <div class="kit-title" onclick="toggleKit('kitMedBlock')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          Medicación SC — 8 fármacos
+          <span class="badge" id="kitMedBadge">0</span>
+        </div>
+        <div class="kit-items">
+          <label class="kit-item"><input type="checkbox" data-kit-med="DEXAMETASONA 4mg/ml AMP X 10 unidades"><span>Dexametasona 4mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="DIPIRONA 1gr/ml AMP X 10 unidades"><span>Dipirona 1g/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="HALOPERIDOL 5mg/ml AMP X 10 unidades"><span>Haloperidol 5mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="HIOSCINA 20mg/ml AMP X 10 unidades"><span>Hioscina 20mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="METOCLOPRAMIDA AMP 10mg/2ml X 10 unidades"><span>Metoclopramida 10mg/2ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="LEVOMEPROMAZINA 25mg/ml AMP X 10 unidades"><span>Levomepromazina 25mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="MIDAZOLAM 5mg/ml AMP X 10 unidades"><span>Midazolam 5mg/ml amp × 10</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-med="MORFINA 1% AMP X 10 unidades"><span>Morfina 1% amp × 10</span></label>
+        </div>
+      </div>
+
+      <div class="subsection-title">Kit de insumos para vía subcutánea</div>
+      <div class="kit-block" id="kitInsBlock">
+        <div class="kit-title" onclick="toggleKit('kitInsBlock')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          Insumos SC — 11 items
+          <span class="badge" id="kitInsBadge">0</span>
+        </div>
+        <div class="kit-items">
+          <label class="kit-item"><input type="checkbox" data-kit-ins="GUANTES DE LATEX (M)"><span>Guantes de látex (M)</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="CINTA ADHESIVA HIPOALERGÉNICA"><span>Cinta adhesiva hipoalergénica</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="DESCARTADOR DE AGUJAS Y CORTOPUNZANTES"><span>Descartador de agujas y cortopunzantes</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="ALGODÓN X 500 GRS."><span>Algodón × 500 g</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="ALCOHOL al 96%"><span>Alcohol al 96%</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="TEGADERM 10 X 12"><span>Tegaderm 10 × 12</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="AGUJA TIPO BUTTERFLY"><span>Aguja tipo butterfly</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="GASAS ESTÉRILES"><span>Gasas estériles</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="SOLUCIÓN FISIOLÓGICA"><span>Solución fisiológica</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="GUIAS MACROGOTEO"><span>Guías de macrogoteo</span></label>
+          <label class="kit-item"><input type="checkbox" data-kit-ins="JERINGAS de 10, 3 y 1ml"><span>Jeringas de 10, 3 y 1 ml</span></label>
+        </div>
+      </div>
+
+      <hr class="sep">
+      <label class="field">Tratamiento farmacológico y otras indicaciones</label>
+      <textarea id="tratamiento" style="min-height:120px" placeholder="1. Fármaco - dosis - vía - frecuencia&#10;2. ...&#10;(no se gestiona medicación sin receta)"></textarea>
+    </div>
+  </section>
+
+  <p class="footer-note">Esta herramienta procesa toda la información en el navegador. No se envían datos a ningún servidor externo.</p>
+</div>
+
+<div class="action-bar">
+  <div class="action-inner">
+    <span style="font-size:12.5px;color:var(--text-muted)">Todo el procesamiento ocurre localmente en su dispositivo.</span>
+    <div class="action-spacer"></div>
+    <button class="primary" onclick="generarReporte()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      Generar Reporte Clínico
+    </button>
   </div>
-</div><!-- /page -->
+</div>
+
+<div class="modal" id="modalReporte">
+  <div class="modal-content">
+    <div class="modal-head">
+      <h3>Reporte clínico generado</h3>
+      <div class="modal-actions">
+        <button class="ghost" onclick="copiarReporte()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-2px"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+        <button class="ghost" onclick="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <textarea id="reporteOutput" readonly></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastMsg">¡Copiado al portapapeles!</span>
+</div>
+
+<script>
+const BARTHEL_ITEMS = [
+  {key:'comer', label:'Comer', opts:[{v:0,t:'Incapaz'},{v:5,t:'Necesita ayuda'},{v:10,t:'Independiente'}]},
+  {key:'banarse', label:'Bañarse', opts:[{v:0,t:'Dependiente'},{v:5,t:'Independiente'}]},
+  {key:'aseo', label:'Aseo personal', opts:[{v:0,t:'Dependiente'},{v:5,t:'Independiente'}]},
+  {key:'vestirse', label:'Vestirse', opts:[{v:0,t:'Dependiente'},{v:5,t:'Necesita ayuda'},{v:10,t:'Independiente'}]},
+  {key:'defecacion', label:'Defecación', opts:[{v:0,t:'Incontinente'},{v:5,t:'Accidentes ocasionales'},{v:10,t:'Continente'}]},
+  {key:'miccion', label:'Micción', opts:[{v:0,t:'Incontinente'},{v:5,t:'Accidentes ocasionales'},{v:10,t:'Continente'}]},
+  {key:'inodoro', label:'Uso del inodoro', opts:[{v:0,t:'Dependiente'},{v:5,t:'Necesita ayuda'},{v:10,t:'Independiente'}]},
+  {key:'traslados', label:'Traslados cama-sillón', opts:[{v:0,t:'Incapaz'},{v:5,t:'Gran ayuda'},{v:10,t:'Pequeña ayuda'},{v:15,t:'Independiente'}]},
+  {key:'deambular', label:'Deambulación', opts:[{v:0,t:'Incapaz'},{v:5,t:'En silla de ruedas'},{v:10,t:'Con ayuda'},{v:15,t:'Independiente'}]},
+  {key:'escaleras', label:'Escaleras', opts:[{v:0,t:'Incapaz'},{v:5,t:'Necesita ayuda'},{v:10,t:'Independiente'}]}
+];
+
+/* ESAS actualizado con los 10 ítems correctos */
+const ESAS_ITEMS = [
+  {key:'dolor', label:'Dolor', esfera:'física'},
+  {key:'disnea', label:'Disnea', esfera:'respiratoria'},
+  {key:'nauseas', label:'Náuseas-vómitos', esfera:'digestiva'},
+  {key:'astenia', label:'Astenia', esfera:'física'},
+  {key:'anorexia', label:'Anorexia', esfera:'digestiva'},
+  {key:'tristeza', label:'Tristeza', esfera:'psicoemocional'},
+  {key:'ansiedad', label:'Ansiedad', esfera:'psicoemocional'},
+  {key:'somnolencia', label:'Somnolencia', esfera:'física'},
+  {key:'insomnio', label:'Insomnio', esfera:'otras'},
+  {key:'malestar', label:'Malestar general', esfera:'física'}
+];
+
+const KPS_DESC = {
+  100:'Normal, sin quejas ni evidencias de enfermedad',
+  90:'Capaz de actividad normal; signos o síntomas leves',
+  80:'Actividad normal con esfuerzo; algunos signos o síntomas',
+  70:'Capaz de cuidarse, pero incapaz de actividad normal o trabajo activo',
+  60:'Requiere atención ocasional, pero capaz de satisfacer la mayoría de sus necesidades',
+  50:'Requiere ayuda importante y asistencia médica frecuente',
+  40:'Incapaz de valerse; requiere ayuda y asistencia especiales',
+  30:'Totalmente incapaz; requiere hospitalización o tratamiento de soporte activo',
+  20:'Muy grave; necesita tratamiento activo de soporte',
+  10:'Moribundo; procesos fatales de progresión rápida',
+  0:'Fallecido'
+};
+
+const ECOG_DESC = {
+  '0':'Totalmente activo, sin restricciones',
+  '1':'Restricción actividad extenuante, ambulatorio',
+  '2':'Ambulatorio, autocuidado, sin trabajo. Silla/cama <50% del día',
+  '3':'Autocuidado limitado. Confinado silla/cama >50% del día',
+  '4':'Incapaz de AVD. Confinado 100% del día',
+  '5':'Muerte inminente'
+};
+
+/* ========== RIESGO CV OMS 2019 ========== */
+const RCV_DATA = {
+  H: {
+    no: {
+      '40-44': [[1,1,1,2,2],[1,1,2,2,3],[1,2,2,3,3],[2,2,3,3,4],[2,3,3,4,5]],
+      '45-49': [[1,1,2,2,3],[1,2,2,3,3],[2,2,3,3,4],[2,3,3,4,5],[3,3,4,5,6]],
+      '50-54': [[2,2,2,3,3],[2,2,3,3,4],[2,3,3,4,5],[3,3,4,5,6],[4,4,5,6,7]],
+      '55-59': [[2,2,3,3,4],[2,3,3,4,5],[3,3,4,5,6],[4,4,5,6,7],[5,5,6,8,9]],
+      '60-64': [[3,3,3,4,5],[3,3,4,5,6],[4,4,5,6,7],[5,5,6,8,9],[6,7,8,10,12]],
+      '65-69': [[3,3,4,5,6],[4,4,5,6,7],[5,5,6,8,9],[6,7,8,10,12],[8,9,11,13,16]],
+      '70-74': [[4,4,5,6,7],[5,5,6,8,9],[6,7,8,10,12],[8,9,11,13,16],[11,13,15,18,22]]
+    },
+    si: {
+      '40-44': [[1,2,2,3,3],[2,2,3,3,4],[2,3,3,4,5],[3,3,4,5,6],[4,4,5,7,8]],
+      '45-49': [[2,2,3,3,4],[2,3,3,4,5],[3,3,4,5,6],[4,4,5,7,8],[5,6,7,9,11]],
+      '50-54': [[2,3,3,4,5],[3,3,4,5,6],[4,4,5,7,8],[5,6,7,9,11],[7,8,10,13,15]],
+      '55-59': [[3,3,4,5,6],[4,4,5,7,8],[5,6,7,9,11],[7,8,10,13,15],[9,11,13,17,21]],
+      '60-64': [[4,4,5,7,8],[5,6,7,9,11],[7,8,10,13,15],[9,11,13,17,21],[13,15,18,23,28]],
+      '65-69': [[5,6,7,9,11],[7,8,10,13,15],[9,11,13,17,21],[13,15,18,23,28],[17,20,25,31,38]],
+      '70-74': [[7,8,10,13,15],[9,11,13,17,21],[13,15,18,23,28],[17,20,25,31,38],[22,27,33,40,48]]
+    }
+  },
+  M: {
+    no: {
+      '40-44': [[1,1,1,1,1],[1,1,1,1,2],[1,1,1,2,2],[1,1,2,2,3],[1,2,2,3,3]],
+      '45-49': [[1,1,1,1,2],[1,1,1,2,2],[1,1,2,2,3],[1,2,2,3,3],[2,2,3,4,4]],
+      '50-54': [[1,1,1,2,2],[1,1,2,2,3],[1,2,2,3,3],[2,2,3,4,4],[3,3,4,5,6]],
+      '55-59': [[1,1,2,2,3],[1,2,2,3,3],[2,2,3,4,4],[3,3,4,5,6],[4,4,5,7,8]],
+      '60-64': [[1,2,2,3,3],[2,2,3,4,4],[3,3,4,5,6],[4,4,5,7,8],[5,6,7,10,12]],
+      '65-69': [[2,2,3,4,4],[3,3,4,5,6],[4,4,5,7,8],[5,6,7,10,12],[7,9,11,14,17]],
+      '70-74': [[3,3,4,5,6],[4,4,5,7,8],[5,6,7,10,12],[7,9,11,14,17],[10,12,15,19,24]]
+    },
+    si: {
+      '40-44': [[1,1,1,2,2],[1,1,2,2,3],[1,2,2,3,3],[2,2,3,4,4],[3,3,4,5,6]],
+      '45-49': [[1,1,2,2,3],[1,2,2,3,3],[2,2,3,4,4],[3,3,4,5,6],[4,4,5,7,8]],
+      '50-54': [[1,2,2,3,3],[2,2,3,4,4],[3,3,4,5,6],[4,4,5,7,8],[5,6,7,10,12]],
+      '55-59': [[2,2,3,4,4],[3,3,4,5,6],[4,4,5,7,8],[5,6,7,10,12],[7,9,11,14,17]],
+      '60-64': [[3,3,4,5,6],[4,4,5,7,8],[5,6,7,10,12],[7,9,11,14,17],[10,12,15,19,24]],
+      '65-69': [[4,4,5,7,8],[5,6,7,10,12],[7,9,11,14,17],[10,12,15,19,24],[14,17,21,27,33]],
+      '70-74': [[5,6,7,10,12],[7,9,11,14,17],[10,12,15,19,24],[14,17,21,27,33],[18,23,28,36,44]]
+    }
+  }
+};
+const PAS_KEYS = ['<120','120-139','140-159','160-179','≥180'];
+const IMC_KEYS = ['<20','20-24','25-29','30-35','≥35'];
+
+/* ========== INIT ========== */
+function init(){
+  document.getElementById('fecha').valueAsDate = new Date();
+  renderCuidadores();
+  renderBarthel();
+  renderESAS();
+  actualizarKPS();
+  // Listeners check-rows
+  document.querySelectorAll('.check-row input').forEach(inp=>{
+    inp.addEventListener('change',e=>{
+      e.target.closest('.check-row').classList.toggle('checked',e.target.checked);
+      if(e.target.dataset.cam) actualizarCAM();
+    });
+  });
+  // ECOG listeners
+  document.querySelectorAll('input[name=ecog]').forEach(r=>{
+    r.addEventListener('change', actualizarECOG);
+  });
+  // Kits
+  document.querySelectorAll('.kit-item input').forEach(inp=>{
+    inp.addEventListener('change',e=>{
+      e.target.closest('.kit-item').classList.toggle('checked',e.target.checked);
+      actualizarBadgesKits();
+    });
+  });
+  calcularRCV();
+}
+
+function renderCuidadores(){
+  const cont = document.getElementById('caregiversList');
+  if(!cont.dataset.init){ cont.dataset.init='1'; agregarCuidador('Cuidador/a principal'); agregarCuidador('Referente familiar'); }
+}
+function agregarCuidador(rol=''){
+  const cont = document.getElementById('caregiversList');
+  const row = document.createElement('div');
+  row.className='caregiver-row';
+  row.innerHTML=`<input type="text" placeholder="Nombre y apellido" data-cg="nombre"><input type="text" placeholder="Vínculo" data-cg="vinculo" value="${rol}"><input type="tel" placeholder="Teléfono" data-cg="tel"><input type="email" placeholder="Email" data-cg="email"><button class="btn-del" onclick="this.parentElement.remove()" title="Eliminar">×</button>`;
+  cont.appendChild(row);
+}
+function renderBarthel(){
+  const cont = document.getElementById('barthelGrid');
+  cont.innerHTML = BARTHEL_ITEMS.map(it=>`<div class="barthel-row"><label class="b-item">${it.label}</label><div class="barthel-opts">${it.opts.map(o=>`<label><input type="radio" name="b_${it.key}" value="${o.v}" data-bk="${it.key}" onchange="actualizarBarthel()"><span>${o.t} (${o.v})</span></label>`).join('')}</div></div>`).join('');
+}
+function renderESAS(){
+  const cont = document.getElementById('esasGrid');
+  cont.innerHTML = ESAS_ITEMS.map(it=>`<div class="esas-row"><label>${it.label}</label><input type="range" min="0" max="10" step="1" value="0" data-esas="${it.key}" data-esfera="${it.esfera}" oninput="actualizarESAS(this)"><div class="esas-score low" id="esas_s_${it.key}">0</div></div>`).join('');
+}
+
+/* ========== ACTUALIZACIONES ========== */
+function actualizarKPS(){
+  const v = parseInt(document.getElementById('kpsSlider').value);
+  document.getElementById('kpsValue').textContent = v;
+  document.getElementById('kpsDesc').textContent = KPS_DESC[v]||'';
+}
+function setKPS(v){ document.getElementById('kpsSlider').value=v; actualizarKPS(); }
+
+function actualizarECOG(){
+  const sel = document.querySelector('input[name=ecog]:checked');
+  const el = document.getElementById('ecogResult');
+  if(sel){
+    el.textContent = `Grado ${sel.value} — ${ECOG_DESC[sel.value]}`;
+  } else {
+    el.textContent = '—';
+  }
+}
+
+function actualizarBarthel(){
+  let total=0, answered=0;
+  document.querySelectorAll('#barthelGrid input[type=radio]:checked').forEach(r=>{ total += parseInt(r.value); answered++; });
+  document.getElementById('barthelTotal').textContent = total;
+  let cat='Sin evaluar', color='var(--text-muted)';
+  if(answered===BARTHEL_ITEMS.length){
+    if(total===100){cat='Independiente';color='#15803d'}
+    else if(total>=60){cat='Dependencia leve';color='#15803d'}
+    else if(total>=40){cat='Dependencia moderada';color='#b45309'}
+    else if(total>=20){cat='Dependencia severa';color='#b91c1c'}
+    else{cat='Dependencia total';color='#b91c1c'}
+  }
+  const el = document.getElementById('barthelCat');
+  el.textContent=cat; el.style.color=color; el.style.background=color==='#15803d'?'#dcfce7':color==='#b45309'?'#fef3c7':color==='#b91c1c'?'#fee2e2':'#e2e8f0';
+}
+function actualizarESAS(el){
+  const v = parseInt(el.value);
+  const key = el.dataset.esas;
+  const score = document.getElementById('esas_s_'+key);
+  score.textContent = v;
+  score.classList.remove('low','mid','high');
+  if(v<=3) score.classList.add('low'); else if(v<=6) score.classList.add('mid'); else score.classList.add('high');
+  let total=0, count=0;
+  document.querySelectorAll('[data-esas]').forEach(r=>{ const val = parseInt(r.value); total += val; if(val>=4) count++; });
+  document.getElementById('esasTotal').textContent=total;
+  document.getElementById('esasCount').textContent=count;
+}
+function actualizarCAM(){
+  const agudo = document.querySelector('[data-cam="Comienzo agudo y evolución fluctuante"]').checked;
+  const atencion = document.querySelector('[data-cam="Falta de atención"]').checked;
+  const desorg = document.querySelector('[data-cam="Pensamiento desorganizado"]').checked;
+  const consc = document.querySelector('[data-cam="Nivel de consciencia alterado"]').checked;
+  const pos = (agudo && atencion && (desorg || consc));
+  const el = document.getElementById('camResult');
+  if(pos){ el.textContent='Compatible con síndrome confusional agudo (delirium)'; el.style.color='#b91c1c'; }
+  else { el.textContent='Sin síndrome confusional agudo'; el.style.color='#15803d'; }
+}
+
+/* ========== RIESGO CV ========== */
+function calcularIMCdesdePesoTalla(){
+  const p = parseFloat(document.getElementById('rcv_peso').value);
+  const t = parseFloat(document.getElementById('rcv_talla').value);
+  const out = document.getElementById('rcv_imc_calc');
+  if(p>0 && t>0){
+    const imc = p/(t*t);
+    out.value = imc.toFixed(1) + ' kg/m²';
+    let rango;
+    if(imc<20) rango='<20'; else if(imc<25) rango='20-24'; else if(imc<30) rango='25-29'; else if(imc<35) rango='30-35'; else rango='≥35';
+    document.getElementById('rcv_imc').value = rango;
+    calcularRCV();
+  } else { out.value = ''; }
+}
+function calcularRCV(){
+  const sexo = document.getElementById('rcv_sexo').value;
+  const tabaco = document.getElementById('rcv_tabaco').value;
+  const edad = document.getElementById('rcv_edad').value;
+  const pas = document.getElementById('rcv_pas').value;
+  const imc = document.getElementById('rcv_imc').value;
+  const resultBox = document.getElementById('rcvResultBox');
+  const big = document.getElementById('rcvBig');
+  const desc = document.getElementById('rcvDesc');
+  const badge = document.getElementById('rcvBadge');
+  if(!sexo || !tabaco || !edad || !pas || !imc){ resultBox.style.display='none'; renderTablaRCV(null,null); return; }
+  const pasIdx = PAS_KEYS.indexOf(pas);
+  const imcIdx = IMC_KEYS.indexOf(imc);
+  const matriz = RCV_DATA[sexo][tabaco][edad];
+  const riesgo = matriz[pasIdx][imcIdx];
+  resultBox.style.display='grid';
+  big.textContent = riesgo + '%';
+  big.style.color = colorRiesgo(riesgo);
+  let categoria, claseBadge;
+  if(riesgo<5){ categoria='Riesgo bajo'; claseBadge='rcv-badge rcv-verde'; }
+  else if(riesgo<10){ categoria='Riesgo leve'; claseBadge='rcv-badge rcv-amarillo'; }
+  else if(riesgo<20){ categoria='Riesgo moderado'; claseBadge='rcv-badge rcv-naranja'; }
+  else if(riesgo<30){ categoria='Riesgo alto'; claseBadge='rcv-badge rcv-rojo'; }
+  else { categoria='Riesgo muy alto'; claseBadge='rcv-badge rcv-rojooscuro'; }
+  desc.textContent = categoria + ' · Evento cardiovascular a 10 años';
+  badge.className = claseBadge;
+  badge.textContent = riesgo + '% · ' + categoria;
+  renderTablaRCV({sexo,tabaco,edad,pasIdx,imcIdx}, riesgo);
+}
+function colorRiesgo(r){ if(r<5) return 'var(--riesgo-verde)'; if(r<10) return 'var(--riesgo-amarillo)'; if(r<20) return 'var(--riesgo-naranja)'; if(r<30) return 'var(--riesgo-rojo)'; return 'var(--riesgo-rojooscuro)'; }
+function claseCeldaRiesgo(r){ if(r<5) return 'rcv-cell-verde'; if(r<10) return 'rcv-cell-amarillo'; if(r<20) return 'rcv-cell-naranja'; if(r<30) return 'rcv-cell-rojo'; return 'rcv-cell-rojooscuro'; }
+function renderTablaRCV(ctx, riesgoActual){
+  const cont = document.getElementById('rcvTablaContainer');
+  if(!ctx){ cont.innerHTML=''; return; }
+  const {sexo,tabaco,edad,pasIdx,imcIdx} = ctx;
+  const matriz = RCV_DATA[sexo][tabaco][edad];
+  const sexoTxt = sexo==='H'?'Hombres':'Mujeres';
+  const tabTxt = tabaco==='si'?'Fumadores':'No fumadores';
+  let html = `<div class="rcv-table-wrap"><table class="rcv-table"><caption>Tabla OMS 2019 · América Latina austral · ${sexoTxt} · ${tabTxt} · Edad ${edad} años</caption><thead><tr><th class="row-head">PAS / IMC</th>`;
+  IMC_KEYS.forEach(k => html += `<th>${k}</th>`);
+  html += '</tr></thead><tbody>';
+  PAS_KEYS.forEach((pasKey, pi) => {
+    html += `<tr${pi===0?' class="grupo-edad"':''}><th class="row-head">${pasKey}</th>`;
+    IMC_KEYS.forEach((imcKey, ii) => {
+      const val = matriz[pi][ii]; const clase = claseCeldaRiesgo(val);
+      const highlight = (pi===pasIdx && ii===imcIdx) ? ' rcv-highlight' : '';
+      html += `<td class="${clase}${highlight}">${val}%</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table></div>';
+  cont.innerHTML = html;
+}
+
+/* ========== UI ========== */
+function toggleCard(h){ h.closest('.card').classList.toggle('open'); }
+function toggleKit(id){ document.getElementById(id).classList.toggle('open'); }
+function actualizarBadgesKits(){
+  document.getElementById('kitMedBadge').textContent = document.querySelectorAll('[data-kit-med]:checked').length;
+  document.getElementById('kitInsBadge').textContent = document.querySelectorAll('[data-kit-ins]:checked').length;
+}
+function toggleProfRow(cb){ cb.closest('.prof-row').classList.toggle('active', cb.checked); }
+function agregarOtroProf(){
+  const cont = document.getElementById('otrosProfList');
+  const row = document.createElement('div');
+  row.className='prof-otro';
+  row.innerHTML=`<input type="text" placeholder="Nombre del profesional / disciplina" data-otro-prof><input type="text" placeholder="Frecuencia (ej: 2 veces por semana)" data-otro-freq>`;
+  cont.appendChild(row);
+}
+function mostrarToast(msg){
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+/* ========== PERSISTENCIA ========== */
+function recogerDatos(){
+  const data = {};
+  document.querySelectorAll('input[type=text],input[type=date],input[type=tel],input[type=email],input[type=number],textarea,select').forEach(el=>{ if(el.id) data[el.id] = el.value; });
+  const sorpresa = document.querySelector('input[name=sorpresa]:checked');
+  data.sorpresa = sorpresa ? sorpresa.value : '';
+  const ecog = document.querySelector('input[name=ecog]:checked');
+  data.ecog = ecog ? ecog.value : '';
+  data.kps = parseInt(document.getElementById('kpsSlider').value);
+  data.kpsTrayectoria = document.getElementById('kpsTrayectoria').value;
+  ['cv','necpal','enfav','dolor','cam','soc','et','plan','eq'].forEach(gr=>{
+    data[gr] = Array.from(document.querySelectorAll(`[data-${gr}]:checked`)).map(c=>c.dataset[gr]);
+  });
+  // RCV
+  const sexo = document.getElementById('rcv_sexo').value;
+  const tabaco = document.getElementById('rcv_tabaco').value;
+  const edadRcv = document.getElementById('rcv_edad').value;
+  const pas = document.getElementById('rcv_pas').value;
+  const imc = document.getElementById('rcv_imc').value;
+  if(sexo && tabaco && edadRcv && pas && imc){
+    const pasIdx = PAS_KEYS.indexOf(pas);
+    const imcIdx = IMC_KEYS.indexOf(imc);
+    data.rcv_riesgo = RCV_DATA[sexo][tabaco][edadRcv][pasIdx][imcIdx];
+    data.rcv_sexo = sexo==='H'?'Hombre':'Mujer';
+    data.rcv_tabaco = tabaco==='si'?'fumador/a':'no fumador/a';
+    data.rcv_edad = edadRcv; data.rcv_pas = pas; data.rcv_imc = imc;
+    data.rcv_peso = document.getElementById('rcv_peso').value;
+    data.rcv_talla = document.getElementById('rcv_talla').value;
+  }
+  data.profesionales = [];
+  document.querySelectorAll('[data-prof]:checked').forEach(cb=>{
+    const nombre = cb.dataset.prof;
+    const row = cb.closest('.prof-row');
+    const sel = row ? row.querySelector('select') : null;
+    const freq = sel ? sel.value : '';
+    data.profesionales.push({nombre, freq});
+  });
+  const otrosProfInputs = document.querySelectorAll('[data-otro-prof]');
+  otrosProfInputs.forEach((inp, idx)=>{
+    const freqInp = document.querySelectorAll('[data-otro-freq]')[idx];
+    if(inp.value.trim()) data.profesionales.push({nombre:inp.value.trim(), freq:freqInp ? freqInp.value : '', esOtro:true});
+  });
+  data.kitMed = Array.from(document.querySelectorAll('[data-kit-med]:checked')).map(c=>c.dataset.kitMed);
+  data.kitIns = Array.from(document.querySelectorAll('[data-kit-ins]:checked')).map(c=>c.dataset.kitIns);
+  data.barthel = {};
+  BARTHEL_ITEMS.forEach(it=>{ const sel = document.querySelector(`input[data-bk="${it.key}"]:checked`); data.barthel[it.key] = sel ? parseInt(sel.value) : null; });
+  data.esas = {};
+  ESAS_ITEMS.forEach(it=>{ data.esas[it.key] = parseInt(document.querySelector(`[data-esas="${it.key}"]`).value); });
+  data.cuidadores = Array.from(document.querySelectorAll('.caregiver-row')).map(row=>({
+    nombre: row.querySelector('[data-cg=nombre]').value, vinculo: row.querySelector('[data-cg=vinculo]').value,
+    tel: row.querySelector('[data-cg=tel]').value, email: row.querySelector('[data-cg=email]').value
+  })).filter(c=>c.nombre||c.tel||c.email);
+  return data;
+}
+function guardarBorrador(){
+  try{ localStorage.setItem('evalPaliativa_borrador', JSON.stringify(recogerDatos())); mostrarToast('Borrador guardado localmente'); }
+  catch(e){ mostrarToast('No se pudo guardar'); }
+}
+function cargarBorrador(){
+  const raw = localStorage.getItem('evalPaliativa_borrador');
+  if(!raw){ mostrarToast('No hay borrador guardado'); return; }
+  try{
+    const d = JSON.parse(raw);
+    ['medico','fecha','pac_nombre','pac_fnac','pac_sexo','pac_doc','pac_dir','pac_tel','pac_email','pac_cobertura','diagnostico','enfermedad','medicacion','tratamiento'].forEach(id=>{
+      const el = document.getElementById(id); if(el && d[id]!=null) el.value = d[id];
+    });
+    document.getElementById('pac_cud').checked = !!d.pac_cud;
+    if(d.sorpresa){ const r = document.querySelector(`input[name=sorpresa][value="${d.sorpresa}"]`); if(r) r.checked=true; }
+    if(d.ecog){ const r = document.querySelector(`input[name=ecog][value="${d.ecog}"]`); if(r){ r.checked=true; actualizarECOG(); } }
+    if(d.kps!=null){ document.getElementById('kpsSlider').value=d.kps; actualizarKPS(); }
+    if(d.kpsTrayectoria) document.getElementById('kpsTrayectoria').value=d.kpsTrayectoria;
+    if(d.rcv_sexo){ document.getElementById('rcv_sexo').value = d.rcv_sexo==='Hombre'?'H':'M'; }
+    if(d.rcv_tabaco){ document.getElementById('rcv_tabaco').value = d.rcv_tabaco==='fumador/a'?'si':'no'; }
+    if(d.rcv_edad) document.getElementById('rcv_edad').value = d.rcv_edad;
+    if(d.rcv_pas) document.getElementById('rcv_pas').value = d.rcv_pas;
+    if(d.rcv_imc) document.getElementById('rcv_imc').value = d.rcv_imc;
+    if(d.rcv_peso) document.getElementById('rcv_peso').value = d.rcv_peso;
+    if(d.rcv_talla) document.getElementById('rcv_talla').value = d.rcv_talla;
+    calcularRCV();
+    ['cv','necpal','enfav','dolor','cam','soc','et','plan','eq'].forEach(gr=>{
+      document.querySelectorAll(`[data-${gr}]`).forEach(c=>{
+        c.checked = (d[gr]||[]).includes(c.dataset[gr]);
+        const row = c.closest('.check-row'); if(row) row.classList.toggle('checked',c.checked);
+      });
+    });
+    if(d.profesionales){
+      d.profesionales.forEach(p=>{
+        if(p.esOtro){
+          agregarOtroProf();
+          const rows = document.querySelectorAll('.prof-otro'); const last = rows[rows.length-1];
+          last.querySelector('[data-otro-prof]').value = p.nombre;
+          last.querySelector('[data-otro-freq]').value = p.freq || '';
+        } else {
+          const cb = document.querySelector(`[data-prof="${p.nombre}"]`);
+          if(cb){ cb.checked = true; toggleProfRow(cb); const row = cb.closest('.prof-row'); if(row){ const sel = row.querySelector('select'); if(sel) sel.value = p.freq || ''; } }
+        }
+      });
+    }
+    if(d.kitMed){ document.querySelectorAll('[data-kit-med]').forEach(c=>{ c.checked = d.kitMed.includes(c.dataset.kitMed); const item = c.closest('.kit-item'); if(item) item.classList.toggle('checked',c.checked); }); }
+    if(d.kitIns){ document.querySelectorAll('[data-kit-ins]').forEach(c=>{ c.checked = d.kitIns.includes(c.dataset.kitIns); const item = c.closest('.kit-item'); if(item) item.classList.toggle('checked',c.checked); }); }
+    actualizarBadgesKits();
+    if(d.barthel){ Object.entries(d.barthel).forEach(([k,v])=>{ if(v!=null){ const r = document.querySelector(`input[data-bk="${k}"][value="${v}"]`); if(r) r.checked=true; } }); actualizarBarthel(); }
+    if(d.esas){ Object.entries(d.esas).forEach(([k,v])=>{ const r = document.querySelector(`[data-esas="${k}"]`); if(r){ r.value=v; actualizarESAS(r); } }); }
+    actualizarCAM();
+    mostrarToast('Borrador restaurado');
+  }catch(e){ mostrarToast('Error al restaurar'); }
+}
+function limpiarFormulario(){
+  if(!confirm('¿Limpiar todo el formulario? Esta acción no se puede deshacer.')) return;
+  localStorage.removeItem('evalPaliativa_borrador'); location.reload();
+}
+
+/* ========== REPORTE ========== */
+function calcularEdad(fnac){
+  if(!fnac) return null;
+  const n = new Date(fnac), h = new Date();
+  let e = h.getFullYear() - n.getFullYear();
+  const m = h.getMonth() - n.getMonth();
+  if(m<0 || (m===0 && h.getDate()<n.getDate())) e--;
+  return e;
+}
+function formatearFecha(iso){ if(!iso) return ''; const [y,m,d] = iso.split('-'); return `${d}/${m}/${y}`; }
+function enumerar(arr, conector='y'){
+  if(!arr || arr.length===0) return '';
+  if(arr.length===1) return arr[0];
+  if(arr.length===2) return `${arr[0]} ${conector} ${arr[1]}`;
+  return arr.slice(0,-1).join(', ') + ` ${conector} ` + arr[arr.length-1];
+}
+function categoriaRCV(r){ if(r<5) return 'bajo'; if(r<10) return 'leve'; if(r<20) return 'moderado'; if(r<30) return 'alto'; return 'muy alto'; }
+
+function generarReporte(){
+  const d = recogerDatos();
+  const L = [];
+  const p = t => L.push(t);
+  const blank = () => L.push('');
+
+  p('EVALUACIÓN INICIAL DE CUIDADOS PALIATIVOS');
+  p('=========================================='); blank();
+  p(`Fecha de evaluación: ${formatearFecha(d.fecha)||'(no consignada)'}`);
+  if(d.medico) p(`Médico/a evaluador/a: ${d.medico}`);
+  blank();
+
+  p('1. IDENTIFICACIÓN DEL PACIENTE');
+  p('------------------------------');
+  const edad = calcularEdad(d.pac_fnac);
+  let idLine = [];
+  if(d.pac_nombre) idLine.push(`Paciente: ${d.pac_nombre}`);
+  if(edad!=null) idLine.push(`${edad} años`);
+  if(d.pac_sexo) idLine.push(`sexo ${d.pac_sexo.toLowerCase()}`);
+  if(idLine.length) p(idLine.join(', ') + '.');
+  if(d.pac_doc) p(`Documento: ${d.pac_doc}.`);
+  if(d.pac_dir) p(`Domicilio: ${d.pac_dir}.`);
+  const contacto = [d.pac_tel?('Tel: '+d.pac_tel):'', d.pac_email?('Email: '+d.pac_email):''].filter(Boolean);
+  if(contacto.length) p(contacto.join(' · '));
+  if(d.pac_cobertura) p(`Cobertura: ${d.pac_cobertura}.${d.pac_cud?' Posee CUD.':''}`);
+  if(d.cuidadores && d.cuidadores.length){
+    p('Referentes de cuidado:');
+    d.cuidadores.forEach(c=>{ const parts = [c.nombre, c.vinculo?`(${c.vinculo})`:'', c.tel?`Tel ${c.tel}`:'', c.email].filter(Boolean); p('  • ' + parts.join(' · ')); });
+  }
+  blank();
+
+  if(d.diagnostico || d.enfermedad){
+    p('2. DIAGNÓSTICO Y ENFERMEDAD ACTUAL');
+    p('----------------------------------');
+    if(d.diagnostico) p(`Diagnóstico principal: ${d.diagnostico.trim().replace(/\n/g,' ')}`);
+    if(d.enfermedad) p(`Enfermedad actual: ${d.enfermedad.trim()}`);
+    if(d.medicacion) p(`Medicación y tratamientos en curso: ${d.medicacion.trim()}`);
+    blank();
+  }
+
+  /* === ECOG === */
+  if(d.ecog){
+    p('3. ECOG PERFORMANCE STATUS');
+    p('--------------------------');
+    p(`ECOG: Grado ${d.ecog} — ${ECOG_DESC[d.ecog]}.`);
+    blank();
+  }
+
+  /* === RIESGO CV (ahora sección 4) === */
+  if(d.rcv_riesgo!=null || d.cv.length){
+    p('4. RIESGO CARDIOVASCULAR (OMS 2019)');
+    p('-----------------------------------');
+    if(d.rcv_riesgo!=null){
+      const cat = categoriaRCV(d.rcv_riesgo);
+      p(`Riesgo cardiovascular a 10 años estimado según tablas OMS/HEARTS 2019 (región América Latina austral, datos no analíticos): ${d.rcv_riesgo}% — riesgo ${cat}.`);
+      p(`Variables utilizadas: ${d.rcv_sexo}, ${d.rcv_tabaco}, ${d.rcv_edad} años, PAS ${d.rcv_pas} mmHg, IMC ${d.rcv_imc} kg/m².`);
+    }
+    if(d.cv.length) p(`Otros factores de riesgo identificados: ${enumerar(d.cv.map(f=>f.toLowerCase()))}.`);
+    blank();
+  }
+
+  p('5. VALORACIÓN PRONÓSTICA (NECPAL v4.0)');
+  p('--------------------------------------');
+  if(d.sorpresa==='si') p('Pregunta sorpresa: SÍ sorprendería el fallecimiento en los próximos 12 meses (PS-).');
+  else if(d.sorpresa==='no') p('Pregunta sorpresa: NO sorprendería el fallecimiento en los próximos 12 meses (PS+), lo que sugiere beneficio de un abordaje paliativo activo.');
+  if(d.necpal.length) p(`Indicadores de necesidad paliativa presentes: ${enumerar(d.necpal.map(s=>s.toLowerCase()))}.`);
+  if(d.enfav.length) p(`Criterios de enfermedad avanzada: ${enumerar(d.enfav.map(s=>s.toLowerCase()))}.`);
+  blank();
+
+  p('6. VALORACIÓN FUNCIONAL');
+  p('-----------------------');
+  const kpsDesc = (KPS_DESC[d.kps]||'').toLowerCase();
+  let funcionales = [`Escala de Karnofsky: ${d.kps}% (${kpsDesc})`];
+  if(d.kpsTrayectoria) funcionales.push(`trayectoria funcional ${d.kpsTrayectoria}`);
+  p(funcionales.join(', ') + '.');
+  const bVals = Object.values(d.barthel).filter(v=>v!==null);
+  if(bVals.length===BARTHEL_ITEMS.length){
+    const bTotal = bVals.reduce((a,b)=>a+b,0);
+    let cat='';
+    if(bTotal===100) cat='independiente';
+    else if(bTotal>=60) cat='dependencia leve';
+    else if(bTotal>=40) cat='dependencia moderada';
+    else if(bTotal>=20) cat='dependencia severa';
+    else cat='dependencia total';
+    p(`Índice de Barthel: ${bTotal}/100 (${cat}).`);
+  }
+  blank();
+
+  const sintomasActivos = [], sintomasLeves = [];
+  ESAS_ITEMS.forEach(it=>{ const v = d.esas[it.key]; if(v>=4) sintomasActivos.push({...it, score:v}); else if(v>=1) sintomasLeves.push({...it, score:v}); });
+  p('7. CARGA SINTOMÁTICA (ESAS)');
+  p('---------------------------');
+  if(sintomasActivos.length===0 && sintomasLeves.length===0){
+    p('Al momento de la evaluación, el paciente se encuentra prácticamente asintomático.');
+  } else {
+    const agrupar = (arr) => { const g = {}; arr.forEach(s=>{ if(!g[s.esfera]) g[s.esfera]=[]; g[s.esfera].push(s); }); return g; };
+    const nombreEsfera = {física:'esfera física general',digestiva:'esfera digestiva',respiratoria:'esfera respiratoria',psicoemocional:'esfera psicoemocional',otras:'otros síntomas'};
+    let frase = 'Al momento de la evaluación, ';
+    if(sintomasActivos.length){
+      const g = agrupar(sintomasActivos);
+      const esferas = Object.keys(g).map(esf=>{ const lista = g[esf].map(s=>`${s.label.toLowerCase()} (${s.score}/10)`); return `${nombreEsfera[esf]} (${enumerar(lista)})`; });
+      frase += `el paciente refiere síntomas moderados a severos de la ${enumerar(esferas)}`;
+      if(sintomasLeves.length) frase += `, así como síntomas leves (${enumerar(sintomasLeves.map(s=>s.label.toLowerCase()))})`;
+      frase += '.'; p(frase);
+    } else {
+      frase += `el paciente refiere únicamente síntomas de intensidad leve: ${enumerar(sintomasLeves.map(s=>`${s.label.toLowerCase()} (${s.score}/10)`))}.`; p(frase);
+    }
+  }
+  blank();
+
+  if(d.dolor.length || d.cam.length){
+    p('8. EVALUACIÓN DEL DOLOR Y ESTADO COGNITIVO');
+    p('------------------------------------------');
+    if(d.dolor.length) p(`Marcadores de dolor de difícil manejo: ${enumerar(d.dolor.map(s=>s.toLowerCase()))}.`);
+    const camPos = (d.cam.includes('Comienzo agudo y evolución fluctuante') && d.cam.includes('Falta de atención') && (d.cam.includes('Pensamiento desorganizado')||d.cam.includes('Nivel de consciencia alterado')));
+    p(camPos?'CAM positivo: compatible con síndrome confusional agudo (delirium).':'CAM negativo: sin síndrome confusional agudo al momento de la evaluación.');
+    blank();
+  }
+
+  if(d.soc.length || d.et.length){
+    p('9. DIMENSIÓN SOCIOFAMILIAR Y BIOÉTICA');
+    p('-------------------------------------');
+    if(d.soc.length===0) p('No se perciben riesgos sociofamiliares relevantes.');
+    else p(`Riesgos sociofamiliares: ${enumerar(d.soc.map(s=>s.toLowerCase()))}.`);
+    if(d.et.length===0) p('No se identifican dilemas éticos al momento.');
+    else p(`Dilemas éticos identificados: ${enumerar(d.et.map(s=>s.toLowerCase()))}.`);
+    blank();
+  }
+
+  if(d.plan.length){
+    p('10. PLAN TERAPÉUTICO Y DE CUIDADOS');
+    p('---------------------------------');
+    p(`Se establecen los siguientes objetivos terapéuticos: ${enumerar(d.plan.map(s=>s.toLowerCase()))}.`);
+    blank();
+  }
+
+  if((d.profesionales && d.profesionales.length) || d.eq.length || d.kitMed.length || d.kitIns.length){
+    p('11. REQUERIMIENTOS');
+    p('------------------');
+    if(d.profesionales && d.profesionales.length){
+      p('Profesionales:');
+      d.profesionales.forEach(p0=>{ p(`  • ${p0.nombre}${p0.freq ? ' — ' + p0.freq : ' — frecuencia a definir'}`); });
+    }
+    if(d.eq.length) p(`Equipamiento solicitado: ${enumerar(d.eq.map(s=>s.toLowerCase()))}.`);
+    if(d.kitMed.length){ p('Kit de manejo sintomático subcutáneo (medicación):'); d.kitMed.forEach(m => p('  • ' + m)); }
+    if(d.kitIns.length){ p('Kit de insumos para vía subcutánea:'); d.kitIns.forEach(m => p('  • ' + m)); }
+    blank();
+  }
+
+  if(d.tratamiento && d.tratamiento.trim()){
+    p('12. TRATAMIENTO FARMACOLÓGICO E INDICACIONES');
+    p('---------------------------------------------');
+    p(d.tratamiento.trim()); blank();
+  }
+
+  p('------------------------------------------');
+  p(`Reporte generado el ${new Date().toLocaleString('es-AR')}${d.medico?` por ${d.medico}`:''}.`);
+
+  document.getElementById('reporteOutput').value = L.join('\n');
+  document.getElementById('modalReporte').classList.add('open');
+}
+
+async function copiarReporte(){
+  const txt = document.getElementById('reporteOutput').value;
+  try{ await navigator.clipboard.writeText(txt); mostrarToast('¡Reporte copiado al portapapeles!'); }
+  catch(e){ const ta = document.getElementById('reporteOutput'); ta.select(); document.execCommand('copy'); mostrarToast('¡Reporte copiado!'); }
+}
+function cerrarModal(){ document.getElementById('modalReporte').classList.remove('open'); }
+document.getElementById('modalReporte').addEventListener('click',e=>{ if(e.target.id==='modalReporte') cerrarModal(); });
+
+init();
+</script>
 </body>
 </html>
